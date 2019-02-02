@@ -206,7 +206,7 @@ function! Search(sought)
                             \ ! -path '*.swp' -prune
                             \ ! -path '*/src/*' -prune
                             \ ! -path '*/*.mime' -prune
-                            \ ! -path '*/vendored/*' -prune`"
+                            \ ! -path '*/vendored/*' -prune
                             \ ! -path '*/metrics/*' -prune`"
     exe "cwindow"
 endfunction
