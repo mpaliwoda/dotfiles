@@ -70,24 +70,24 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export CLICOLOR=1
 
-export BASH_IT="~/Terminal/bash-it"
+export BASH_IT="$HOME/Terminal/bash-it"
 export BASH_IT_THEME='powerline'
 unset MAILCHECK
 export SCM_CHECK=true
-export VCPROMPT_EXECUTABLE=~/bin/vcprompt
+export VCPROMPT_EXECUTABLE="$HOME/Terminal/vcprompt"
 source $BASH_IT/bash_it.sh
 
 # }}}
 
 eval "$(fasd --init auto)"
-export PATH="/usr/local/bin:~/Terminal:$PATH"
+export PATH="/usr/local/bin:$HOME/Terminal:$PATH"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
 
 
-TO_SOURCE = ("~/.fzf.bash" "~/.bash_aliases" "~/.secrets")
+TO_SOURCE=("$HOME/.fzf.bash" "$HOME/.bash_aliases" "$HOME/.secrets" "$HOME/.airhelp_aliases")
 for file in "${TO_SOURCE[@]}"; do
     [ -f $file ] && source $file
 done
