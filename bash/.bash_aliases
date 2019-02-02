@@ -76,7 +76,7 @@ alias pip='pip3'
 
 
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
-alias ch="python ~/Terminal/fuzzy_checkout.py"
+alias ch="fuzzy_checkout.py"
 
 function j {
     fasd_cd -id "$1"
