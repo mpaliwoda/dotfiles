@@ -244,7 +244,6 @@ map <Leader>gdel :Gdelete<CR>
 map <Leader>gdi :Gdiff<CR>
 map <Leader>gl :Glog<CR>
 map <Leader>gw :Gwrite<CR>
-map <Leader>gv :Gitv<CR>
 
 " ~~~~~~~~~~~ WINDOW AND BUFFER JUMPING AND RESIZING
 map <Leader>tab :tabedit<CR>

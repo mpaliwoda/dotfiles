@@ -1,0 +1,8 @@
+[user]
+    name = Marcin Paliwoda
+    email = paliwoda.marcin@zoho.com
+[core]
+    editor = nvim
+    excludesfile = ~/.gitignore_global
+[push]
+    default = current
