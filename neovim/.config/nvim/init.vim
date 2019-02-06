@@ -308,7 +308,7 @@ let g:ale_sign_column_always = 1
 let g:ale_linters = {'python': ['pylint', 'flake8', 'pyflakes', 'mypy']}
 let g:ale_python_pylint_options = "--disable=C0111,C0411,C0103,R0903,C0330,R0201,C0301,E0401,W0120,R0902"
 let g:ale_python_mypy_options = "--ignore-missing-imports --python-version=3.7 --strict-optional=False"
-let g:ale_python_flake8_options = "--ignore=N802,E203,W504 --max-line-length=120"
+let g:ale_python_flake8_options = "--ignore=N802,E203,W503,W504, --max-line-length=120"
 
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
