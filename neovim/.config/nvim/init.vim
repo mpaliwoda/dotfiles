@@ -48,6 +48,7 @@ if dein#load_state('~/.dein')
     call dein#add('osyo-manga/vim-precious')        " for context filetype
     call dein#add('Shougo/context_filetype.vim')    " ^^
     call dein#add('junegunn/vim-emoji')             " yay, emojis
+    call dein#add('junegunn/goyo.vim')              " distraction free mode
 
     " Required:
     call dein#end()
@@ -295,6 +296,10 @@ nmap <Leader>emo :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
 
 " ~~~~~~~~~~~~ OPEN DIS
 nnoremap <Leader>conf :vsp ~/.config/nvim/init.vim<CR><C-L>
+
+nnoremap <Leader>d :Goyo<CR> " distraction free mode
+let g:goyo_width=120
+let g:goyo_linenr=1
 
 " ~~~~~~~~~~~~ ALE
 let g:ale_enabled = 1
