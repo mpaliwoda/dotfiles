@@ -18,7 +18,7 @@ if dein#load_state('~/.dein')
     " other langs or general
     call dein#add('hashivim/vim-terraform')
     call dein#add('w0rp/ale')                       " linting and stuff
-    " call dein#add('ajh17/VimCompletesMe')           " completion
+    call dein#add('ajh17/VimCompletesMe')           " completion
 
     " editing stuff
     call dein#add('luochen1990/rainbow')            " matching parenthesis using colors
@@ -331,4 +331,4 @@ let g:ale_set_loclist = 1
 let g:ale_open_list = 0
 
 
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
