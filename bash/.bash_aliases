@@ -88,22 +88,9 @@ current_branch () {
     git branch | grep \* | cut -d ' ' -f2
 }
 
-force_checkout () {
-    git add .
-    git stash
-    git checkout "$1"
-}
-
 __rename_remote () {
     new_name="$1"
-    old_name="$2"
-
-    if [[ -z "$old_name" ]]; then
-        old_name=$(current_branch)
-        printf "Using current branch: %s\\n" $old_name
-    else
-        $(git checkout $old_name) || $(force_checkout $old_name)
-    fi
+    old_name=$(current_branch)
 
     git branch -m $old_name $new_name
     git push origin --delete $old_name
@@ -120,7 +107,7 @@ rename() {
             git branch -m $(current_branch) "$2"
             ;;
         remote)
-            __rename_remote $2 $3
+            __rename_remote $2
             ;;
         *)
             printf "You're called: 'Idiot' from now on\\n"
