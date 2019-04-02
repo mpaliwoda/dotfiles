@@ -19,6 +19,7 @@ if dein#load_state('~/.dein')
     call dein#add('hashivim/vim-terraform')
     call dein#add('w0rp/ale')                       " linting and stuff
     call dein#add('ajh17/VimCompletesMe')           " completion
+    call dein#add('udalov/kotlin-vim')
 
     " editing stuff
     call dein#add('luochen1990/rainbow')            " matching parenthesis using colors
@@ -33,14 +34,17 @@ if dein#load_state('~/.dein')
     call dein#add('Xuyuanp/nerdtree-git-plugin')
 
     " ui
-    call dein#add('nightsense/stellarized')         " coloscheme
     call dein#add('RRethy/vim-illuminate.git')      " highlights all occurrences of word under cursor
     call dein#add('machakann/vim-highlightedyank')  " highlights what was yanked
     call dein#add('scrooloose/nerdtree')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('ryanoasis/vim-devicons')
-    "
+
+    " colorschemes
+    call dein#add('nightsense/stellarized')         " coloscheme
+    call dein#add('fatih/molokai')
+
     " misc
     call dein#add('sjl/gundo.vim')                  " shows undo tree
     call dein#add('francoiscabrol/ranger.vim')      " run ranger in vim
@@ -130,7 +134,8 @@ augroup END
 " ~~~~~~~~~~~ Colorscheme
 set background=dark
 set termguicolors
-colorscheme stellarized
+colorscheme molokai
+let g:molokai_original=1
 "
 " ~~~~~~~~~~~ VIM AIRLINE
 let g:airline_theme='deus'
