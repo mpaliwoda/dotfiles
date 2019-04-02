@@ -76,29 +76,54 @@ alias pip='pip3'
 
 
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
-alias ch="fuzzy_checkout.py"
 
 function j {
     fasd_cd -id "$1"
 }
 
 
-function rename_remote {
-    old_name="$1"
-    new_name="$2"
+alias ch="fuzzy_checkout.py"
 
-    git checkout "$old_name"
-
-    if [[ "$?" -ne 0 ]]; then
-        git add .
-        git stash
-        git checkout "$old_name"
-    fi
-
-    git branch -m "$new_name"
-    git push origin -u "$new_name"
+current_branch () {
+    git branch | grep \* | cut -d ' ' -f2
 }
 
+force_checkout () {
+    git add .
+    git stash
+    git checkout "$1"
+}
 
-alias rename-local="git branch -m $1"
-alias rename-remote=rename_remote
+__rename_remote () {
+    new_name="$1"
+    old_name="$2"
+
+    if [[ -z "$old_name" ]]; then
+        old_name=$(current_branch)
+        printf "Using current branch: %s\\n" $old_name
+    else
+        $(git checkout $old_name) || $(force_checkout $old_name)
+    fi
+
+    git branch -m $old_name $new_name
+    git push origin --delete $old_name
+    push
+}
+
+push () {
+    git push origin -u $(current_branch)
+}
+
+rename() {
+    case $1 in
+        local)
+            git branch -m $(current_branch) "$2"
+            ;;
+        remote)
+            __rename_remote $2 $3
+            ;;
+        *)
+            printf "You're called: 'Idiot' from now on\\n"
+            ;;
+    esac
+}

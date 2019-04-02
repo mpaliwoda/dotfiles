@@ -4,8 +4,6 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore_global
-[push]
-    default = current
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
