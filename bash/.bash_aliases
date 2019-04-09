@@ -2,7 +2,6 @@
 # $ sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-
 alias v=nvim
 alias vi=nvim
 alias vim=nvim
@@ -28,12 +27,17 @@ alias pip='pip3'
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 
 
-pyclean() {
-    find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+pyclean () {
+    find . | grep -E "(__pycache__|\.pyc|\.pyo$|.mypy_cache|.pytest_cache|.benchmarks)" | xargs rm -rf
 }
 
 
-function j {
+ropeclean () {
+    find . | grep -E ".ropeproject" | xargs rm -rf
+}
+
+
+j () {
     fasd_cd -id "$1"
 }
 
@@ -58,7 +62,7 @@ push () {
 }
 
 
-rename() {
+rename () {
     case $1 in
         local)
             git branch -m $(current_branch) "$2"
