@@ -138,7 +138,7 @@ colorscheme molokai
 let g:molokai_original=1
 "
 " ~~~~~~~~~~~ VIM AIRLINE
-let g:airline_theme='deus'
+let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
 
 " ~~~~~~~~~~~ PYTHON EXECS
