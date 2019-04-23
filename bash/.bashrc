@@ -83,7 +83,7 @@ eval "$(fasd --init auto)"
 export PATH="/usr/local/bin:$HOME/Terminal:$PATH"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/mysql@5.7/bin:$PATH"
 fi
 
 
