@@ -77,5 +77,5 @@ merge_diff () {
         branch_to_compare="$1"
     fi
 
-    git log $branch_to_compare..$(current_branch) --oneline | grep [Mm]erge
+    git log $branch_to_compare..$(current_branch) --oneline | grep "Merge pull*"
 }
