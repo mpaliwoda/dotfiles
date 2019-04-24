@@ -72,7 +72,7 @@ __rename_remote () {
 
 merge_diff () {
     if [ -z "$1" ]; then
-        branch_to_compare="master"
+        branch_to_compare="origin/master"
     else
         branch_to_compare="$1"
     fi
