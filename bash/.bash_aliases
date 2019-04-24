@@ -68,3 +68,14 @@ __rename_remote () {
     git push origin --delete $old_name
     push
 }
+
+
+merge_diff () {
+    if [ -z "$1" ]; then
+        branch_to_compare="master"
+    else
+        branch_to_compare="$1"
+    fi
+
+    git log $branch_to_compare..$(current_branch) --oneline | grep [Mm]erge
+}
