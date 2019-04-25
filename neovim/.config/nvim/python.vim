@@ -82,3 +82,5 @@ let g:black_linelength = 120
 let g:pymode_rope_goto_definition_bind='<Leader>mgd'
 let g:pymode_rope_rename_bind='<Leader>ren'
 nnoremap <Leader>im :PymodeRopeAutoImport<CR>
+
+autocmd BufWritePre *.py execute ':Black'
