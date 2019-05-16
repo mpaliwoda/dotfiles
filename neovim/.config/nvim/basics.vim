@@ -34,7 +34,6 @@ set pastetoggle=<F11>                   " paste/no-paste with F11 key
 
 set cursorline
 set ttyfast
-set spell spelllang=en_us
 set updatetime=100
 
 set undodir=~/.vim/undodir
@@ -50,5 +49,5 @@ set splitright
 " autoupdate on write
 augroup myvimrc
     au!
-    au BufWritePost ~/.config/nvim/init.vim so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    au BufWritePost *.vim so $MYVIMRC
 augroup END

@@ -26,7 +26,7 @@ nmap <silent> <Leader>- :exe "vertical resize -10"<CR>
 " Files
 let g:ranger_map_keys = 0
 map <leader>fr :Ranger<CR>
-map <Leader>ft :NERDTreeToggle<CR>
+map <Leader>fs :NERDTreeFind<CR>
 map <Leader>ft :NERDTreeToggle<CR>
 nmap <silent> <Leader>ff <Plug>(CommandT)
 

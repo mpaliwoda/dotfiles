@@ -1,8 +1,8 @@
-set background=dark
+set background=
 set termguicolors
 
 colorscheme molokai
 
-let g:molokai_original=1
+let g:molokai_original=0
 let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled=1

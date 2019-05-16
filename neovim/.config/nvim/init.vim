@@ -19,6 +19,7 @@ if dein#load_state('~/.dein')
     call dein#add('hashivim/vim-terraform')
     call dein#add('w0rp/ale')
     call dein#add('maralla/completor.vim')
+    call dein#add('sheerun/vim-polyglot')
 
     " editing stuff
     call dein#add('luochen1990/rainbow')            " matching parenthesis using colors
