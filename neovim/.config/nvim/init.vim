@@ -1,15 +1,15 @@
 set nocompatible                        " no vi mode
 
 " Required:
-set runtimepath+=~/.dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('~/.dein')
-    call dein#begin('~/.dein')
+if dein#load_state($HOME.'/.dein')
+    call dein#begin($HOME.'/.dein')
 
     " Let dein manage dein
     " Required:
-    call dein#add('~/.dein/repos/github.com/Shougo/dein.vim')
+    call dein#add($HOME.'/.dein/repos/github.com/Shougo/dein.vim')
 
     " python specific
     call dein#add('ambv/black')
@@ -53,6 +53,7 @@ if dein#load_state('~/.dein')
     call dein#add('Shougo/context_filetype.vim')    " ^^
     call dein#add('junegunn/vim-emoji')             " yay, emojis
     call dein#add('junegunn/goyo.vim')              " distraction free mode
+    call dein#add('dhruvasagar/vim-table-mode')
 
     " Required:
     call dein#end()
@@ -68,10 +69,10 @@ if dein#check_install()
   call dein#install()
 endif
 
-let g:python3_host_prog='~/.pyenv/versions/neovim3/bin/python'
+let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
 
-source ~/.config/nvim/basics.vim
-source ~/.config/nvim/colorschemes.vim
-source ~/.config/nvim/plugin_settings.vim
-source ~/.config/nvim/mappings.vim
-source ~/.config/nvim/python.vim
+source $HOME/.config/nvim/basics.vim
+source $HOME/.config/nvim/colorschemes.vim
+source $HOME/.config/nvim/plugin_settings.vim
+source $HOME/.config/nvim/mappings.vim
+source $HOME/.config/nvim/python.vim
