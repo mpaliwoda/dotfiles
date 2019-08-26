@@ -19,7 +19,6 @@ if dein#load_state($HOME.'/.dein')
     call dein#add('hashivim/vim-terraform')
     call dein#add('w0rp/ale')
     call dein#add('maralla/completor.vim')
-    call dein#add('sheerun/vim-polyglot')
 
     " editing stuff
     call dein#add('luochen1990/rainbow')            " matching parenthesis using colors
@@ -46,14 +45,12 @@ if dein#load_state($HOME.'/.dein')
 
     " misc
     call dein#add('sjl/gundo.vim')                  " shows undo tree
-    call dein#add('francoiscabrol/ranger.vim')      " run ranger in vim
     call dein#add('vimlab/split-term.vim')          " :10Term and stuff
     call dein#add('wincent/command-t')              " fuzzy file searching
-    call dein#add('osyo-manga/vim-precious')        " for context filetype
-    call dein#add('Shougo/context_filetype.vim')    " ^^
-    call dein#add('junegunn/vim-emoji')             " yay, emojis
+    call dein#add('junegunn/vim-emoji')
     call dein#add('junegunn/goyo.vim')              " distraction free mode
     call dein#add('dhruvasagar/vim-table-mode')
+    call dein#add('jremmen/vim-ripgrep')
 
     " Required:
     call dein#end()
@@ -73,6 +70,6 @@ let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
 
 source $HOME/.config/nvim/basics.vim
 source $HOME/.config/nvim/colorschemes.vim
+source $HOME/.config/nvim/python.vim
 source $HOME/.config/nvim/plugin_settings.vim
 source $HOME/.config/nvim/mappings.vim
-source $HOME/.config/nvim/python.vim

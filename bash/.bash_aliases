@@ -79,3 +79,12 @@ merge_diff () {
 
     git log $branch_to_compare..$(current_branch) --oneline | grep "Merge pull*"
 }
+
+
+datever () {
+    date +%Y.%m.%d.%H%M
+}
+
+genpass () {
+    openssl rand -base64 "$1"
+}

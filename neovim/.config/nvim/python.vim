@@ -75,6 +75,7 @@ nnoremap <Leader>b100 :B 100<CR>
 nnoremap <Leader>b120 :B 120<CR>
 nnoremap <Leader>b80 :B 80<CR>
 nnoremap <Leader>b88 :B 88<CR>
+let g:black_virtualenv = $HOME.'/.pyenv/versions/neovim3'
 
 map ,= :Black<CR>
 let g:black_linelength = 120

@@ -19,8 +19,6 @@ set autoindent                          " keep the same indent as the line you'r
 set nostartofline                       " stop certain movements from always going to the first char of a line
 set ruler                               " display the cursor poition on the last line of the screen or in the status line of a window
 
-set laststatus=1                        " ~always display the status line, even if only one window is displayed~ // no longer valid
-
 set confirm                             " instead of failing a command, raise a dialogue to ask if file should be saved
 set visualbell                          " use visual bell instead of beeping when doing something wrong
 
@@ -28,7 +26,7 @@ set mouse=a                             " use mouse in all modes
 set cmdheight=2                         " cmd window height to 2 lines, to avoid press enter to continue
 
 set number                              " display line numbers
-set relativenumber                      " relative line numbers without extension :O?
+set relativenumber
 set notimeout ttimeout ttimeoutlen=200  " quickly timeout on keycodes, don't time out on mappings
 set pastetoggle=<F11>                   " paste/no-paste with F11 key
 
@@ -46,8 +44,27 @@ set expandtab
 set splitbelow
 set splitright
 
+set nocursorcolumn
+set scrolljump=5
+set lazyredraw
+set synmaxcol=120
+
 " autoupdate on write
 augroup myvimrc
     au!
     au BufWritePost *.vim so $MYVIMRC
 augroup END
+
+augroup vimrc
+    autocmd!
+    autocmd BufWinEnter,Syntax * syn sync minlines=500 maxlines=500
+augroup END
+
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8 bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif

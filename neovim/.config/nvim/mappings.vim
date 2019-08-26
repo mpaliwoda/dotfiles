@@ -47,18 +47,20 @@ xnoremap <Leader>a :sort i<CR>
 
 
 function! Search(sought)
-    exe "vimgrep ".a:sought." `find . -type f
-                            \ ! -path '*/\.*' -prune
-                            \ ! -path '*/node_modules/*' -prune
-                            \ ! -path '*.pyc -prune
-                            \ ! -path '*.ipynb -prune
-                            \ ! -path '*.swp' -prune
-                            \ ! -path '*/src/*' -prune
-                            \ ! -path '*/*.mime' -prune
-                            \ ! -path '*/vendored/*' -prune
-                            \ ! -path '*/metrics/*' -prune`"
-    exe "cwindow"
+    exe "Rg ".a:sought."
+                        \ -g '!*/\.*'
+                        \ -g '!*/node_modules/*'
+                        \ -g '!*.pyc'
+                        \ -g '!*.ipynb'
+                        \ -g '!*.swp'
+                        \ -g '!*/src/*'
+                        \ -g '!*/*.mime'
+                        \ -g '!*/vendored/*'
+                        \ -g '!*/metrics/*'
+                        \"
+" exe "cwindow"
 endfunction
+
 command! -nargs=1 Search call Search(<f-args>)
 nnoremap <Leader>s :%s/<C-r><C-w>/g
 nnoremap <Leader>mgu :call Search("<cword>")<CR>
