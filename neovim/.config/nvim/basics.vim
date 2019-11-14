@@ -47,7 +47,8 @@ set splitright
 set nocursorcolumn
 set scrolljump=5
 set lazyredraw
-set synmaxcol=120
+
+set nobomb
 
 " autoupdate on write
 augroup myvimrc
@@ -64,7 +65,13 @@ if has("multi_byte")
   if &termencoding == ""
     let &termencoding = &encoding
   endif
+
   set encoding=utf-8
-  setglobal fileencoding=utf-8 bomb
-  set fileencodings=ucs-bom,utf-8,latin1
+  setglobal fileencoding=utf-8
+  set fileencodings=utf-8,latin1
 endif
+
+au BufNewFile,BufRead *.js, *.html, *.css, *.rb, *.yml, *.yaml
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
