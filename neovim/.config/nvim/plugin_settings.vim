@@ -12,7 +12,6 @@ let g:rainbow_active = 1
 let g:goyo_width=120
 let g:goyo_linenr=1
 
-let g:polyglot_disabled = ['python', 'python-compiler', 'python-indent']
 set completefunc=emoji#complete
 
 let g:rg_highlight=1

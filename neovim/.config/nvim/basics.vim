@@ -49,6 +49,7 @@ set scrolljump=5
 set lazyredraw
 
 set nobomb
+set autoread
 
 " autoupdate on write
 augroup myvimrc
@@ -71,7 +72,9 @@ if has("multi_byte")
   set fileencodings=utf-8,latin1
 endif
 
-au BufNewFile,BufRead *.js, *.html, *.css, *.rb, *.yml, *.yaml
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+augroup twospacesindent
+    autocmd!
+    autocmd BufNewFile,BufRead *.js, *.html, *.css, *.rb, *.yml, *.yaml set tabstop=2
+    autocmd BufNewFile,BufRead *.js, *.html, *.css, *.rb, *.yml, *.yaml set softtabstop=2
+    autocmd BufNewFile,BufRead *.js, *.html, *.css, *.rb, *.yml, *.yaml set shiftwidth=2
+augroup END

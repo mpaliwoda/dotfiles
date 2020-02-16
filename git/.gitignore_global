@@ -3,7 +3,10 @@ tags
 **/*cache*/
 **/.env
 msg
+.pre-commit-config.y*ml
 
 GPATH
 GTAGS
 GRTAGS
+
+.DS_Store

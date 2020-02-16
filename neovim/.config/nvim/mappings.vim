@@ -25,7 +25,6 @@ nmap <silent> <Leader>- :exe "vertical resize -10"<CR>
 
 " Files
 let g:ranger_map_keys = 0
-map <leader>fr :Ranger<CR>
 map <Leader>fs :NERDTreeFind<CR>
 map <Leader>ft :NERDTreeToggle<CR>
 nmap <silent> <Leader>ff <Plug>(CommandT)
@@ -39,10 +38,8 @@ map <Leader>pret :%!python -m json.tool<CR>
 nmap <Leader>emo :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
 nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <Leader>conf :vsp ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>d :Goyo<CR>
 nnoremap <Leader>q :StripWhitespace<CR>
 nnoremap <Leader>undo :GundoToggle<CR>
-nnoremap <Leader>w :ToggleWhitespace<CR>
 xnoremap <Leader>a :sort i<CR>
 
 
@@ -70,9 +67,9 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use TAB to complete when typing words, else inserts TABs as usual.  Uses
 " dictionary, source files, and completor to find matching words to complete.
 
-" Note: usual completion is on <C-n> but more trouble to press all the time.
-" Never type the same word twice and maybe learn a new spellings!
-" Use the Linux dictionary when spelling is in doubt.
+" " Note: usual completion is on <C-n> but more trouble to press all the time.
+" " Never type the same word twice and maybe learn a new spellings!
+" " Use the Linux dictionary when spelling is in doubt.
 function! Tab_Or_Complete() abort
   " If completor is already open the `tab` cycles through suggested completions.
   if pumvisible()
@@ -92,11 +89,14 @@ endfunction
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Use tab to trigger auto completion.  Default suggests completions as you type.
-let g:completor_auto_trigger = 0
-inoremap <expr> <Tab> Tab_Or_Complete()
-nmap <Leader>tag :TagbarToggle<CR>
-
 
 nmap <Leader>todo :SearchTasks %<CR>
-nmap <Leader>twig :Twiggy<CR>
+
+nmap <Leader>ru :silent !rufo %<CR>
+
+
+let g:UltiSnipsExpandTrigger = '<C-B>'
+
+
+let g:completor_auto_trigger = 0
+inoremap <expr> <Tab> Tab_Or_Complete()
