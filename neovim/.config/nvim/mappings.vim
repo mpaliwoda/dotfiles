@@ -100,3 +100,5 @@ let g:UltiSnipsExpandTrigger = '<C-B>'
 
 let g:completor_auto_trigger = 0
 inoremap <expr> <Tab> Tab_Or_Complete()
+
+nmap <Leader>isort :! ~/.pyenv/versions/neovim3/bin/python -m isort %<CR>

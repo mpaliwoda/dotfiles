@@ -10,3 +10,7 @@ GTAGS
 GRTAGS
 
 .DS_Store
+
+.*
+
+pact*.log

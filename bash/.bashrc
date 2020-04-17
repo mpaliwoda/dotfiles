@@ -65,7 +65,7 @@ if ! shopt -oq posix; then
 fi
 
 export SHELL=/bin/bash
-export TERM=xterm-256color
+export TERM=xterm-kitty
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export CLICOLOR=1
