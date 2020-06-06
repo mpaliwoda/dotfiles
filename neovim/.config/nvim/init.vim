@@ -17,9 +17,12 @@ if dein#load_state($HOME.'/.dein')
     call dein#add('numirias/semshi')
 
     " other langs or general
-    call dein#add('vim-ruby/vim-ruby')
-    call dein#add('maralla/completor.vim')
     call dein#add('w0rp/ale')
+    call dein#add('sheerun/vim-polyglot')
+    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('Shougo/neco-syntax')
+    call dein#add('davidhalter/jedi')
+    call dein#add('deoplete-plugins/deoplete-jedi')
 
     " editing stuff
     call dein#add('ntpeters/vim-better-whitespace')
@@ -38,12 +41,11 @@ if dein#load_state($HOME.'/.dein')
     call dein#add('luochen1990/rainbow')            " matching parenthesis using colors
 
     " ui
-    call dein#add('vim-airline/vim-airline')        " pretty statusline
-    call dein#add('vim-airline/vim-airline-themes')
+    call dein#add('rbong/vim-crystalline')
+    call dein#add('majutsushi/tagbar')
 
     " colorschemes
     call dein#add('fatih/molokai')
-    call dein#add('tyrannicaltoucan/vim-quantum')
 
     " trees and tabs
     call dein#add('sjl/gundo.vim')                  " shows undo tree
@@ -52,6 +54,10 @@ if dein#load_state($HOME.'/.dein')
     " file searching and tags
     call dein#add('wincent/command-t')              " fuzzy file searching
     call dein#add('jremmen/vim-ripgrep')            " fast grep for custom searches
+    call dein#add('ludovicchabant/vim-gutentags')
+    call dein#add('skywind3000/gutentags_plus')
+    call dein#add('junegunn/fzf')
+    call dein#add('junegunn/fzf.vim')
 
     " misc
     call dein#add('vimlab/split-term.vim')          " :10Term and stuff
@@ -164,8 +170,48 @@ set termguicolors
 colorscheme molokai
 
 let g:molokai_original=0
-let g:airline#extensions#tabline#enabled=1
-let g:airline_theme='molokai'
+
+
+function! StatusLine(current, width)
+  let l:s = ''
+
+  if a:current
+    let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
+  else
+    let l:s .= '%#CrystallineInactive#'
+  endif
+  let l:s .= ' %f%h%w%m%r '
+  if a:current
+    let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
+  endif
+
+  let l:s .= '%='
+  if a:current
+    let l:s .= crystalline#left_sep('', 'Fill') . ' %{&paste ?"PASTE ":""}%{&spell?"SPELL ":""}'
+    let l:s .= crystalline#left_mode_sep('')
+  endif
+  if a:width > 80
+    let l:s .= ' %{&ft}[%{&fenc!=#""?&fenc:&enc}][%{&ff}] %l/%L %c%V %P '
+  else
+    let l:s .= ' '
+  endif
+
+  return l:s
+endfunction
+
+function! TabLine()
+  let l:vimlabel = has('nvim') ?  ' NVIM ' : ' VIM '
+  return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
+endfunction
+
+let g:crystalline_enable_sep = 1
+let g:crystalline_statusline_fn = 'StatusLine'
+let g:crystalline_tabline_fn = 'TabLine'
+let g:crystalline_theme = 'molokai'
+
+set showtabline=1
+set laststatus=1
+
 
 let g:completor_python_binary='~/.pyenv/versions/neovim3/bin/python'
 
@@ -266,9 +312,6 @@ let g:CommandTScanDotDirectories=0
 let g:gundo_prefer_python3=1
 let g:rainbow_active = 1
 
-let g:goyo_width=120
-let g:goyo_linenr=1
-
 set completefunc=emoji#complete
 
 let g:rg_highlight=1
@@ -337,33 +380,7 @@ command! -nargs=1 Search call Search(<f-args>)
 nnoremap <Leader>s :%s/<C-r><C-w>/g
 nnoremap <Leader>mgu :call Search("<cword>")<CR>
 
-
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Use TAB to complete when typing words, else inserts TABs as usual.  Uses
-" dictionary, source files, and completor to find matching words to complete.
-
-" " Note: usual completion is on <C-n> but more trouble to press all the time.
-" " Never type the same word twice and maybe learn a new spellings!
-" " Use the Linux dictionary when spelling is in doubt.
-function! Tab_Or_Complete() abort
-  " If completor is already open the `tab` cycles through suggested completions.
-  if pumvisible()
-    return "\<C-N>"
-  " If completor is not open and we are in the middle of typing a word then
-  " `tab` opens completor menu.
-  elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-R>=completor#do('complete')\<CR>"
-  else
-    " If we aren't typing a word and we press `tab` simply do the normal `tab`
-    " action.
-    return "\<Tab>"
-  endif
-endfunction
-
-" Use `tab` key to select completions.  Default is arrow keys.
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
+nmap <Leader>tag :TagbarToggle<CR>
 
 nmap <Leader>todo :SearchTasks %<CR>
 
@@ -373,7 +390,40 @@ nmap <Leader>ru :silent !rufo %<CR>
 let g:UltiSnipsExpandTrigger = '<C-B>'
 
 
-let g:completor_auto_trigger = 0
-inoremap <expr> <Tab> Tab_Or_Complete()
+let g:deoplete#enable_at_startup = 1
+
 
 nmap <Leader>isort :! ~/.pyenv/versions/neovim3/bin/python -m isort %<CR>
+
+
+
+" cscope
+function! Cscope(option, query)
+  let color = '{ x = $1; $1 = ""; z = $3; $3 = ""; printf "\033[34m%s\033[0m:\033[31m%s\033[0m\011\033[37m%s\033[0m\n", x,z,$0; }'
+  let opts = {
+  \ 'source':  "cscope -dL" . a:option . " " . a:query . " | awk '" . color . "'",
+  \ 'options': ['--ansi', '--prompt', '> ',
+  \             '--multi', '--bind', 'alt-a:select-all,alt-d:deselect-all',
+  \             '--color', 'fg:188,fg+:222,bg+:#3a3a3a,hl+:104'],
+  \ 'down': '40%'
+  \ }
+  echo opts
+  function! opts.sink(lines)
+    let data = split(a:lines)
+    let file = split(data[0], ":")
+    execute 'e ' . '+' . file[1] . ' ' . file[0]
+  endfunction
+  call fzf#run(opts)
+endfunction
+
+" Invoke command. 'g' is for call graph, kinda.
+nnoremap <silent> <Leader>mgs :call Cscope('3', expand('<cword>'))<CR>
+
+
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+let g:gutentags_project_root = ['.git']
+
+
+set cscopetag
+set csto=0
+set tags=./tags,tags;/
