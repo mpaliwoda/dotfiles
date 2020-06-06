@@ -88,3 +88,16 @@ datever () {
 genpass () {
     openssl rand -base64 "$1"
 }
+
+
+import () {
+    env_file="$1"
+
+    while IFS='' read -r line || [ -n "${LINE}" ]; do
+        if [ "$line" = "" ]; then
+            continue
+        fi
+
+        export "$line"
+    done < $env_file
+}
