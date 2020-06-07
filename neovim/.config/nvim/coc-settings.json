@@ -1,0 +1,22 @@
+{
+    "coc.preferences.minTriggerInputLength": 3,
+
+    "python.jediEnabled": false,
+
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--line-length", "120"],
+    "python.formatting.blackPath": "~/.pyenv/versions/neovim3/bin/black",
+
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyPath": "~/.pyenv/versions/neovim3/bin/mypy",
+    "python.linting.mypyArgs": ["--ignore-missing-imports", "--python-version=3.8"],
+
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "~/.pyenv/versions/neovim3/bin/flake8",
+    "python.linting.flake8Args": ["--ignore=N802,E203,W503,W504", "--max-line-length=120"],
+
+    "python.sortImports.path": "/home/marcin/.pyenv/versions/neovim3/bin/isort",
+    "python.sortImports.args": ["-sp", "/home/marcin/.isort.cfg"],
+
+    "python.linting.pylintEnabled": false
+}
