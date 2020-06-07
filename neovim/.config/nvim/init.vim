@@ -29,7 +29,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 " git
-Plug 'airblade/vim-gitgutter.git'
+Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/committia.vim'
 Plug 'tpope/vim-fugitive'
 
