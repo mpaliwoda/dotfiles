@@ -4,6 +4,7 @@ call plug#begin('~/.config/neovim/plugged')
 
 " completion and linting
 Plug 'neoclide/coc.nvim',   { 'merged': 0, 'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 
 " file searching, tags
 Plug 'wincent/command-t',   { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
@@ -12,7 +13,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 
 " python specific
-Plug 'ambv/black',          { 'for': 'python', 'branch': 'master' }
 Plug 'numirias/semshi',     { 'for': 'python' }
 
 " ui
@@ -21,7 +21,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar',   { 'on': 'TagbarToggle' }
 Plug 'sjl/gundo.vim',       { 'on': 'GundoToggle' }
 Plug 'vimlab/split-term.vim'
-Plug 'psliwka/vim-smoothie'
 Plug 'fatih/molokai'
 
 " whitespace and commenting
@@ -262,4 +261,4 @@ set csto=0
 set tags=./tags,tags;/
 
 let g:indentguides_ignorelist = ['json']
-
+let g:polyglot_disabled = ['python']
