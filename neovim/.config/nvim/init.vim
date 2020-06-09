@@ -270,3 +270,4 @@ set tags=./tags,tags;/
 let g:indentguides_ignorelist = ['json']
 let g:polyglot_disabled = ['python']
 let g:gitgutter_map_keys = 0
+let g:sneak#label = 1
