@@ -17,7 +17,7 @@ Plug 'numirias/semshi',     { 'for': 'python' }
 
 " ui
 Plug 'rbong/vim-crystalline'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar',   { 'on': 'TagbarToggle' }
 Plug 'sjl/gundo.vim',       { 'on': 'GundoToggle' }
 Plug 'vimlab/split-term.vim'
@@ -38,6 +38,9 @@ Plug 'thaerkh/vim-indentguides'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'luochen1990/rainbow'
 
+" additional motions
+Plug 'justinmk/vim-sneak'
+
 call plug#end()
 
 " General settings
@@ -46,7 +49,7 @@ syntax on                               " syntax higlighting
 set hidden                              " re-use window and switch from unsaved buffer without saving it first
 set wildmenu                            " better command line completion
 set wildmode=full                       " apparently ^up
-set wildignore=*.swp,*.bak,*.pyc,*.class,*/tmp,*/src,*/__pycache__
+set wildignore=*.swp,*.bak,*.pyc,*.class,*/tmp,*/__pycache__
 set showcmd                             " show partial commands in the last line of the screen
 set hlsearch                            " highlight searches
 set ignorecase                          " ignore case in searches
@@ -207,6 +210,10 @@ let g:NERDTreeMinimalUI=1
 let g:NERDTreeUpdateOnWrite=1
 
 " Window, tab & buffer jumping + resizing
+nnoremap <Leader>h :wincmd h<CR>
+nnoremap <Leader>j :wincmd j<CR>
+nnoremap <Leader>k :wincmd k<CR>
+nnoremap <Leader>l :wincmd l<CR>
 nmap <Leader>tab :tabedit<CR>
 nmap <C-t> :bnext<CR>
 nmap <C-p> :bprevious<CR>
@@ -262,3 +269,4 @@ set tags=./tags,tags;/
 
 let g:indentguides_ignorelist = ['json']
 let g:polyglot_disabled = ['python']
+let g:gitgutter_map_keys = 0
