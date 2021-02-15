@@ -1,11 +1,5 @@
 # bash-it {{{
 
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=5000
@@ -101,3 +95,5 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 
 export EDITOR=/usr/local/bin/nvim
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1

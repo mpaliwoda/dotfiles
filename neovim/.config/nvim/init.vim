@@ -1,25 +1,27 @@
 let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
+let g:polyglot_disabled=['python']
 
 call plug#begin('~/.config/neovim/plugged')
 
 " completion and linting
-Plug 'neoclide/coc.nvim',   { 'merged': 0, 'branch': 'release'}
+Plug 'neoclide/coc.nvim',      { 'merged': 0, 'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+Plug 'mgedmin/python-imports.vim'
 
 " file searching, tags
-Plug 'wincent/command-t',   { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
+Plug 'wincent/command-t',      { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'jremmen/vim-ripgrep'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 
 " python specific
-Plug 'numirias/semshi',     { 'for': 'python' }
+Plug 'numirias/semshi',        { 'for': 'python' }
 
 " ui
 Plug 'rbong/vim-crystalline'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'majutsushi/tagbar',   { 'on': 'TagbarToggle' }
-Plug 'sjl/gundo.vim',       { 'on': 'GundoToggle' }
+Plug 'scrooloose/nerdtree',    { 'on': 'NERDTreeToggle' }
+Plug 'majutsushi/tagbar',      { 'on': 'TagbarToggle' }
+Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
 Plug 'vimlab/split-term.vim'
 Plug 'fatih/molokai'
 
@@ -37,9 +39,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'thaerkh/vim-indentguides'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'luochen1990/rainbow'
-
-" additional motions
-Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -87,7 +86,7 @@ set laststatus=1
 set updatetime=300
 
 colorscheme molokai
-let g:molokai_original=0
+let g:molokai_original = 1
 
 let mapleader="\<SPACE>"
 
@@ -168,16 +167,20 @@ else
 endif
 
 " GoTo code navigation.
-nmap <silent> mgd <Plug>(coc-definition)
-nmap <silent> mgy <Plug>(coc-type-definition)
-nmap <silent> mgi <Plug>(coc-implementation)
-nmap <silent> mgs <Plug>(coc-references)
+nmap <silent> <Leader>mgd <Plug>(coc-definition)
+nmap <silent> <Leader>mgy <Plug>(coc-type-definition)
+nmap <silent> <Leader>mgi <Plug>(coc-implementation)
+nmap <silent> <Leader>mgs <Plug>(coc-references)
+nmap <silent> <Leader>mqf <Plug>(coc-fix-current)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-xmap <leader>fmt  <Plug>(coc-format-selected)
-nmap <leader>fmt  <Plug>(coc-format)
-nmap <leader>pret  <Plug>(coc-format)
+xmap <Leader>fmt  <Plug>(coc-format-selected)
+nmap <Leader>fmt  <Plug>(coc-format)
 nmap <Leader>isort :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+nmap <Leader>im :ImportName<CR>
+nmap <Leader>diag :CocList diagnostics<CR>
+
+xnoremap <leader>pret  :! python -m json.tool<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -197,7 +200,7 @@ endfunction
 
 " Trees and file navigation
 nmap <Leader>tag :TagbarToggle<CR>
-nmap <Leader>undo :GundoToggle<CR>
+nmap <Leader>undo :MundoToggle<CR>
 nmap <silent> <Leader>ff <Plug>(CommandT)
 nmap <Leader>fs :NERDTreeFind<CR>
 nmap <Leader>ft :NERDTreeToggle<CR>
@@ -207,7 +210,7 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']
 let g:NERDTreeMinimalUI=1
-let g:NERDTreeUpdateOnWrite=1
+let g:NERDTreeGitStatusUpdateOnWrite=1
 
 " Window, tab & buffer jumping + resizing
 nnoremap <Leader>h :wincmd h<CR>
@@ -237,16 +240,16 @@ map <Leader>gw :Gwrite<CR>
 " Misc 
 function! Search(sought)
     exe "Rg ".a:sought."
-                        \ -g '!*/\.*'
-                        \ -g '!*/node_modules/*'
-                        \ -g '!*.pyc'
-                        \ -g '!*.ipynb'
-                        \ -g '!*.swp'
-                        \ -g '!*/src/*'
-                        \ -g '!*/*.mime'
-                        \ -g '!*/vendored/*'
-                        \ -g '!*/metrics/*'
-                        \"
+        \ -g '!*/\.*'
+        \ -g '!*/node_modules/*'
+        \ -g '!*.pyc'
+        \ -g '!*.ipynb'
+        \ -g '!*.swp'
+        \ -g '!*/src/*'
+        \ -g '!*/*.mime'
+        \ -g '!*/vendored/*'
+        \ -g '!*/metrics/*'
+        \"
 " exe "cwindow"
 endfunction
 
@@ -259,6 +262,7 @@ map D d$
 map <Leader>' :25Term<CR>
 nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <Leader>q :StripWhitespace<CR>
+map <Leader>a :sort i<CR>
 
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 let g:gutentags_project_root = ['.git']
@@ -268,6 +272,4 @@ set csto=0
 set tags=./tags,tags;/
 
 let g:indentguides_ignorelist = ['json']
-let g:polyglot_disabled = ['python']
 let g:gitgutter_map_keys = 0
-let g:sneak#label = 1
