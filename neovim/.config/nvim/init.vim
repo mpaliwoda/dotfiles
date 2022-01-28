@@ -1,4 +1,6 @@
-let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
+let g:loaded_python_provider = 0
+let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
+let g:polyglot_disabled = ['python', 'markdown', 'c#']
 
 call plug#begin('~/.config/neovim/plugged')
 
@@ -22,6 +24,7 @@ Plug 'majutsushi/tagbar',   { 'on': 'TagbarToggle' }
 Plug 'sjl/gundo.vim',       { 'on': 'GundoToggle' }
 Plug 'vimlab/split-term.vim'
 Plug 'fatih/molokai'
+Plug 'psliwka/vim-smoothie'
 
 " whitespace and commenting
 Plug 'tpope/vim-commentary'
@@ -37,9 +40,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'thaerkh/vim-indentguides'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'luochen1990/rainbow'
-
-" additional motions
-Plug 'justinmk/vim-sneak'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -87,7 +88,7 @@ set laststatus=1
 set updatetime=300
 
 colorscheme molokai
-let g:molokai_original=0
+let g:molokai_original = 0
 
 let mapleader="\<SPACE>"
 
@@ -172,11 +173,16 @@ nmap <silent> mgd <Plug>(coc-definition)
 nmap <silent> mgy <Plug>(coc-type-definition)
 nmap <silent> mgi <Plug>(coc-implementation)
 nmap <silent> mgs <Plug>(coc-references)
+nmap <silent> diag <Plug>(coc-diagnostic-info)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 xmap <leader>fmt  <Plug>(coc-format-selected)
 nmap <leader>fmt  <Plug>(coc-format)
 nmap <leader>pret  <Plug>(coc-format)
+nmap <leader><space>  <Plug>(coc-codeaction)
+xmap <leader><space>  <Plug>(coc-codeaction-selected)
+nmap <silent> <Leader>fix <Plug>(coc-fix-current)
+nnoremap <silent><nowait> <Leader>com  :<C-u>CocList commands<cr>
 nmap <Leader>isort :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 
 " Highlight the symbol and its references when holding the cursor.
@@ -207,7 +213,7 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']
 let g:NERDTreeMinimalUI=1
-let g:NERDTreeUpdateOnWrite=1
+let g:NERDTreeGitStatusUpdateOnWrite=1
 
 " Window, tab & buffer jumping + resizing
 nnoremap <Leader>h :wincmd h<CR>
@@ -225,13 +231,13 @@ nmap <silent> <Leader>= :exe "vertical resize +10"<CR>
 nmap <silent> <Leader>- :exe "vertical resize -10"<CR>
 
 " Git
-map <Leader>gb :Gblame<CR>
-map <Leader>gc :Gcommit<CR>
+map <Leader>gb :Git blame<CR>
+map <Leader>gc :Git commit<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gm :Gmove
 map <Leader>gdel :Gdelete<CR>
 map <Leader>gdi :Gdiff<CR>
-map <Leader>gl :Glog<CR>
+map <Leader>gl :Git log<CR>
 map <Leader>gw :Gwrite<CR>
 
 " Misc 
@@ -260,14 +266,75 @@ map <Leader>' :25Term<CR>
 nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <Leader>q :StripWhitespace<CR>
 
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
-let g:gutentags_project_root = ['.git']
-
 set cscopetag
 set csto=0
 set tags=./tags,tags;/
 
+let g:gutentags_modules = ['ctags']
+let g:gutentags_project_root = ['.git']
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
+let g:gutentags_ctags_extra_args = [
+      \ '--tag-relative=yes',
+      \ '--fields=+ailmnS',
+      \ ]
+let g:gutentags_ctags_exclude = [
+      \ '*.git', '*.svg', '*.hg',
+      \ '*/tests/*',
+      \ 'build',
+      \ 'dist',
+      \ '*sites/*/files/*',
+      \ 'bin',
+      \ 'node_modules',
+      \ 'bower_components',
+      \ 'cache',
+      \ 'compiled',
+      \ 'docs',
+      \ 'example',
+      \ 'bundle',
+      \ 'vendor',
+      \ '*.md',
+      \ '*-lock.json',
+      \ '*.lock',
+      \ '*.js',
+      \ '*.jsx',
+      \ '*.ts',
+      \ '*.tsx',
+      \ '.*rc*',
+      \ '*.json',
+      \ '*.min.*',
+      \ '*.map',
+      \ '*.bak',
+      \ '*.zip',
+      \ '*.pyc',
+      \ '*.class',
+      \ '*.sln',
+      \ '*.Master',
+      \ '*.csproj',
+      \ '*.tmp',
+      \ '*.csproj.user',
+      \ '*.cache',
+      \ '*.pdb',
+      \ 'tags*',
+      \ 'cscope.*',
+      \ '*.css',
+      \ '*.less',
+      \ '*.scss',
+      \ '*.exe', '*.dll',
+      \ '*.mp3', '*.ogg', '*.flac',
+      \ '*.swp', '*.swo',
+      \ '*.bmp', '*.gif', '*.ico', '*.jpg', '*.png',
+      \ '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
+      \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
+      \ ]
+
 let g:indentguides_ignorelist = ['json']
-let g:polyglot_disabled = ['python']
 let g:gitgutter_map_keys = 0
 let g:sneak#label = 1
+"
+let g:gutentags_define_advanced_commands = 1
+
+highlight Normal guibg=none
+highlight NonText guibg=none

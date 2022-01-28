@@ -65,7 +65,7 @@ if ! shopt -oq posix; then
 fi
 
 export SHELL=/bin/bash
-export TERM=xterm-kitty
+export TERM=xterm-256color
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export CLICOLOR=1
@@ -80,12 +80,20 @@ source $BASH_IT/bash_it.sh
 # }}}
 
 eval "$(fasd --init auto)"
-export PATH="/usr/local/bin:$HOME/Terminal:$HOME/.pyenv/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="/usr/local/bin:$HOME/Terminal:$HOME/.pyenv/bin:/usr/lib/postgresql/10/bin:$PATH"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/mysql@5.7/bin:$PATH"
+elif [[ "$OSTYPE" == "linux"* ]]; then
+    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+    # Start Docker daemon automatically when logging in if not running.'
+    RUNNING=`ps aux | grep dockerd | grep -v grep`
+    if [ -z "$RUNNING" ]; then
+        sudo dockerd > /dev/null 2>&1 &
+        disown
+    fi
 fi
-
 
 TO_SOURCE=("$HOME/.fzf.bash" "$HOME/.bash_aliases" "$HOME/.secrets" "$HOME/.airhelp_aliases")
 for file in "${TO_SOURCE[@]}"; do
@@ -93,11 +101,20 @@ for file in "${TO_SOURCE[@]}"; do
 done
 
 
-
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(rbenv init -)"
 
 
 export EDITOR=/usr/local/bin/nvim
+
+export NVM_DIR="/home/marcin/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

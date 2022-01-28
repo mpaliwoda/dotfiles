@@ -101,3 +101,8 @@ import () {
         export "$line"
     done < $env_file
 }
+
+
+activate () {
+    eval "$(pyenv sh-activate neovim3)"
+}
