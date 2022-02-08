@@ -81,7 +81,7 @@ source $BASH_IT/bash_it.sh
 
 eval "$(fasd --init auto)"
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="/usr/local/bin:$HOME/Terminal:$HOME/.pyenv/bin:/usr/lib/postgresql/10/bin:$PATH"
+export PATH="$HOME/Terminal:$HOME/.pyenv/bin:/usr/lib/postgresql/10/bin:/usr/local/bin:$PATH"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/opt/mysql@5.7/bin:$PATH"
