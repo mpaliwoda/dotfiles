@@ -6,7 +6,7 @@
     "python.formatting.blackPath": "/home/marcin/.pyenv/versions/neovim3/bin/black",
 
     "python.linting.mypyEnabled": true,
-    "python.linting.mypyArgs": ["--ignore-missing-imports", "--python-version=3.10"],
+    "python.linting.mypyArgs": ["--ignore-missing-imports", "--python-version=3.10", "--exclude=tests\/.*"],
 
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "/home/marcin/.pyenv/versions/neovim3/bin/flake8",
