@@ -16,6 +16,11 @@ GRTAGS
 .*
 
 pact*.log
+tags*
+
+*.zip
+**/node_modules/
+package-lock.json
 celerybeat-schedule
 
 !**/.teamcity
