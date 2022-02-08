@@ -1,9 +1,11 @@
-tags
+tags*
 **/.ropeproject/
 **/*cache*/
 **/.env
 msg
 .pre-commit-config.y*ml
+docker-compose.dev.y*ml
+Dockerfile-dev
 
 GPATH
 GTAGS
@@ -14,9 +16,14 @@ GRTAGS
 .*
 
 pact*.log
+<<<<<<< HEAD
 tags*
 
 *.zip
 **/node_modules/
 package-lock.json
 celerybeat-schedule
+
+!**/.teamcity
+db-data
+**/performance/results/*.json

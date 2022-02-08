@@ -1,11 +1,5 @@
 # bash-it {{{
 
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=5000

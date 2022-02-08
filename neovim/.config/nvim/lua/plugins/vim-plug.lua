@@ -3,8 +3,8 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
 -- completion, linting, syntax highlighting
-Plug ('neoclide/coc.nvim',               { merged = 0, branch = 'release' })
-Plug ('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+Plug ('neoclide/coc.nvim',               { branch = 'release' })
+Plug ('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 
 -- file searching, tags
 Plug ('nvim-telescope/telescope.nvim')

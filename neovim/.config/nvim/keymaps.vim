@@ -52,31 +52,6 @@ noremap <Leader>gl :Git log<CR>
 noremap <Leader>gw :Gwrite<CR>
 
 " completion and code actions
-nnoremap <Leader>mgd <Plug>(coc-definition)
-nnoremap <Leader>mgy <Plug>(coc-type-definition)
-nnoremap <Leader>mgi <Plug>(coc-implementation)
-nnoremap <Leader>mgs <Plug>(coc-references)
-
-nnoremap <silent>diag <Plug>(coc-diagnostic-info)
-nnoremap <silent>[g <Plug>(coc-diagnostic-prev)
-nnoremap <silent>]g <Plug>(coc-diagnostic-next)
-
-xnoremap <leader>fmt  <Plug>(coc-format-selected)
-nnoremap <leader>fmt  <Plug>(coc-format)
-nnoremap <leader>pret  <Plug>(coc-format)
-nnoremap <Leader>isort :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
-
-nnoremap <leader><space>  <Plug>(coc-codeaction)
-xnoremap <leader><space>  <Plug>(coc-codeaction-selected)
-nnoremap <silent> <Leader>fix <Plug>(coc-fix-current)
-
-inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <silent><nowait> <Leader>com  :<C-u>CocList commands<cr>
-
-nnoremap <Leader>s :%s/<C-r><C-w>/g
-nnoremap <Leader>ren <Plug>(coc-rename)
-nnoremap <Leader>a :sort i<CR>
-
 " Helpers for coc
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -99,3 +74,29 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+nnoremap <silent> <Leader>mgd :call CocActionAsync('jumpDefinition')<CR>
+nnoremap <silent> <Leader>mgy :call CocActionAsync('jumpTypeDefinition')<CR>
+nnoremap <silent> <Leader>mgi :call CocActionAsync('jumpImplementation')<CR>
+nnoremap <silent> <Leader>mgs :call CocActionAsync('jumpReferences')<CR>
+
+nnoremap <silent> diag :call CocActionAsync('diagnosticInfo')<CR>
+nnoremap <silent> [g :call CocActionAsync('diagnosticPrev')<CR>
+nnoremap <silent> ]g :call CocActionAsync('diagnosticNext')<CR>
+
+xnoremap <leader>fmt  :call CocActionAsync('formatSelected', visualmode())<CR>
+nnoremap <leader>fmt  :call CocActionAsync('format')<CR>
+nnoremap <Leader>isort :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+
+nnoremap <leader><space> :call CocActionAsync('codeAction', '')<CR>
+xnoremap <leader><space> :call CocActionAsync('codeAction', visualmode())<CR>
+nnoremap <silent> <Leader>fix :call CocActionAsync('doQuickfix')<CR>
+
+inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <silent><nowait> <Leader>com  :<C-u>CocList commands<cr>
+
+nnoremap <Leader>s :%s/<C-r><C-w>/g
+nnoremap <Leader>ren :call CocActionAsync('rename')<CR>
+nnoremap <Leder>ref :call CocActionAsync('refactor')<CR>
+nnoremap <Leader>a :sort i<CR>
+

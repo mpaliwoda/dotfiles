@@ -16,3 +16,5 @@ require('plugins/telescope')
 vim.cmd('colorscheme deus')
 vim.cmd('so ~/.config/nvim/keymaps.vim')
 vim.cmd('so ~/.config/nvim/autocmds.vim')
+
+vim.g.node_client_debug = 1
