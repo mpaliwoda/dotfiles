@@ -48,9 +48,8 @@ set.relativenumber = true
 set.lazyredraw = true
 set.ttyfast = true
 
--- set.notimeout = true
--- set.ttimeout = true
--- set.ttimeoutlen = 200
+set.ttimeout = true
+set.ttimeoutlen = 200
 set.updatetime = 300
 
 set.undofile = true
@@ -61,4 +60,3 @@ set.csto = 0
 set.tags = { './tags', 'tags;/' }
 
 vim.g.python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
-vim.g.loaded_python_provider = 0
