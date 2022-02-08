@@ -81,7 +81,7 @@ nnoremap <silent> <Leader>mgi :call CocActionAsync('jumpImplementation')<CR>
 nnoremap <silent> <Leader>mgs :call CocActionAsync('jumpReferences')<CR>
 
 nnoremap <silent> diag :call CocActionAsync('diagnosticInfo')<CR>
-nnoremap <silent> [g :call CocActionAsync('diagnosticPrev')<CR>
+nnoremap <silent> [g :call CocActionAsync('diagnosticPrevious')<CR>
 nnoremap <silent> ]g :call CocActionAsync('diagnosticNext')<CR>
 
 xnoremap <leader>fmt  :call CocActionAsync('formatSelected', visualmode())<CR>
