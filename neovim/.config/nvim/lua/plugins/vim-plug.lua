@@ -22,8 +22,8 @@ Plug ('junegunn/goyo.vim',               { on = 'Goyo' })
 Plug ('kyazdani42/nvim-tree.lua')
 Plug ('vimlab/split-term.vim')
 Plug ('seblj/nvim-tabline')
-Plug ('feline-nvim/feline.nvim')
 Plug ('junegunn/goyo.vim')
+Plug ('ojroques/nvim-hardline')
 
 -- whitespace and commenting
 Plug ('tpope/vim-commentary')
