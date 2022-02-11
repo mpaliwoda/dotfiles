@@ -76,8 +76,8 @@ require'nvim-tree'.setup {
         { key = "i", action = "split" },
       }
     },
-    number = false,
-    relativenumber = false,
+    number = true,
+    relativenumber = true,
     signcolumn = "yes"
   },
   trash = {
