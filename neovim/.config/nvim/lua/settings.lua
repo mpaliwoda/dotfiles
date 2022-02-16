@@ -53,7 +53,7 @@ set.ttimeoutlen = 200
 set.updatetime = 300
 
 set.undofile = true
-set.undodir = os.getenv("HOME") .. '.config/nvim/undodir'
+set.undodir = os.getenv("HOME") .. '/.config/nvim/undodir'
 
 set.cscopetag = true
 set.csto = 0
