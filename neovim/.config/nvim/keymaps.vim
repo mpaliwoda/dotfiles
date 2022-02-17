@@ -98,5 +98,4 @@ nnoremap <silent><nowait> <Leader>com  :<C-u>CocList commands<cr>
 nnoremap <Leader>s :%s/<C-r><C-w>/g
 nnoremap <Leader>ren :call CocActionAsync('rename')<CR>
 nnoremap <Leder>ref :call CocActionAsync('refactor')<CR>
-nnoremap <Leader>a :sort i<CR>
-
+vnoremap <Leader>a :sort i<CR>
