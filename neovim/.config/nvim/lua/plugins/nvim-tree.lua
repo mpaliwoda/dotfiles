@@ -37,7 +37,7 @@ require'nvim-tree'.setup {
     auto_open = false,
   },
   diagnostics = {
-    enable = false,
+    enable = true,
     icons = {
       hint = "",
       info = "",
@@ -46,7 +46,7 @@ require'nvim-tree'.setup {
     }
   },
   update_focused_file = {
-    enable      = true,
+    enable      = false,
     update_cwd  = false,
     ignore_list = {}
   },
@@ -73,7 +73,7 @@ require'nvim-tree'.setup {
       custom_only = false,
       list = {
         { key = "s", action = "vsplit" },
-        { key = "i", action = "split" },
+        { key = "v", action = "split" },
       }
     },
     number = true,
