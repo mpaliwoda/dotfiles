@@ -109,6 +109,4 @@ export NVM_DIR="/home/marcin/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export DOTNET_ROOT=$HOME/dotnet
-export PATH=$PATH:$HOME/dotnet
-export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PATH=$PATH:$DOTNET_ROOT
