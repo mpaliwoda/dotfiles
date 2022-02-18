@@ -23,6 +23,7 @@
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
+
     "coc.source.emoji.filetypes": [
         "markdown",
         "gitcommit"
