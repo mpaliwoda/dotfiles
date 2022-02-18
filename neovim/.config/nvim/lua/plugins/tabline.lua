@@ -1,4 +1,9 @@
-require('tabline').setup{
+local present, tabline = pcall(require, 'tabline')
+if not present then
+    return
+end
+
+tabline.setup{
     no_name = '[No Name]',    -- Name for buffers with no name
     modified_icon = '',      -- Icon for showing modified buffer
     close_icon = '',         -- Icon for closing tab with mouse

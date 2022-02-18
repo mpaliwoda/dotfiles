@@ -23,7 +23,14 @@ g.nvim_tree_show_icons = {
     folder_arrows = 0,
 }
 
-require'nvim-tree'.setup {
+
+local present, ntree = pcall(require, 'nvim-tree')
+if not present then
+    return
+end
+
+
+ntree.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,

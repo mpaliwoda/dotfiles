@@ -1,3 +1,8 @@
+local present, hardline = pcall(require, 'hardline')
+if not present then
+    return
+end
+
 require('hardline').setup {
   bufferline = true,  -- enable bufferline
   bufferline_settings = {
