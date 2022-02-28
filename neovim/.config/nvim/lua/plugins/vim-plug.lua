@@ -5,6 +5,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 -- completion, linting, syntax highlighting
 Plug ('neoclide/coc.nvim',               { branch = 'release' })
 Plug ('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
+Plug ('nathom/filetype.nvim')
 
 -- file searching, tags
 Plug ('nvim-telescope/telescope.nvim')

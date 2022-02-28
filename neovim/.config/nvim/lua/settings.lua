@@ -60,3 +60,4 @@ set.csto = 0
 set.tags = { './tags', 'tags;/' }
 
 vim.g.python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
+vim.g.did_load_filetypes = 1

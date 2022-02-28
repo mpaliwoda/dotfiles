@@ -2,6 +2,7 @@ require('plugins/vim-plug')
 require('settings')
 
 require('plugins/colorizer')
+require('plugins/filetype')
 require('plugins/gitgutter')
 require('plugins/goyo')
 require('plugins/gutentags')
