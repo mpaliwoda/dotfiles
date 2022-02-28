@@ -41,9 +41,9 @@ Plug ('ajmwagar/vim-deus')
 -- visual hints
 Plug ('kyazdani42/nvim-web-devicons')
 Plug ('lewis6991/gitsigns.nvim')
-Plug ('luochen1990/rainbow')
 Plug ('machakann/vim-highlightedyank')
-Plug ('thaerkh/vim-indentguides')
 Plug ('norcalli/nvim-colorizer.lua')
+Plug ('p00f/nvim-ts-rainbow')
+Plug ('lukas-reineke/indent-blankline.nvim')
 
 vim.call('plug#end')
