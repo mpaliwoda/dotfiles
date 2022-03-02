@@ -37,7 +37,7 @@ Plug ('rhysd/committia.vim')
 Plug ('tpope/vim-fugitive')
 
 -- themes
-Plug ('ajmwagar/vim-deus')
+Plug ('navarasu/onedark.nvim')
 
 -- visual hints
 Plug ('kyazdani42/nvim-web-devicons')

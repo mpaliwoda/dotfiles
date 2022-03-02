@@ -1,7 +1,7 @@
 require('plugins/vim-plug')
 require('settings')
 
-pcall(vim.cmd, 'colorscheme deus')
+require('colorscheme')
 
 require('plugins/colorizer')
 require('plugins/filetype')
