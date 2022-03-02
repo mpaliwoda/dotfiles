@@ -6,6 +6,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 Plug ('neoclide/coc.nvim',               { branch = 'release' })
 Plug ('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug ('nathom/filetype.nvim')
+Plug ('fannheyward/telescope-coc.nvim')
 
 -- file searching, tags
 Plug ('nvim-telescope/telescope.nvim')

@@ -2,7 +2,6 @@ let mapleader="\<SPACE>"
 
 " configs
 nnoremap <Leader>conf :vsp ~/.config/nvim/init.lua<CR>
-nnoremap <Leader>coc :vsp ~/.config/nvim/coc-settings.json<CR>
 
 " general
 noremap Y y$
@@ -75,12 +74,14 @@ function! s:show_documentation()
   endif
 endfunction
 
+nnoremap <Leader>coc :Telescope coc<CR>
+
 nnoremap <silent> <Leader>mgd :call CocActionAsync('jumpDefinition')<CR>
 nnoremap <silent> <Leader>mgy :call CocActionAsync('jumpTypeDefinition')<CR>
 nnoremap <silent> <Leader>mgi :call CocActionAsync('jumpImplementation')<CR>
-nnoremap <silent> <Leader>mgs :call CocActionAsync('jumpReferences')<CR>
+nnoremap <silent> <Leader>mgs :Telescope coc references<CR>
 
-nnoremap <silent> diag :call CocActionAsync('diagnosticInfo')<CR>
+nnoremap <silent> diag :Telescope coc diagnostics<CR>
 nnoremap <silent> [g :call CocActionAsync('diagnosticPrevious')<CR>
 nnoremap <silent> ]g :call CocActionAsync('diagnosticNext')<CR>
 
@@ -93,7 +94,7 @@ xnoremap <leader><space> :call CocActionAsync('codeAction', visualmode())<CR>
 nnoremap <silent> <Leader>fix :call CocActionAsync('doQuickfix')<CR>
 
 inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <silent><nowait> <Leader>com  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <Leader>com  :Telescope coc commands<cr>
 
 nnoremap <Leader>s :%s/<C-r><C-w>/g
 nnoremap <Leader>ren :call CocActionAsync('rename')<CR>
