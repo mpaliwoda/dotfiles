@@ -48,4 +48,7 @@ Plug ('norcalli/nvim-colorizer.lua')
 Plug ('p00f/nvim-ts-rainbow')
 Plug ('lukas-reineke/indent-blankline.nvim')
 
+-- additional motions
+Plug ('AndrewRadev/splitjoin.vim')
+
 vim.call('plug#end')
