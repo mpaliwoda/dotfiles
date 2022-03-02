@@ -1,6 +1,8 @@
 require('plugins/vim-plug')
 require('settings')
 
+pcall(vim.cmd, 'colorscheme deus')
+
 require('plugins/colorizer')
 require('plugins/filetype')
 require('plugins/gitgutter')
@@ -17,5 +19,3 @@ require('plugins/telescope')
 
 vim.cmd('so ~/.config/nvim/keymaps.vim')
 vim.cmd('so ~/.config/nvim/autocmds.vim')
-
-pcall(vim.cmd, 'colorscheme deus')
