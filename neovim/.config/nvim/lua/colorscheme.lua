@@ -11,9 +11,9 @@ scheme.setup {
 
     code_style = {
         comments = 'italic',
-        keywords = 'bold',
-        functions = 'none',
-        strings = 'none',
+        keywords = 'none',
+        functions = 'bold',
+        strings = 'italic',
         variables = 'none'
     },
 }
