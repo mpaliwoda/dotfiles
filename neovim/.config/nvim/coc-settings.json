@@ -1,6 +1,7 @@
 {
     "python.venvPath": "~/.pyenv/versions",
 
+
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": ["--line-length", "120"],
     "python.formatting.blackPath": "/home/marcin/.pyenv/versions/neovim3/bin/black",
@@ -12,8 +13,9 @@
     "python.linting.flake8Path": "/home/marcin/.pyenv/versions/neovim3/bin/flake8",
     "python.linting.flake8Args": ["--ignore=N802,E203,W503,W504", "--max-line-length=120"],
 
+    "pyright.organizeimports.provider": "isort",
     "python.sortImports.path": "/home/marcin/.pyenv/versions/neovim3/bin/isort",
-    "python.sortImports.args": ["-sp", "/home/marcin/.isort.cfg"],
+    "python.sortImports.args": ["--settings-path", "/home/marcin/.isort.cfg", "--src", "."],
 
     "pyright.disableDiagnostics": true,
     "python.linting.pylintEnabled": false,
