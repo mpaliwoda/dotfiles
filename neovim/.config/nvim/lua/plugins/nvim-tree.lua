@@ -1,6 +1,5 @@
 local g = vim.g
 
-g.nvim_tree_indent_markers = 0
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 1
 g.nvim_tree_root_folder_modifier = '>>>'
@@ -100,5 +99,8 @@ ntree.setup {
   trash = {
     cmd = "trash",
     require_confirm = true
+  },
+  renderer = {
+      indent_markers = { enable = false }
   }
 }
