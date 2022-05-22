@@ -5,7 +5,7 @@ alias vim=nvim
 alias gtree='git log --graph --pretty=oneline --abbrev-commit'
 alias untracked='git ls-files --others --exclude-standard'
 
-alias ls='ls --color=auto'
+alias ls='lsd'
 alias grep='grep --color=auto'
 
 alias l='ls -CF'
