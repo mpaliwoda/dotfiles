@@ -7,6 +7,7 @@ Plug ('neoclide/coc.nvim',               { branch = 'release' })
 Plug ('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug ('nathom/filetype.nvim')
 Plug ('fannheyward/telescope-coc.nvim')
+Plug ('bennypowers/nvim-regexplainer')
 
 -- file searching, tags
 Plug ('nvim-telescope/telescope.nvim')
@@ -26,6 +27,9 @@ Plug ('vimlab/split-term.vim')
 Plug ('seblj/nvim-tabline')
 Plug ('junegunn/goyo.vim')
 Plug ('ojroques/nvim-hardline')
+Plug ('sunjon/shade.nvim')
+Plug ('folke/twilight.nvim')
+Plug ('declancm/cinnamon.nvim')
 
 -- whitespace and commenting
 Plug ('tpope/vim-commentary')
@@ -50,5 +54,12 @@ Plug ('lukas-reineke/indent-blankline.nvim')
 
 -- additional motions
 Plug ('AndrewRadev/splitjoin.vim')
+
+-- additional markdown support
+Plug ('jghauser/follow-md-links.nvim')
+Plug ('ellisonleao/glow.nvim', { branch = 'main' })
+
+-- other utils
+Plug ('MunifTanjim/nui.nvim')
 
 vim.call('plug#end')

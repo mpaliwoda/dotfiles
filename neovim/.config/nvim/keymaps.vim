@@ -100,3 +100,6 @@ nnoremap <Leader>s :%s/<C-r><C-w>/g
 nnoremap <Leader>ren :call CocActionAsync('rename')<CR>
 nnoremap <Leder>ref :call CocActionAsync('refactor')<CR>
 vnoremap <Leader>a :sort i<CR>
+
+nnoremap <silent> <Leader>glow :Glow<CR>
+nnoremap <silent> <Leader>twi :Twilight<CR>
