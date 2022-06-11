@@ -4,6 +4,7 @@ require('settings')
 require('colorscheme')
 
 require('plugins/cinnamon')
+require('plugins/coc')
 require('plugins/colorizer')
 require('plugins/dap')
 require('plugins/filetype')

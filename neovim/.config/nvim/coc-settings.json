@@ -1,33 +1,48 @@
 {
-    "python.venvPath": "~/.pyenv/versions",
-
-
+    "python.venvPath": "/Users/marcin.paliwoda/.pyenv/versions",
     "python.formatting.provider": "black",
-    "python.formatting.blackArgs": ["--line-length", "120"],
-    "python.formatting.blackPath": "/home/marcin/.pyenv/versions/neovim3/bin/black",
-
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "120"
+    ],
+    "python.formatting.blackPath": "/Users/marcin.paliwoda/.pyenv/versions/neovim3/bin/black",
     "python.linting.mypyEnabled": true,
-    "python.linting.mypyArgs": ["--ignore-missing-imports", "--python-version=3.10", "--exclude=tests\/.*"],
-
+    "python.linting.mypyArgs": [
+        "--ignore-missing-imports",
+        "--python-version=3.10",
+        "--exclude=tests/*"
+    ],
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "/home/marcin/.pyenv/versions/neovim3/bin/flake8",
-    "python.linting.flake8Args": ["--ignore=N802,E203,W503,W504", "--max-line-length=120"],
-
+    "python.linting.flake8Path": "/Users/marcin.paliwoda/.pyenv/versions/neovim3/bin/flake8",
+    "python.linting.flake8Args": [
+        "--ignore=N802,E203,W503,W504",
+        "--max-line-length=120"
+    ],
     "pyright.organizeimports.provider": "isort",
-    "python.sortImports.path": "/home/marcin/.pyenv/versions/neovim3/bin/isort",
-    "python.sortImports.args": ["--settings-path", "/home/marcin/.isort.cfg", "--src", "."],
-
+    "python.sortImports.path": "/Users/marcin.paliwoda/.pyenv/versions/neovim3/bin/isort",
+    "python.sortImports.args": [
+        "--settings-path",
+        "/Users/marcin.paliwoda/.isort.cfg",
+        "--src",
+        "."
+    ],
     "pyright.disableDiagnostics": true,
     "python.linting.pylintEnabled": false,
-
     "solargraph.formatting": true,
-
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
-
     "coc.source.emoji.filetypes": [
+        "html",
+        "htmldjango",
         "markdown",
         "gitcommit"
-    ]
+    ],
+    "emmet.includeLanguages": {
+        "htmldjango": "html"
+    },
+    "emmet.priority": 100,
+    "htmldjango.djlint.profile": "jinja",
+    "htmldjango.formatting.provider": "djlint",
+    "htmldjango.djlint.enableLint": true
 }
