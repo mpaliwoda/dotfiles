@@ -103,3 +103,12 @@ vnoremap <Leader>a :sort i<CR>
 
 nnoremap <silent> <Leader>glow :Glow<CR>
 nnoremap <silent> <Leader>twi :Twilight<CR>
+
+nnoremap <Leader>ab :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <Leader>ar :lua require'dap'.repl.open()<CR>
+nnoremap <Leader>au :lua require'dapui'.toggle()<CR>
+nnoremap <F5> :lua require'dap'.continue()<CR>
+nnoremap <F6> :lua require'dap'.step_over()<CR>
+nnoremap <F7> :lua require'dap'.step_into()<CR>
+nnoremap <F8> :lua require'dap'.step_out()<CR>
+nnoremap <F10> :lua require('dap.ext.vscode').load_launchjs()<CR>

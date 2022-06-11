@@ -5,6 +5,7 @@ require('colorscheme')
 
 require('plugins/cinnamon')
 require('plugins/colorizer')
+require('plugins/dap')
 require('plugins/filetype')
 require('plugins/gitgutter')
 require('plugins/goyo')

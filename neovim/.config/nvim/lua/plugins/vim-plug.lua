@@ -9,6 +9,11 @@ Plug ('nathom/filetype.nvim')
 Plug ('fannheyward/telescope-coc.nvim')
 Plug ('bennypowers/nvim-regexplainer')
 
+-- debugging
+Plug ('mfussenegger/nvim-dap')
+Plug ('rcarriga/nvim-dap-ui')
+Plug ('mfussenegger/nvim-dap-python')
+
 -- file searching, tags
 Plug ('nvim-telescope/telescope.nvim')
 Plug ('jremmen/vim-ripgrep')
