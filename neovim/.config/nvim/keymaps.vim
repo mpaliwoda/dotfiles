@@ -112,3 +112,14 @@ nnoremap <F6> :lua require'dap'.step_over()<CR>
 nnoremap <F7> :lua require'dap'.step_into()<CR>
 nnoremap <F8> :lua require'dap'.step_out()<CR>
 nnoremap <F10> :lua require('dap.ext.vscode').load_launchjs()<CR>
+
+" press <Tab> to expand or jump in a snippet. These can also be mapped separately
+" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+imap <silent><expr> <C-l> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+" -1 for jumping backwards.
+inoremap <silent> <S-C-l> <cmd>lua require'luasnip'.jump(-1)<Cr>
+snoremap <silent> <C-l> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <C-C-l> <cmd>lua require('luasnip').jump(-1)<Cr>
+" For changing choices in choiceNodes (not strictly necessary for a basic setup).
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'

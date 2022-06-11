@@ -72,4 +72,5 @@ g.gutentags_ctags_exclude = {
     'node_modules',
     'tags*',
     'vendor',
+    'plugged',
 }
