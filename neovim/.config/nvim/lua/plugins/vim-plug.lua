@@ -39,7 +39,7 @@ Plug ('folke/twilight.nvim')
 Plug ('declancm/cinnamon.nvim')
 
 -- whitespace and commenting
-Plug ('tpope/vim-commentary')
+Plug ('numToStr/Comment.nvim')
 Plug ('tpope/vim-surround')
 Plug ('windwp/nvim-autopairs')
 
