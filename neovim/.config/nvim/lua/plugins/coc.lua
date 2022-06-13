@@ -10,7 +10,7 @@ vim.g.coc_global_extensions = {
     "coc-marketplace",
     "coc-prettier",
     "coc-pyright",
-    "coc-rls",
+    -- "coc-rls",
     "coc-rust-analyzer",
     "coc-sh",
     "coc-solargraph",

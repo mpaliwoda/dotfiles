@@ -96,7 +96,6 @@ nnoremap <silent> <Leader>fix :call CocActionAsync('doQuickfix')<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <silent><nowait> <Leader>com  :Telescope coc commands<cr>
 
-nnoremap <Leader>s :%s/<C-r><C-w>/g
 nnoremap <Leader>ren :call CocActionAsync('rename')<CR>
 nnoremap <Leder>ref :call CocActionAsync('refactor')<CR>
 vnoremap <Leader>a :sort i<CR>
@@ -123,3 +122,11 @@ snoremap <silent> <C-C-l> <cmd>lua require('luasnip').jump(-1)<Cr>
 " For changing choices in choiceNodes (not strictly necessary for a basic setup).
 imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+
+nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
+"search current word
+nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+vnoremap <leader>s <cmd>lua require('spectre').open_visual()<CR>
+"  search in current file
+nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+nnoremap <Leader>q :%s/<C-r><C-w>/

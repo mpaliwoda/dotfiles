@@ -21,6 +21,7 @@ Plug ('nvim-telescope/telescope.nvim')
 Plug ('jremmen/vim-ripgrep')
 Plug ('ludovicchabant/vim-gutentags')
 Plug ('skywind3000/gutentags_plus')
+Plug ('windwp/nvim-spectre')
 
 -- lua utils
 Plug ('nvim-lua/plenary.nvim')
