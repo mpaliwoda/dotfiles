@@ -25,6 +25,7 @@ require('plugins/spectre')
 require('plugins/tabline')
 require('plugins/telescope')
 require('plugins/twilight')
+require('plugins/vimtest')
 require('plugins/whichkey')
 
 vim.cmd('so ~/.config/nvim/keymaps.vim')

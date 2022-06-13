@@ -15,6 +15,7 @@ Plug ('rafamadriz/friendly-snippets')
 Plug ('mfussenegger/nvim-dap')
 Plug ('rcarriga/nvim-dap-ui')
 Plug ('mfussenegger/nvim-dap-python')
+Plug ('vim-test/vim-test')
 
 -- file searching, tags
 Plug ('nvim-telescope/telescope.nvim')
