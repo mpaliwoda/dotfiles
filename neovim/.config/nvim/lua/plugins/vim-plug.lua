@@ -39,6 +39,7 @@ Plug ('ojroques/nvim-hardline')
 Plug ('folke/twilight.nvim')
 Plug ('declancm/cinnamon.nvim')
 Plug ('folke/which-key.nvim')
+Plug ('pwntester/octo.nvim')
 
 -- whitespace and commenting
 Plug ('numToStr/Comment.nvim')
