@@ -38,6 +38,7 @@ Plug ('ojroques/nvim-hardline')
 Plug ('sunjon/shade.nvim')
 Plug ('folke/twilight.nvim')
 Plug ('declancm/cinnamon.nvim')
+Plug ('folke/which-key.nvim')
 
 -- whitespace and commenting
 Plug ('numToStr/Comment.nvim')

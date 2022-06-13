@@ -49,7 +49,7 @@ set.lazyredraw = true
 set.ttyfast = true
 
 set.ttimeout = true
-set.ttimeoutlen = 200
+set.ttimeoutlen = 100
 set.updatetime = 300
 
 set.undofile = true
