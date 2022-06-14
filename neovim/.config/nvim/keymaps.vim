@@ -6,7 +6,6 @@ nnoremap <Leader>conf :vsp ~/.config/nvim/init.lua<CR>
 " general
 noremap Y y$
 noremap D d$
-noremap <Leader>' :25Term<CR>
 nnoremap <C-L> :nohl<CR><C-L>
 
 " window, tab & buffer jumping + resizing
@@ -130,3 +129,8 @@ vnoremap <leader>s <cmd>lua require('spectre').open_visual()<CR>
 "  search in current file
 nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
 nnoremap <Leader>q :%s/<C-r><C-w>/
+
+nnoremap <leader>' :ToggleTerm size=25 direction=horizontal<cr>
+nnoremap <leader>" :ToggleTerm direction=float<cr>
+tnoremap <Esc> <C-\><C-n>
+vnoremap <leader>' :ToggleTermSendVisualSelection<cr>
