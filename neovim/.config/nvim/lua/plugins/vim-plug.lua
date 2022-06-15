@@ -23,6 +23,7 @@ Plug ('jremmen/vim-ripgrep')
 Plug ('ludovicchabant/vim-gutentags')
 Plug ('skywind3000/gutentags_plus')
 Plug ('windwp/nvim-spectre')
+Plug ('AckslD/nvim-neoclip.lua')
 
 -- lua utils
 Plug ('nvim-lua/plenary.nvim')
@@ -71,5 +72,6 @@ Plug ('ellisonleao/glow.nvim', { branch = 'main' })
 
 -- other utils
 Plug ('MunifTanjim/nui.nvim')
+Plug ('tami5/sqlite.lua')
 
 vim.call('plug#end')
