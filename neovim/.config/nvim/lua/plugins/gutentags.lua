@@ -11,7 +11,7 @@ g.gutentags_generate_on_empty_buffer = 0
 g.gutentags_ctags_extra_args = { '--tag-relative=yes', '--fields=+ailmnS' }
 g.gutentags_define_advanced_commands = 1
 g.gutentags_cache_dir = os.getenv('HOME') .. '/.cache/tags'
-
+g.gutentags_plus_nomap = 1
 
 g.gutentags_ctags_exclude = {
     '*-lock.json',
