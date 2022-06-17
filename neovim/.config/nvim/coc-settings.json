@@ -44,5 +44,7 @@
     "emmet.priority": 100,
     "htmldjango.djlint.profile": "jinja",
     "htmldjango.formatting.provider": "djlint",
-    "htmldjango.djlint.enableLint": true
+    "htmldjango.djlint.enableLint": true,
+    "tailwindCSS.headwind.runOnSave": false,
+    "typescript.inlayHints.parameterTypes.enabled": true
 }
