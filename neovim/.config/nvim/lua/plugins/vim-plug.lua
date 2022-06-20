@@ -69,5 +69,6 @@ Plug ('ellisonleao/glow.nvim', { branch = 'main' })
 -- other utils
 Plug ('MunifTanjim/nui.nvim')
 Plug ('tami5/sqlite.lua')
+Plug ('lewis6991/impatient.nvim')
 
 vim.call('plug#end')
