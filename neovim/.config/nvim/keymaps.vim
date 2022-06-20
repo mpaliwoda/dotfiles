@@ -107,9 +107,11 @@ nnoremap <Leader>ab :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <Leader>ar :lua require'dap'.repl.open()<CR>
 nnoremap <Leader>au :lua require'dapui'.toggle()<CR>
 nnoremap <F5> :lua require'dap'.continue()<CR>
-nnoremap <F6> :lua require'dap'.step_over()<CR>
-nnoremap <F7> :lua require'dap'.step_into()<CR>
+nnoremap <F6> :lua require'dap'.step_into()<CR>
+nnoremap <F7> :lua require'dap'.step_over()<CR>
 nnoremap <F8> :lua require'dap'.step_out()<CR>
+nnoremap <F9> :lua require'dap-python'.test_method()<CR>
+vnoremap <F9> :lua require'dap-python'.debug_selection()<CR>
 nnoremap <F10> :lua require('dap.ext.vscode').load_launchjs()<CR>
 
 " press <Tab> to expand or jump in a snippet. These can also be mapped separately

@@ -4,6 +4,13 @@ if not dap_present then
     return
 end
 
+local dap_vtext_present, dap_vtext = pcall(require, "nvim-dap-virtual-text")
+if not dap_vtext_present then
+    return
+end
+
+dap_vtext.setup()
+
 local api = vim.api
 local keymap_restore = {}
 
@@ -45,7 +52,8 @@ if not dap_python_present then
     return
 end
 
-dap_python.setup('~/.pyenv/versions/neovim3/bin/python3')
+dap_python.test_runner = "pytest"
+dap_python.setup('/Users/marcin.paliwoda/.pyenv/versions/neovim3/bin/python3')
 
 
 -- DAP UI
@@ -98,7 +106,7 @@ dap_ui.setup({
     },
   },
   windows = { indent = 1 },
-  render = { 
+  render = {
     max_type_length = nil, -- Can be integer or nil.
   }
 })
