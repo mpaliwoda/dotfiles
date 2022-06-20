@@ -48,9 +48,9 @@ set.relativenumber = true
 set.lazyredraw = true
 set.ttyfast = true
 
-set.ttimeout = true
-set.ttimeoutlen = 100
-set.updatetime = 300
+set.timeout = true
+set.timeoutlen = 400
+set.updatetime = 400
 
 set.undofile = true
 set.undodir = os.getenv("HOME") .. '/.config/nvim/undodir'
