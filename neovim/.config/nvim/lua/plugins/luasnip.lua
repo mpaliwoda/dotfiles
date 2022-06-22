@@ -5,4 +5,5 @@ if not present then
 end
 
 require("luasnip.loaders.from_vscode").lazy_load()
+
 luasnip.filetype_extend('djangohtml', {'djangohtml'})

@@ -33,11 +33,10 @@ Plug ('nvim-lua/plenary.nvim')
 Plug ('majutsushi/tagbar',               { on = 'TagbarToggle' })
 Plug ('simnalamburt/vim-mundo',          { on = 'MundoToggle' })
 Plug ('kyazdani42/nvim-tree.lua')
-Plug ('seblj/nvim-tabline')
-Plug ('ojroques/nvim-hardline')
 Plug ('folke/which-key.nvim')
 Plug ('pwntester/octo.nvim')
 Plug ("akinsho/toggleterm.nvim",         { tag = "v1.*"} )
+Plug ('nvim-lualine/lualine.nvim')
 
 -- whitespace and commenting
 Plug ('numToStr/Comment.nvim')

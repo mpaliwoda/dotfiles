@@ -29,6 +29,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>y <cmd>Telescope neoclip<cr>
+nnoremap <leader>b :Telescope buffers<CR>
 
 " ui toggles
 nnoremap <Leader>goyo :Goyo<CR>
@@ -100,8 +101,7 @@ nnoremap <Leader>ren :call CocActionAsync('rename')<CR>
 nnoremap <Leder>ref :call CocActionAsync('refactor')<CR>
 vnoremap <Leader>a :sort i<CR>
 
-nnoremap <silent> <Leader>glow :Glow<CR>
-nnoremap <silent> <Leader>twi :Twilight<CR>
+nnoremap <silent> <Leader>md :Glow<CR>
 
 nnoremap <Leader>ab :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <Leader>ar :lua require'dap'.repl.open()<CR>

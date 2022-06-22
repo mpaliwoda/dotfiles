@@ -8,9 +8,9 @@ set.wildmode = 'full'
 set.wildignore = { '*.swp', '*.bak', '*.pyc', '*.class', '*/tmp', '*/__pycache__', '*/node_modules' }
 
 set.laststatus = 1
-set.showtabline = 1
+set.showtabline = 0
 set.showcmd = true
-set.cmdheight = 2
+set.cmdheight = 1
 
 set.cursorline = true
 

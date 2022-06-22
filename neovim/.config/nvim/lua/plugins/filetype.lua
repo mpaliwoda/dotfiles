@@ -4,4 +4,5 @@ if not present then
     return
 end
 
-filetype.setup {}
+--empty table is required unlike in other plugins
+filetype.setup({})
