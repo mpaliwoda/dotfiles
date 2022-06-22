@@ -8,6 +8,7 @@ telescope.setup({
     defaults = {
         prompt_prefix = "   ",
         sorting_strategy = "ascending",
+        file_sorter = require("telescope.sorters").get_fuzzy_file,
         layout_config = {
             horizontal = {
                 prompt_position = "top",
