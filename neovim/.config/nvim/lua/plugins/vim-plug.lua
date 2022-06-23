@@ -46,6 +46,10 @@ Plug ('airblade/vim-gitgutter')
 Plug ('rhysd/committia.vim')
 Plug ('tpope/vim-fugitive')
 
+-- sql
+Plug ('tpope/vim-dadbod')
+Plug ('kristijanhusak/vim-dadbod-ui')
+
 -- themes
 Plug ('navarasu/onedark.nvim')
 

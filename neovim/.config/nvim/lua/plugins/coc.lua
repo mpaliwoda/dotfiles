@@ -1,5 +1,6 @@
 vim.g.coc_global_extensions = {
     "coc-css",
+    "coc-db",
     "coc-emmet",
     "coc-emoji",
     "coc-format-json",
