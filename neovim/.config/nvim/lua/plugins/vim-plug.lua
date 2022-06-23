@@ -10,6 +10,7 @@ Plug ('fannheyward/telescope-coc.nvim')
 Plug ('bennypowers/nvim-regexplainer')
 Plug ('L3MON4D3/LuaSnip')
 Plug ('rafamadriz/friendly-snippets')
+Plug ('nvim-treesitter/nvim-treesitter-textobjects')
 
 -- debugging
 Plug ('mfussenegger/nvim-dap')
@@ -18,11 +19,9 @@ Plug ('mfussenegger/nvim-dap-python')
 Plug ('theHamsta/nvim-dap-virtual-text')
 Plug ('vim-test/vim-test')
 
--- file searching, tags
+-- file searching
 Plug ('nvim-telescope/telescope.nvim')
 Plug ('jremmen/vim-ripgrep')
-Plug ('ludovicchabant/vim-gutentags')
-Plug ('skywind3000/gutentags_plus')
 Plug ('windwp/nvim-spectre')
 Plug ('AckslD/nvim-neoclip.lua')
 
@@ -30,7 +29,6 @@ Plug ('AckslD/nvim-neoclip.lua')
 Plug ('nvim-lua/plenary.nvim')
 
 -- ui
-Plug ('majutsushi/tagbar',               { on = 'TagbarToggle' })
 Plug ('simnalamburt/vim-mundo',          { on = 'MundoToggle' })
 Plug ('kyazdani42/nvim-tree.lua')
 Plug ('folke/which-key.nvim')
@@ -58,9 +56,6 @@ Plug ('machakann/vim-highlightedyank')
 Plug ('norcalli/nvim-colorizer.lua')
 Plug ('p00f/nvim-ts-rainbow')
 Plug ('lukas-reineke/indent-blankline.nvim')
-
--- additional motions
-Plug ('AndrewRadev/splitjoin.vim')
 
 -- additional markdown support
 Plug ('jghauser/follow-md-links.nvim')

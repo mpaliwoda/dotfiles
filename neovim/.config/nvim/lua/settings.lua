@@ -55,10 +55,6 @@ set.updatetime = 400
 set.undofile = true
 set.undodir = os.getenv("HOME") .. '/.config/nvim/undodir'
 
-set.cscopetag = true
-set.csto = 0
-set.tags = { './tags', 'tags;/' }
-
 vim.g.python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
 vim.g.did_load_filetypes = 1
 vim.g.loaded_perl_provider = 0

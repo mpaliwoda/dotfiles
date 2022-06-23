@@ -33,7 +33,6 @@ nnoremap <leader>b :Telescope buffers<CR>
 
 " ui toggles
 nnoremap <Leader>goyo :Goyo<CR>
-nnoremap <Leader>tag :TagbarToggle<CR>
 nnoremap <Leader>undo :MundoToggle<CR>
 
 " nvimtree
