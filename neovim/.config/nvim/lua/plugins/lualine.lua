@@ -16,6 +16,12 @@ lualine.setup({
                 mode = 2
             }
         },
+        lualine_y = {
+            {
+                'filename',
+                path = 3
+            }
+        }
     },
     extensions = {
         "fugitive",
