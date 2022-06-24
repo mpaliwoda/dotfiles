@@ -4,9 +4,4 @@ if not present then
     return
 end
 
-comment.setup({
-    opleader = {
-        line = "gcc",
-        block = "gbc"
-    }
-})
+comment.setup()
