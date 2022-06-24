@@ -4,7 +4,7 @@ if not present then
     return
 end
 
-scheme.setup {
+scheme.setup({
     style = 'darker', -- Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     term_colors = true,
     ending_tildes = true,
@@ -16,6 +16,6 @@ scheme.setup {
         strings = 'italic',
         variables = 'none'
     },
-}
+})
 
 scheme.load()

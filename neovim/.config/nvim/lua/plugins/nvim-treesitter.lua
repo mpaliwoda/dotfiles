@@ -4,7 +4,7 @@ if not present then
     return
 end
 
-treesitter.setup {
+treesitter.setup({
     ensure_installed = "all",
     ignore_install = { "phpdoc" },
     highlight = {
@@ -61,4 +61,4 @@ treesitter.setup {
         extended_mode = true,
         max_file_lines = nil,
     }
-}
+})

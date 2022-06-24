@@ -11,7 +11,7 @@ if not present then
     return
 end
 
-indent_blankline.setup {
+indent_blankline.setup({
     space_char_blankline = " ",
     show_end_of_line = true,
     char_highlight_list = {
@@ -22,4 +22,4 @@ indent_blankline.setup {
         "IndentBlanklineIndent5",
         "IndentBlanklineIndent6",
     },
-}
+})

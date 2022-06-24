@@ -4,7 +4,7 @@ if not present then
     return
 end
 
-ntree.setup {
+ntree.setup({
     disable_netrw           = true,
     hijack_netrw            = true,
     create_in_closed_folder = true,
@@ -37,4 +37,4 @@ ntree.setup {
         highlight_opened_files = "name",
         root_folder_modifier   = ">>>",
     }
-}
+})
