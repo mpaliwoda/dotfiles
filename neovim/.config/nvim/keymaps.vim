@@ -43,7 +43,7 @@ nnoremap <leader>fr :NvimTreeRefresh<CR>
 " git
 noremap <Leader>gb :Git blame<CR>
 noremap <Leader>gc :Git commit<CR>
-noremap <Leader>gs :Git status<CR>
+noremap <Leader>gs :G<CR>
 noremap <Leader>gm :GMove 
 noremap <Leader>gdel :Gdelete<CR>
 noremap <Leader>gdi :Gdiff<CR>
