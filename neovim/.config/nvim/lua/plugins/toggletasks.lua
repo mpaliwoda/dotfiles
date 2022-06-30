@@ -5,4 +5,15 @@ if not present then
 end
 
 
-toggletasks.setup()
+toggletasks.setup({
+    search_paths = {
+        'tasks',
+        '.tasks',
+        '.vscode/tasks',
+    },
+    scan = {
+        dirs = {
+            os.getenv("HOME") .. '/.config/nvim',
+        }
+    }
+})
