@@ -40,6 +40,7 @@ Plug ('nvim-lualine/lualine.nvim')
 Plug ('numToStr/Comment.nvim')
 Plug ('tpope/vim-surround')
 Plug ('windwp/nvim-autopairs')
+Plug ('tpope/vim-sleuth')
 
 -- git
 Plug ('airblade/vim-gitgutter')
