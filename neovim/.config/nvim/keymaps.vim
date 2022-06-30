@@ -32,8 +32,7 @@ nnoremap <leader>y <cmd>Telescope neoclip<cr>
 nnoremap <leader>b :Telescope buffers<CR>
 
 " ui toggles
-nnoremap <Leader>goyo :Goyo<CR>
-nnoremap <Leader>undo :MundoToggle<CR>
+nnoremap <Leader>undo :UndotreeToggle<CR>
 
 " nvimtree
 nnoremap <Leader>ft :NvimTreeToggle<CR>

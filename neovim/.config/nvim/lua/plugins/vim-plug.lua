@@ -29,11 +29,11 @@ Plug ('AckslD/nvim-neoclip.lua')
 Plug ('nvim-lua/plenary.nvim')
 
 -- ui
-Plug ('simnalamburt/vim-mundo',          { on = 'MundoToggle' })
+Plug ('mbbill/undotree',                 { on = "UndotreeToggle" })
 Plug ('kyazdani42/nvim-tree.lua')
 Plug ('folke/which-key.nvim')
 Plug ('pwntester/octo.nvim' ,            { on = 'Octo' })
-Plug ("akinsho/toggleterm.nvim",         { tag = "v1.*"})
+Plug ("akinsho/toggleterm.nvim",         { tag = "v1.*" })
 Plug ('nvim-lualine/lualine.nvim')
 
 -- whitespace and commenting
