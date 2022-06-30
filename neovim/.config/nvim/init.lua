@@ -23,6 +23,7 @@ require('plugins/octo')
 require('plugins/regexplainer')
 require('plugins/spectre')
 require('plugins/telescope')
+require('plugins/toggletasks')
 require('plugins/vimtest')
 require('plugins/whichkey')
 

@@ -97,7 +97,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <silent><nowait> <Leader>com  :Telescope coc commands<cr>
 
 nnoremap <Leader>ren :call CocActionAsync('rename')<CR>
-nnoremap <Leder>ref :call CocActionAsync('refactor')<CR>
+nnoremap <Leader>ref :call CocActionAsync('refactor')<CR>
 vnoremap <Leader>a :sort i<CR>
 
 nnoremap <silent> <Leader>md :Glow<CR>
@@ -136,3 +136,12 @@ nnoremap <leader>' :ToggleTerm size=25 direction=horizontal<cr>
 nnoremap <leader>" :ToggleTerm direction=float<cr>
 tnoremap <Esc> <C-\><C-n>
 vnoremap <leader>' :ToggleTermSendVisualSelection<cr>
+
+nnoremap <leader>t1 <cmd>ToggleTerm 1<cr>
+nnoremap <leader>t2 <cmd>ToggleTerm 2<cr>
+nnoremap <leader>t3 <cmd>ToggleTerm 3<cr>
+nnoremap <leader>t4 <cmd>ToggleTerm 4<cr>
+nnoremap <leadee>t5 <cmd>ToggleTerm 5<cr>
+
+nnoremap <leader>ww <cmd>Telescope toggletasks spawn<cr>
+nnoremap <leader>ws <cmd>Telescope toggletasks select<cr>

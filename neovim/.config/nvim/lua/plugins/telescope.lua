@@ -28,7 +28,7 @@ telescope.setup({
 }
 )
 
-local extensions = { "themes", "terms", "coc", "neoclip" }
+local extensions = { "themes", "terms", "coc", "neoclip", "toggletasks" }
 
 for _, ext in ipairs(extensions) do
     pcall(telescope.load_extension, ext)
