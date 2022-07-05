@@ -74,5 +74,7 @@ Plug ('lewis6991/impatient.nvim')
 -- tasks
 Plug ('jedrzejboczar/toggletasks.nvim')
 
+-- motions
+Plug ('phaazon/hop.nvim')
 
 vim.call('plug#end')

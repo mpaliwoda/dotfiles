@@ -143,3 +143,5 @@ nnoremap <leadee>t5 <cmd>ToggleTerm 5<cr>
 
 nnoremap <leader>ww <cmd>Telescope toggletasks spawn<cr>
 nnoremap <leader>ws <cmd>Telescope toggletasks select<cr>
+
+nnoremap <leader>mw <cmd>HopWord<cr>
