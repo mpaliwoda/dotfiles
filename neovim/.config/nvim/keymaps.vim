@@ -28,16 +28,15 @@ nnoremap <Leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>y <cmd>Telescope neoclip<cr>
-nnoremap <leader>b :Telescope buffers<CR>
-
-" ui toggles
-nnoremap <Leader>undo :UndotreeToggle<CR>
+nnoremap <leader>fy <cmd>Telescope neoclip<cr>
 
 " nvimtree
 nnoremap <Leader>ft :NvimTreeToggle<CR>
 nnoremap <Leader>fs :NvimTreeFindFile<CR>
 nnoremap <leader>fr :NvimTreeRefresh<CR>
+
+" ui toggles
+nnoremap <Leader>undo :UndotreeToggle<CR>
 
 " git
 noremap <Leader>gb :Git blame<CR>
