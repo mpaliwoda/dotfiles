@@ -8,8 +8,6 @@ Plug ('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug ('nathom/filetype.nvim')
 Plug ('fannheyward/telescope-coc.nvim')
 Plug ('bennypowers/nvim-regexplainer')
-Plug ('L3MON4D3/LuaSnip')
-Plug ('rafamadriz/friendly-snippets')
 Plug ('nvim-treesitter/nvim-treesitter-textobjects')
 
 -- debugging
