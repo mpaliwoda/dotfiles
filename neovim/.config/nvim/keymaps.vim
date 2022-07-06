@@ -1,52 +1,100 @@
 let mapleader="\<SPACE>"
 
-" configs
-nnoremap <Leader>conf :vsp ~/.config/nvim/init.lua<CR>
-
-" general
-noremap Y y$
-noremap D d$
-nnoremap <C-L> :nohl<CR><C-L>
-
-" window, tab & buffer jumping + resizing
-nnoremap <Leader>h :wincmd h<CR>
-nnoremap <Leader>j :wincmd j<CR>
-nnoremap <Leader>k :wincmd k<CR>
-nnoremap <Leader>l :wincmd l<CR>
-nnoremap <Leader>tab :tabedit<CR>
-nnoremap <C-t> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
-nnoremap <A-t> :bnext<CR>:redraw<CR>:ls<CR>
-nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
-nnoremap <silent> = :exe "resize +5"<CR>
-nnoremap <silent> - :exe "resize -5"<CR>
-nnoremap <silent> <Leader>= :exe "vertical resize +10"<CR>
-nnoremap <silent> <Leader>- :exe "vertical resize -10"<CR>
-
 " telescope
-nnoremap <Leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fy <cmd>Telescope neoclip<cr>
+nnoremap <Leader>ff      <cmd>Telescope find_files<cr>
+nnoremap <leader>fg      <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb      <cmd>Telescope buffers<cr>
+nnoremap <leader>fh      <cmd>Telescope help_tags<cr>
+nnoremap <leader>fy      <cmd>Telescope neoclip<cr>
 
 " nvimtree
-nnoremap <Leader>ft :NvimTreeToggle<CR>
-nnoremap <Leader>fs :NvimTreeFindFile<CR>
-nnoremap <leader>fr :NvimTreeRefresh<CR>
-
-" ui toggles
-nnoremap <Leader>undo :UndotreeToggle<CR>
+nnoremap <Leader>ft      <cmd>NvimTreeToggle<cr>
+nnoremap <Leader>fs      <cmd>NvimTreeFindFile<cr>
+nnoremap <leader>fr      <cmd>NvimTreeRefresh<cr>
 
 " git
-noremap <Leader>gb :Git blame<CR>
-noremap <Leader>gc :Git commit<CR>
-noremap <Leader>gs :G<CR>
-noremap <Leader>gm :GMove 
-noremap <Leader>gdel :Gdelete<CR>
-noremap <Leader>gdi :Gdiff<CR>
-noremap <Leader>gl :Git log<CR>
-noremap <Leader>gw :Gwrite<CR>
+noremap <Leader>gs       <cmd>G<cr>
+noremap <Leader>gc       <cmd>Git commit<cr>
+noremap <Leader>gl       <cmd>Git log<cr>
+noremap <Leader>gb       <cmd>Git blame<cr>
+noremap <Leader>gdi      <cmd>Gdiff<cr>
+noremap <Leader>gdel     <cmd>GRemove<cr>
+noremap <Leader>gp       <cmd>Git push<cr>
+noremap <Leader>gw       <cmd>Gwrite<cr>
+noremap <Leader>gW       <cmd>Gwrite!<cr>
+noremap <Leader>gh       <cmd>Telescope git_commits<cr>
+noremap <Leader>gS       <cmd>Telescope git_stash<cr>
+noremap <Leader>gB       <cmd>Telescope git_branches<cr>
+
+nnoremap <leader>t1      <cmd>ToggleTerm 1<cr>
+nnoremap <leader>t2      <cmd>ToggleTerm 2<cr>
+nnoremap <leader>t3      <cmd>ToggleTerm 3<cr>
+nnoremap <leader>t4      <cmd>ToggleTerm 4<cr>
+nnoremap <leadee>t5      <cmd>ToggleTerm 5<cr>
+
+nnoremap <leader>tf1     <cmd>ToggleTerm 1 direction=float<cr>
+nnoremap <leader>tf2     <cmd>ToggleTerm 2 direction=float<cr>
+nnoremap <leader>tf3     <cmd>ToggleTerm 3 direction=float<cr>
+nnoremap <leader>tf4     <cmd>ToggleTerm 4 direction=float<cr>
+nnoremap <leadee>tf5     <cmd>ToggleTerm 5 direction=float<cr>
+
+nnoremap <leader>'       <cmd>ToggleTerm size=25 direction=horizontal<cr>
+nnoremap <leader>"       <cmd>ToggleTerm direction=float<cr>
+vnoremap <leader>'       <cmd>ToggleTermSendVisualSelection<cr>
+
+nnoremap <leader>ww      <cmd>Telescope toggletasks spawn<cr>
+nnoremap <leader>ws      <cmd>Telescope toggletasks select<cr>
+
+nnoremap <leader>n       <cmd>HopWord<cr>
+nnoremap <Leader>undo    <cmd>UndotreeToggle<cr>
+
+tnoremap <Esc>           <C-\><C-n>
+
+nnoremap <Leader>ab      <cmd>lua require'dap'.toggle_breakpoint()<cr>
+nnoremap <Leader>ar      <cmd>lua require'dap'.repl.open()<cr>
+nnoremap <Leader>au      <cmd>lua require'dapui'.toggle()<cr>
+
+nnoremap <F5>            <cmd>lua require'dap'.continue()<cr>
+
+nnoremap <F6>            <cmd>lua require'dap'.step_into()<cr>
+nnoremap <F7>            <cmd>lua require'dap'.step_over()<cr>
+nnoremap <F8>            <cmd>lua require'dap'.step_out()<cr>
+
+nnoremap <F9>            <cmd>lua require'dap-python'.test_method()<cr>
+vnoremap <F9>            <cmd>lua require'dap-python'.debug_selection()<cr>
+nnoremap <F10>           <cmd>lua require('dap.ext.vscode').load_launchjs()<cr>
+
+
+nnoremap <leader>S       <cmd>lua require('spectre').open()<cr>
+nnoremap <leader>sw      <cmd>lua require('spectre').open_visual({select_word=true})<cr>
+nnoremap <leader>sp      <cmd>lua require('spectre').open_file_search()<cr>
+nnoremap <Leader>ss      <cmd>%s/<C-r><C-w>/
+vnoremap <leader>s       <cmd>lua require('spectre').open_visual()<cr>
+
+nnoremap <Leader>coc     <cmd>Telescope coc<cr>
+nnoremap <Leader>com     <cmd>Telescope coc commands<cr>
+
+nnoremap <Leader>mgd     <cmd>call CocActionAsync('jumpDefinition')<cr>
+nnoremap <Leader>mgy     <cmd>call CocActionAsync('jumpTypeDefinition')<cr>
+nnoremap <Leader>mgi     <cmd>call CocActionAsync('jumpImplementation')<cr>
+nnoremap <Leader>mgF     <cmd>call CocActionAsync('doQuickfix')<cr>
+nnoremap <Leader>mgs     <cmd>Telescope coc references<cr>
+nnoremap <Leader>mgD     <cmd>Telescope coc diagnostics<cr>
+nnoremap <leader>fmt     <cmd>call CocActionAsync('format')<cr>
+xnoremap <leader>fmt     <cmd>call CocActionAsync('formatSelected', visualmode())<cr>
+nnoremap [g              <cmd>call CocActionAsync('diagnosticPrevious')<cr>
+nnoremap ]g              <cmd>call CocActionAsync('diagnosticNext')<cr>
+
+nnoremap <Leader>isort   <cmd>call CocAction('runCommand', 'editor.action.organizeImport')<cr>
+
+nnoremap <leader><space> <cmd>call CocActionAsync('codeAction', '')<cr>
+xnoremap <leader><space> <cmd>call CocActionAsync('codeAction', visualmode())<cr>
+
+nnoremap <Leader>ren     <cmd>call CocActionAsync('rename')<cr>
+nnoremap <Leader>ref     <cmd>call CocActionAsync('refactor')<cr>
+vnoremap <Leader>a       :sort i<cr>
+
+inoremap <expr> <c-space> coc#refresh()
 
 " completion and code actions
 " Helpers for coc
@@ -63,7 +111,7 @@ function! s:check_back_space() abort
 endfunction
 
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<cr>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -72,76 +120,19 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <Leader>coc :Telescope coc<CR>
+" general
+noremap Y y$
+noremap D d$
+nnoremap <C-L> :nohl<cr><C-L>
+"
+" window, tab & buffer jumping + resizing
+nnoremap <Leader>h :wincmd h<cr>
+nnoremap <Leader>j :wincmd j<cr>
+nnoremap <Leader>k :wincmd k<cr>
+nnoremap <Leader>l :wincmd l<cr>
+nnoremap <Leader>tab :tabedit<cr>
+nnoremap <silent> = :exe "resize +5"<cr>
+nnoremap <silent> - :exe "resize -5"<cr>
+nnoremap <silent> <Leader>= :exe "vertical resize +10"<cr>
+nnoremap <silent> <Leader>- :exe "vertical resize -10"<cr>
 
-nnoremap <silent> <Leader>mgd :call CocActionAsync('jumpDefinition')<CR>
-nnoremap <silent> <Leader>mgy :call CocActionAsync('jumpTypeDefinition')<CR>
-nnoremap <silent> <Leader>mgi :call CocActionAsync('jumpImplementation')<CR>
-nnoremap <silent> <Leader>mgs :Telescope coc references<CR>
-
-nnoremap <silent> diag :Telescope coc diagnostics<CR>
-nnoremap <silent> [g :call CocActionAsync('diagnosticPrevious')<CR>
-nnoremap <silent> ]g :call CocActionAsync('diagnosticNext')<CR>
-
-xnoremap <leader>fmt  :call CocActionAsync('formatSelected', visualmode())<CR>
-nnoremap <leader>fmt  :call CocActionAsync('format')<CR>
-nnoremap <Leader>isort :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
-
-nnoremap <leader><space> :call CocActionAsync('codeAction', '')<CR>
-xnoremap <leader><space> :call CocActionAsync('codeAction', visualmode())<CR>
-nnoremap <silent> <Leader>fix :call CocActionAsync('doQuickfix')<CR>
-
-inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <silent><nowait> <Leader>com  :Telescope coc commands<cr>
-
-nnoremap <Leader>ren :call CocActionAsync('rename')<CR>
-nnoremap <Leader>ref :call CocActionAsync('refactor')<CR>
-vnoremap <Leader>a :sort i<CR>
-
-nnoremap <silent> <Leader>md :Glow<CR>
-
-nnoremap <Leader>ab :lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <Leader>ar :lua require'dap'.repl.open()<CR>
-nnoremap <Leader>au :lua require'dapui'.toggle()<CR>
-nnoremap <F5> :lua require'dap'.continue()<CR>
-nnoremap <F6> :lua require'dap'.step_into()<CR>
-nnoremap <F7> :lua require'dap'.step_over()<CR>
-nnoremap <F8> :lua require'dap'.step_out()<CR>
-nnoremap <F9> :lua require'dap-python'.test_method()<CR>
-vnoremap <F9> :lua require'dap-python'.debug_selection()<CR>
-nnoremap <F10> :lua require('dap.ext.vscode').load_launchjs()<CR>
-
-" press <Tab> to expand or jump in a snippet. These can also be mapped separately
-" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
-imap <silent><expr> <C-l> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-" -1 for jumping backwards.
-inoremap <silent> <S-C-l> <cmd>lua require'luasnip'.jump(-1)<Cr>
-snoremap <silent> <C-l> <cmd>lua require('luasnip').jump(1)<Cr>
-snoremap <silent> <C-C-l> <cmd>lua require('luasnip').jump(-1)<Cr>
-" For changing choices in choiceNodes (not strictly necessary for a basic setup).
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-
-nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
-"search current word
-nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
-vnoremap <leader>s <cmd>lua require('spectre').open_visual()<CR>
-"  search in current file
-nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
-nnoremap <Leader>q :%s/<C-r><C-w>/
-
-nnoremap <leader>' :ToggleTerm size=25 direction=horizontal<cr>
-nnoremap <leader>" :ToggleTerm direction=float<cr>
-tnoremap <Esc> <C-\><C-n>
-vnoremap <leader>' :ToggleTermSendVisualSelection<cr>
-
-nnoremap <leader>t1 <cmd>ToggleTerm 1<cr>
-nnoremap <leader>t2 <cmd>ToggleTerm 2<cr>
-nnoremap <leader>t3 <cmd>ToggleTerm 3<cr>
-nnoremap <leader>t4 <cmd>ToggleTerm 4<cr>
-nnoremap <leadee>t5 <cmd>ToggleTerm 5<cr>
-
-nnoremap <leader>ww <cmd>Telescope toggletasks spawn<cr>
-nnoremap <leader>ws <cmd>Telescope toggletasks select<cr>
-
-nnoremap <leader>mw <cmd>HopWord<cr>
