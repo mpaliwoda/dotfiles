@@ -6,6 +6,7 @@ nnoremap <leader>fg      <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb      <cmd>Telescope buffers<cr>
 nnoremap <leader>fh      <cmd>Telescope help_tags<cr>
 nnoremap <leader>fy      <cmd>Telescope neoclip<cr>
+nnoremap <leader>fe      <cmd>Telescope file_browser<cr>
 
 " nvimtree
 nnoremap <Leader>ft      <cmd>NvimTreeToggle<cr>
@@ -13,7 +14,7 @@ nnoremap <Leader>fs      <cmd>NvimTreeFindFile<cr>
 nnoremap <leader>fr      <cmd>NvimTreeRefresh<cr>
 
 " git
-noremap <Leader>gs       <cmd>G<cr>
+noremap <Leader>gg       <cmd>G<cr>
 noremap <Leader>gc       <cmd>Git commit<cr>
 noremap <Leader>gl       <cmd>Git log<cr>
 noremap <Leader>gb       <cmd>Git blame<cr>
@@ -23,8 +24,10 @@ noremap <Leader>gp       <cmd>Git push<cr>
 noremap <Leader>gw       <cmd>Gwrite<cr>
 noremap <Leader>gW       <cmd>Gwrite!<cr>
 noremap <Leader>gh       <cmd>Telescope git_commits<cr>
+noremap <Leader>gs       <cmd>Git stash<cr>
 noremap <Leader>gS       <cmd>Telescope git_stash<cr>
 noremap <Leader>gB       <cmd>Telescope git_branches<cr>
+noremap <Leader>gm       <cmd>Git mergetool<cr>
 
 nnoremap <leader>t1      <cmd>ToggleTerm 1<cr>
 nnoremap <leader>t2      <cmd>ToggleTerm 2<cr>

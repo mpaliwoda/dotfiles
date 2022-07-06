@@ -22,6 +22,7 @@ Plug ('nvim-telescope/telescope.nvim')
 Plug ('jremmen/vim-ripgrep')
 Plug ('windwp/nvim-spectre')
 Plug ('AckslD/nvim-neoclip.lua')
+Plug ('nvim-telescope/telescope-file-browser.nvim')
 
 -- lua utils
 Plug ('nvim-lua/plenary.nvim')
