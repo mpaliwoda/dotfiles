@@ -83,6 +83,7 @@ nnoremap <Leader>mgi     <cmd>call CocActionAsync('jumpImplementation')<cr>
 nnoremap <Leader>mgF     <cmd>call CocActionAsync('doQuickfix')<cr>
 nnoremap <Leader>mgs     <cmd>Telescope coc references<cr>
 nnoremap <Leader>mgD     <cmd>Telescope coc diagnostics<cr>
+nnoremap <Leader>mgq     <cmd>Telescope coc document_symbols<cr>
 nnoremap <leader>fmt     <cmd>call CocActionAsync('format')<cr>
 xnoremap <leader>fmt     <cmd>call CocActionAsync('formatSelected', visualmode())<cr>
 nnoremap [g              <cmd>call CocActionAsync('diagnosticPrevious')<cr>
