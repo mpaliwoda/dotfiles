@@ -6,3 +6,8 @@ augroup htmldjango_ft
   autocmd BufNewFile,BufRead *.html.j2   set ft=htmldjango
   autocmd BufNewFile,BufRead *.jinja     set ft=htmldjango
 augroup END
+
+augroup terraform
+  au!
+  autocmd BufNewFile,BufRead *.tf        set ft=hcl
+augroup END
