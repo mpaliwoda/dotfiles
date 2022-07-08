@@ -71,7 +71,7 @@ nnoremap <F10>           <cmd>lua require('dap.ext.vscode').load_launchjs()<cr>
 nnoremap <leader>S       <cmd>lua require('spectre').open()<cr>
 nnoremap <leader>sw      <cmd>lua require('spectre').open_visual({select_word=true})<cr>
 nnoremap <leader>sp      <cmd>lua require('spectre').open_file_search()<cr>
-nnoremap <Leader>ss      <cmd>%s/<C-r><C-w>/
+nnoremap <Leader>ss      :%s/<C-r><C-w>/
 vnoremap <leader>s       <cmd>lua require('spectre').open_visual()<cr>
 
 nnoremap <Leader>coc     <cmd>Telescope coc<cr>
