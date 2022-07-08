@@ -15,9 +15,8 @@ treesitter.setup({
         enable = true,
         keymaps = {
             init_selection = "<C-n>",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
+            node_incremental = "<C-]>",
+            node_decremental = "<C-[>",
         },
     },
     move = {
