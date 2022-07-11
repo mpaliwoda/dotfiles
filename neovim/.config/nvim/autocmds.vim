@@ -11,3 +11,8 @@ augroup terraform
   au!
   autocmd BufNewFile,BufRead *.tf        set ft=hcl
 augroup END
+
+augroup spellsitter
+  au!
+  autocmd TermOpen *                     setlocal nospell
+augroup END
