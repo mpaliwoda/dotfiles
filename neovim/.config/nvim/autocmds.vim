@@ -7,12 +7,17 @@ augroup htmldjango_ft
   autocmd BufNewFile,BufRead *.jinja     set ft=htmldjango
 augroup END
 
+augroup dockerfiles
+  au!
+  autocmd BufNewFile,BufRead Dockerfile* set ft=dockerfile
+augroup END
+
 augroup terraform
   au!
   autocmd BufNewFile,BufRead *.tf        set ft=hcl
 augroup END
 
-augroup spellsitter
+augroup env_files
   au!
-  autocmd TermOpen *                     setlocal nospell
+  autocmd BufNewFile,BufRead \.env*      set ft=bash
 augroup END

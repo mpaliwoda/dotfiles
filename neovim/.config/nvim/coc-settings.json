@@ -46,5 +46,6 @@
     "htmldjango.formatting.provider": "djlint",
     "htmldjango.djlint.enableLint": true,
     "tailwindCSS.headwind.runOnSave": false,
-    "typescript.inlayHints.parameterTypes.enabled": true
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "Lua.telemetry.enable": false
 }
