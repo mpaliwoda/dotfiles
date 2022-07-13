@@ -26,6 +26,7 @@ require('plugins/toggletasks')
 require('plugins/undotree')
 require('plugins/vimtest')
 require('plugins/whichkey')
+require('plugins/surround')
 
 vim.cmd('so ~/.config/nvim/keymaps.vim')
 vim.cmd('so ~/.config/nvim/autocmds.vim')

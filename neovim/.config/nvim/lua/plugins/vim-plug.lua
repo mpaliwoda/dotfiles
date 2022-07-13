@@ -38,7 +38,7 @@ Plug ('nvim-lualine/lualine.nvim')
 
 -- whitespace and commenting
 Plug ('numToStr/Comment.nvim')
-Plug ('tpope/vim-surround')
+Plug ('kylechui/nvim-surround')
 Plug ('windwp/nvim-autopairs')
 Plug ('tpope/vim-sleuth')
 
