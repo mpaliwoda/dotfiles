@@ -32,6 +32,7 @@ local extensions = {
     "coc",
     "file_browser",
     "neoclip",
+    "notify",
     "terms",
     "themes",
     "toggletasks",

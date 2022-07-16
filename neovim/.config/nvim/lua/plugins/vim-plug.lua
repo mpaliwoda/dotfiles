@@ -28,13 +28,14 @@ Plug ('nvim-telescope/telescope-file-browser.nvim')
 -- lua utils
 Plug ('nvim-lua/plenary.nvim')
 
--- ui
+
 Plug ('mbbill/undotree',                 { on = "UndotreeToggle" })
 Plug ('kyazdani42/nvim-tree.lua')
 Plug ('folke/which-key.nvim')
 Plug ('pwntester/octo.nvim' ,            { on = 'Octo' })
 Plug ("akinsho/toggleterm.nvim",         { tag = "v1.*" })
 Plug ('nvim-lualine/lualine.nvim')
+Plug ('rcarriga/nvim-notify')
 
 -- whitespace and commenting
 Plug ('numToStr/Comment.nvim')
