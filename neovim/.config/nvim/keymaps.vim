@@ -88,6 +88,7 @@ nnoremap <leader>fmt     <cmd>call CocActionAsync('format')<cr>
 xnoremap <leader>fmt     <cmd>call CocActionAsync('formatSelected', visualmode())<cr>
 nnoremap [g              <cmd>call CocActionAsync('diagnosticPrevious')<cr>
 nnoremap ]g              <cmd>call CocActionAsync('diagnosticNext')<cr>
+nnoremap <M-d>           <cmd>call CocAction('diagnosticToggleBuffer')<cr>
 
 nnoremap <Leader>isort   <cmd>call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 
