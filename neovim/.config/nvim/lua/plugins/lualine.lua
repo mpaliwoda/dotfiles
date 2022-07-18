@@ -9,6 +9,14 @@ lualine.setup({
         theme = 'onedark',
         globalstatus = true
     },
+    sections = {
+        lualine_x = {
+            'g:coc_status',
+            'encoding',
+            'fileformat',
+            'filetype',
+        },
+    },
     tabline = {
         lualine_a = {
             {
