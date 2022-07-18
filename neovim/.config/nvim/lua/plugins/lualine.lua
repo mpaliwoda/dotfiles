@@ -32,9 +32,9 @@ lualine.setup({
         }
     },
     extensions = {
-        "fugitive",
-        "nvim-dap-ui",
-        "nvim-tree",
-        "toggleterm",
+        'fugitive',
+        'nvim-dap-ui',
+        'nvim-tree',
+        'toggleterm',
     }
 })
