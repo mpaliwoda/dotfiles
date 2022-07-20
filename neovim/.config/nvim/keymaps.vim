@@ -84,6 +84,7 @@ nnoremap <Leader>mgF     <cmd>call CocActionAsync('doQuickfix')<cr>
 nnoremap <Leader>mgs     <cmd>Telescope coc references<cr>
 nnoremap <Leader>mgD     <cmd>Telescope coc diagnostics<cr>
 nnoremap <Leader>mgq     <cmd>Telescope coc document_symbols<cr>
+nnoremap <Leader>mgQ     <cmd>CocList -I symbols<cr>
 nnoremap <leader>fmt     <cmd>call CocActionAsync('format')<cr>
 xnoremap <leader>fmt     <cmd>call CocActionAsync('formatSelected', visualmode())<cr>
 nnoremap [g              <cmd>call CocActionAsync('diagnosticPrevious')<cr>
@@ -117,6 +118,7 @@ endfunction
 
 
 nnoremap <silent> K :call <SID>show_documentation()<cr>
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
