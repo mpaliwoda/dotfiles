@@ -127,6 +127,8 @@ function! s:show_documentation()
   endif
 endfunction
 
+nnoremap <leader>x        <cmd>Neogen<cr>
+
 " general
 noremap Y y$
 noremap D d$

@@ -10,6 +10,7 @@ Plug ('fannheyward/telescope-coc.nvim')
 Plug ('bennypowers/nvim-regexplainer')
 Plug ('nvim-treesitter/nvim-treesitter-textobjects')
 Plug ('slim-template/vim-slim')
+Plug ('danymat/neogen')
 
 -- debugging
 Plug ('mfussenegger/nvim-dap')

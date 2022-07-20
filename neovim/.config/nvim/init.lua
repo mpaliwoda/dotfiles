@@ -5,6 +5,7 @@ require('settings')
 
 require('colorscheme')
 
+require('plugins.neogen')
 require('plugins/coc')
 require('plugins/colorizer')
 require('plugins/comment')
