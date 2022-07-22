@@ -76,6 +76,9 @@ Plug ('lewis6991/impatient.nvim')
 -- tasks
 Plug ('jedrzejboczar/toggletasks.nvim')
 
+-- docker
+Plug ('dgrbrady/nvim-docker')
+
 -- motions
 Plug ('phaazon/hop.nvim')
 

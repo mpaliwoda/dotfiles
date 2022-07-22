@@ -128,6 +128,8 @@ function! s:show_documentation()
 endfunction
 
 nnoremap <leader>x        <cmd>Neogen<cr>
+nnoremap <leader>dl       :lua require('nvim-docker').containers.list_containers()<cr>
+
 
 " general
 noremap Y y$
