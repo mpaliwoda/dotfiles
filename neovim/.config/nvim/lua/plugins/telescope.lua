@@ -29,7 +29,8 @@ telescope.setup({
                 ["<M-w>"] = require("telescope.actions").delete_buffer
             },
             i = {
-                ["<M-w>"] = require("telescope.actions").delete_buffer
+                ["<M-w>"] = require("telescope.actions").delete_buffer,
+                ['<M-p>'] = require('telescope.actions.layout').toggle_preview,
             }
         }
     },
