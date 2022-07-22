@@ -22,3 +22,6 @@ vim.g.coc_global_extensions = {
     "coc-tsserver",
     "coc-yaml",
 }
+
+vim.fn["coc#config"]("diagnostic.errorSign", "💥")
+vim.fn["coc#config"]("diagnostic.warningSign", "💣")
