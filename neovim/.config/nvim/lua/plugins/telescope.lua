@@ -24,6 +24,14 @@ telescope.setup({
             height         = 0.80,
             preview_cutoff = 120,
         },
+        mappings             = {
+            n = {
+                ["<M-w>"] = require("telescope.actions").delete_buffer
+            },
+            i = {
+                ["<M-w>"] = require("telescope.actions").delete_buffer
+            }
+        }
     },
 }
 )
