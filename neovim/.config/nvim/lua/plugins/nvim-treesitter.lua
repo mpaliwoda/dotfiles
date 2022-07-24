@@ -61,3 +61,16 @@ treesitter.setup({
         max_file_lines = nil,
     }
 })
+
+local context_ext_present, treesitter_context = pcall(require, 'treesitter-context')
+
+if not context_ext_present then
+    return
+end
+
+
+treesitter_context.setup({
+    enable = true,
+    max_lines = -1,
+    mode = 'cursor',
+})

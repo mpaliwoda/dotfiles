@@ -11,6 +11,7 @@ Plug ('bennypowers/nvim-regexplainer')
 Plug ('nvim-treesitter/nvim-treesitter-textobjects')
 Plug ('slim-template/vim-slim')
 Plug ('danymat/neogen')
+Plug ('nvim-treesitter/nvim-treesitter-context')
 
 -- debugging
 Plug ('mfussenegger/nvim-dap')
