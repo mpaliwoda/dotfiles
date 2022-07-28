@@ -1,6 +1,7 @@
 pcall(require, 'impatient')
 
 require('plugins/vim-plug')
+require('plugins/rocks')
 require('settings')
 
 require('colorscheme')

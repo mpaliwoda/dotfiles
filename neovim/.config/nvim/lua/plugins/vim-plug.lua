@@ -83,4 +83,8 @@ Plug ('dgrbrady/nvim-docker')
 -- motions
 Plug ('phaazon/hop.nvim')
 
+-- rocks
+Plug ('theHamsta/nvim_rocks',            {['do']= 'pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua'})
+
+
 vim.call('plug#end')
