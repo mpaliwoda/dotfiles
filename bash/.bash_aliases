@@ -15,7 +15,7 @@ alias ll='ls -alF'
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 
 
-pyclean () {
+py_clean () {
     __clean "(__pycache__|\.pyc|\.pyo$|.mypy_cache|.pytest_cache|.benchmarks)"
 }
 
@@ -130,4 +130,9 @@ ch () {
     else
         git checkout $branch;
     fi
+}
+
+
+docker-murder () {
+    docker rm $(docker ps -a -q)
 }
