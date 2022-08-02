@@ -5,7 +5,7 @@ if not present then
 end
 
 onedark.setup({
-    style = 'darker', -- Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'deep', -- Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     term_colors = true,
     ending_tildes = true,
 
