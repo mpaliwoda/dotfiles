@@ -105,19 +105,17 @@ inoremap <expr> <c-space> coc#refresh()
 " completion and code actions
 " Helpers for coc
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-
 nnoremap <silent> K :call <SID>show_documentation()<cr>
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
