@@ -20,4 +20,5 @@ augroup END
 augroup env_files
   au!
   autocmd BufNewFile,BufRead \.env*      set ft=bash
+  autocmd BufNewFile,BufRead *\.env      set ft=bash
 augroup END
