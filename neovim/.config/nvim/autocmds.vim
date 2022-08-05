@@ -22,3 +22,8 @@ augroup env_files
   autocmd BufNewFile,BufRead \.env*      set ft=bash
   autocmd BufNewFile,BufRead *\.env      set ft=bash
 augroup END
+
+augroup js
+  au!
+  autocmd BufNewFile,BufRead *\.es6      set ft=javascript
+augroup END
