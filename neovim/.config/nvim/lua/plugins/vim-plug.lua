@@ -18,7 +18,6 @@ Plug ('mfussenegger/nvim-dap')
 Plug ('rcarriga/nvim-dap-ui')
 Plug ('mfussenegger/nvim-dap-python')
 Plug ('theHamsta/nvim-dap-virtual-text')
-Plug ('vim-test/vim-test')
 
 -- file searching
 Plug ('nvim-telescope/telescope.nvim')
