@@ -125,7 +125,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <leader>x        <cmd>Neogen<cr>
 nnoremap <leader>dl       :lua require('nvim-docker').containers.list_containers()<cr>
 nnoremap <M-t>            <cmd>TSContextToggle<cr>
 
