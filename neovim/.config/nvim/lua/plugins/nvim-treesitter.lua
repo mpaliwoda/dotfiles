@@ -14,9 +14,9 @@ treesitter.setup({
     incremental_selection = {
         enable = true,
         keymaps = {
-            init_selection = "<C-n>",
-            node_incremental = "<C-]>",
-            node_decremental = "<C-[>",
+            init_selection = "<M-n>",
+            node_incremental = "<M-]>",
+            node_decremental = "<M-[>",
         },
     },
     move = {
