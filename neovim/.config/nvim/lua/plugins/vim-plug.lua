@@ -34,6 +34,7 @@ Plug ('folke/which-key.nvim')
 Plug ("akinsho/toggleterm.nvim",         { tag = "v1.*" })
 Plug ('nvim-lualine/lualine.nvim')
 Plug ('rcarriga/nvim-notify')
+Plug ('stevearc/dressing.nvim')
 
 -- whitespace and commenting
 Plug ('numToStr/Comment.nvim')
