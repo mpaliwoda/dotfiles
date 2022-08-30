@@ -145,3 +145,4 @@ nnoremap <silent> - :exe "resize -5"<cr>
 nnoremap <silent> <Leader>= :exe "vertical resize +10"<cr>
 nnoremap <silent> <Leader>- :exe "vertical resize -10"<cr>
 
+nmap <F2> <Plug>(coc-codelens-action)
