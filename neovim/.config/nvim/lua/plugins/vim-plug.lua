@@ -47,6 +47,7 @@ Plug ('airblade/vim-gitgutter')
 Plug ('rhysd/committia.vim')
 Plug ('tpope/vim-fugitive')
 Plug ('tveskag/nvim-blame-line')
+Plug ('sodapopcan/vim-twiggy')
 
 -- sql
 Plug ('tpope/vim-dadbod')

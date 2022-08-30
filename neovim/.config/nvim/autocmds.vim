@@ -27,3 +27,6 @@ augroup js
   au!
   autocmd BufNewFile,BufRead *\.es6      set ft=javascript
 augroup END
+
+
+autocmd VimEnter * if empty(expand('<amatch>'))|call FugitiveDetect(getcwd())|endif
