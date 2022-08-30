@@ -27,7 +27,7 @@ Plug ('nvim-telescope/telescope-file-browser.nvim')
 -- lua utils
 Plug ('nvim-lua/plenary.nvim')
 
-
+-- ui
 Plug ('mbbill/undotree',                 { on = "UndotreeToggle" })
 Plug ('kyazdani42/nvim-tree.lua')
 Plug ('folke/which-key.nvim')
