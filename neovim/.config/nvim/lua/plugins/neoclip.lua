@@ -6,4 +6,5 @@ end
 
 neoclip.setup({
     enable_persistent_history = true,
+    history = 50,
 })
