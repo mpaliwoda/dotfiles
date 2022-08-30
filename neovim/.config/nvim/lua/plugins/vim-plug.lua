@@ -61,7 +61,6 @@ Plug ('glepnir/zephyr-nvim')
 Plug ('kyazdani42/nvim-web-devicons')
 Plug ('lewis6991/gitsigns.nvim')
 Plug ('machakann/vim-highlightedyank')
-Plug ('norcalli/nvim-colorizer.lua')
 Plug ('p00f/nvim-ts-rainbow')
 Plug ('lukas-reineke/indent-blankline.nvim')
 

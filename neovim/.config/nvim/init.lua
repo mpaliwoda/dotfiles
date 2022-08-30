@@ -7,7 +7,6 @@ require('settings')
 require('colorscheme')
 
 require('plugins/coc')
-require('plugins/colorizer')
 require('plugins/comment')
 require('plugins/dadbod')
 require('plugins/dap')
