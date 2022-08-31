@@ -53,6 +53,7 @@ treesitter.setup({
         },
         select = {
             enable = true,
+            lookahead = true,
             keymaps = {
                 ["af"] = "@function.outer",
                 ["if"] = "@function.inner",
@@ -62,6 +63,10 @@ treesitter.setup({
                 ["ia"] = "@parameter.inner",
                 ["av"] = "@variable.outer",
                 ["iv"] = "@variable.inner",
+                ["iC"] = "@class.inner",
+                ["aC"] = "@class.outer",
+                ["il"] = "@loop.inner",
+                ["al"] = "@loop.outer",
             },
         },
     },
