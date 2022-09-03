@@ -23,10 +23,10 @@ treesitter.setup({
         swap = {
             enable = true,
             swap_next = {
-                ["<M-l>"] = { "@parameter.inner" },
+                ["<M-l>"] = "@parameter.inner",
             },
             swap_previous = {
-                ["<M-h>"] = { "@parameter.inner" },
+                ["<M-h>"] = "@parameter.inner",
             },
         },
         move = {
