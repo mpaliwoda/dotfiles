@@ -149,3 +149,6 @@ nmap <F2> <Plug>(coc-codelens-action)
 nmap <F3> <cmd>ToggleBlameLine<CR>
 
 nmap <M-b> <cmd>Twiggy<CR>
+
+vmap <M-k> :m '<-2<cr>gv=gv
+vmap <M-j> :m '>+1<cr>gv=gv
