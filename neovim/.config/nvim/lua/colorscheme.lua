@@ -1,1 +1,1 @@
-pcall(require, "colorschemes.onedark")
+pcall(require, "colorschemes.zephyr")
