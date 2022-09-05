@@ -1,1 +1,0 @@
-pcall(require, "colorschemes.zephyr")
