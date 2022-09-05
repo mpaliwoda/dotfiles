@@ -30,7 +30,6 @@ Plug ('nvim-lua/plenary.nvim')
 -- ui
 Plug ('mbbill/undotree',                 { on = "UndotreeToggle" })
 Plug ('kyazdani42/nvim-tree.lua')
-Plug ('folke/which-key.nvim')
 Plug ("akinsho/toggleterm.nvim",         { tag = "v1.*" })
 Plug ('nvim-lualine/lualine.nvim')
 Plug ('rcarriga/nvim-notify')

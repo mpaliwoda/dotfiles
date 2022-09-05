@@ -28,7 +28,6 @@ require('plugins/telescope')
 require('plugins/toggletasks')
 require('plugins/undotree')
 require('plugins/visual-multi')
-require('plugins/whichkey')
 
 vim.cmd('so ~/.config/nvim/keymaps.vim')
 vim.cmd('so ~/.config/nvim/autocmds.vim')
