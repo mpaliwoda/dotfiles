@@ -6,6 +6,7 @@ require('settings')
 
 pcall(require, "colorschemes.zephyr")
 
+require('plugins/cloak')
 require('plugins/coc')
 require('plugins/comment')
 require('plugins/dadbod')

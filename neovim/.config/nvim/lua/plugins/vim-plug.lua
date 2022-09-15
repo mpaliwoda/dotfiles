@@ -62,6 +62,7 @@ Plug ('lewis6991/gitsigns.nvim')
 Plug ('machakann/vim-highlightedyank')
 Plug ('p00f/nvim-ts-rainbow')
 Plug ('lukas-reineke/indent-blankline.nvim')
+Plug ('laytan/cloak.nvim')
 
 -- additional markdown support
 Plug ('jghauser/follow-md-links.nvim')
