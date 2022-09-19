@@ -34,6 +34,7 @@ Plug ("akinsho/toggleterm.nvim",         { tag = "v1.*" })
 Plug ('nvim-lualine/lualine.nvim')
 Plug ('rcarriga/nvim-notify')
 Plug ('stevearc/dressing.nvim')
+Plug ('gen740/SmoothCursor.nvim')
 
 -- whitespace and commenting
 Plug ('numToStr/Comment.nvim')
