@@ -5,8 +5,9 @@ if not present then
 end
 
 smoothcursor.setup({
+    type = "exp",
     fancy = {
-        enabled = true,
+        enable = true,
         head = { cursor = "▷", texthl = "SmoothCursor", linehl = nil },
         body = {
             { cursor = "", texthl = "SmoothCursorRed" },
