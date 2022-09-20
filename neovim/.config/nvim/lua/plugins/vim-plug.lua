@@ -35,7 +35,7 @@ Plug('nvim-lualine/lualine.nvim')
 Plug('rcarriga/nvim-notify')
 Plug('stevearc/dressing.nvim')
 Plug('gen740/SmoothCursor.nvim')
-Plug('gelguy/wilder.nvim', { ['do'] = "UpdateRemotePlugins" })
+Plug('gelguy/wilder.nvim', { ['do'] = ":UpdateRemotePlugins" })
 
 -- whitespace and commenting
 Plug('numToStr/Comment.nvim')

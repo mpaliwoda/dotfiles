@@ -5,7 +5,14 @@ if not present then
 end
 
 
-wilder.setup({ modes = { ':', '/', '?' } })
+wilder.setup({
+    modes = { ':', '', '?' },
+    next_key = '<Tab>',
+    previous_key = '<S-Tab>',
+    accept_key = '<Down>',
+    reject_key = '<Up>',
+    enable_cmdline_enter = false,
+})
 
 wilder.set_option('use_python_remote_plugin', 0)
 
@@ -40,9 +47,4 @@ local popupmenu_renderer = wilder.popupmenu_renderer(
     })
 )
 
-wilder.set_option('renderer', wilder.renderer_mux({
-    [':'] = popupmenu_renderer,
-    ['/'] = wilder.wildmenu_renderer({
-        highlighter = wilder.lua_fzy_highlighter(),
-    }),
-}))
+wilder.set_option('renderer', popupmenu_renderer)
