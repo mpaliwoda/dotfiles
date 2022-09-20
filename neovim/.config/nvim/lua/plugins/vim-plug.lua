@@ -70,6 +70,7 @@ Plug('folke/todo-comments.nvim')
 -- additional markdown support
 Plug('jghauser/follow-md-links.nvim')
 Plug('ellisonleao/glow.nvim', { branch = 'main' })
+Plug('lukas-reineke/headlines.nvim')
 
 -- other utils
 Plug('MunifTanjim/nui.nvim')
