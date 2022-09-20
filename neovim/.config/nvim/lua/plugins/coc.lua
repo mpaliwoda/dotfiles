@@ -26,7 +26,8 @@ vim.g.coc_global_extensions = {
 
 local set_config = vim.fn["coc#config"]
 
-set_config("floatFactory.floatConfig", { rounded = true, border = true, shadow = true })
+set_config("floatFactory.floatConfig", { rounded = true, border = true })
+set_config("suggest.floatConfig", { rounded = true, border = true })
 
 set_config("diagnostic.errorSign", "💥")
 set_config("diagnostic.warningSign", "💣")
@@ -69,6 +70,8 @@ set_config("tailwindCSS.headwind.runOnSave", false)
 set_config("typescript.inlayHints.parameterTypes.enabled", true)
 
 set_config("Lua.telemetry.enable", false)
+set_config("Lua.hint.paramName", "All")
+set_config("Lua.hint.arrayIndex", "Enable")
 
 set_config("coc.source.emoji.filetypes", { "html", "htmldjango", "markdown", "gitcommit" })
 
