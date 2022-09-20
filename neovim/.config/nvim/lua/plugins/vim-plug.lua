@@ -35,6 +35,7 @@ Plug('nvim-lualine/lualine.nvim')
 Plug('rcarriga/nvim-notify')
 Plug('stevearc/dressing.nvim')
 Plug('gen740/SmoothCursor.nvim')
+Plug('gelguy/wilder.nvim', { ['do'] = "UpdateRemotePlugins" })
 
 -- whitespace and commenting
 Plug('numToStr/Comment.nvim')
@@ -74,6 +75,7 @@ Plug('ellisonleao/glow.nvim', { branch = 'main' })
 Plug('MunifTanjim/nui.nvim')
 Plug('tami5/sqlite.lua')
 Plug('lewis6991/impatient.nvim')
+Plug('romgrk/fzy-lua-native')
 
 -- tasks
 Plug('jedrzejboczar/toggletasks.nvim')
