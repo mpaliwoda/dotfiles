@@ -11,11 +11,15 @@ onedark.setup({
 
     code_style = {
         comments = 'italic',
-        keywords = 'none',
+        keywords = 'bold',
         functions = 'bold',
         strings = 'italic',
         variables = 'none'
     },
+
+    diagnostics = {
+        background = false,
+    }
 })
 
 onedark.load()

@@ -4,7 +4,7 @@ require('plugins/vim-plug')
 require('plugins/rocks')
 require('settings')
 
-pcall(require, "colorschemes.zephyr")
+pcall(require, "colorschemes.onedark")
 
 require('plugins.cloak')
 require('plugins.coc')
