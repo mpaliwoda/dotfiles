@@ -73,7 +73,7 @@ Plug('ellisonleao/glow.nvim', { branch = 'main' })
 Plug('lukas-reineke/headlines.nvim')
 
 -- other utils
-Plug('MunifTanjim/nui.nvim')
+-- Plug('MunifTanjim/nui.nvim')
 Plug('tami5/sqlite.lua')
 Plug('lewis6991/impatient.nvim')
 Plug('romgrk/fzy-lua-native')
@@ -82,7 +82,7 @@ Plug('romgrk/fzy-lua-native')
 Plug('jedrzejboczar/toggletasks.nvim')
 
 -- docker
-Plug('dgrbrady/nvim-docker')
+-- Plug('dgrbrady/nvim-docker')
 
 -- motions
 Plug('phaazon/hop.nvim')
