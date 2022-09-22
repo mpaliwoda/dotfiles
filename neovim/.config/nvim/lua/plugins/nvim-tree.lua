@@ -19,7 +19,6 @@ ntree.setup({
     },
     view                    = {
         width = 35,
-        height = 100,
         mappings = {
             list = {
                 { key = "v", action = "vsplit" },
