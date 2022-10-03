@@ -49,6 +49,7 @@ Plug('rhysd/committia.vim')
 Plug('tpope/vim-fugitive')
 Plug('tveskag/nvim-blame-line')
 Plug('sodapopcan/vim-twiggy')
+Plug('rhysd/git-messenger.vim')
 
 -- sql
 Plug('tpope/vim-dadbod')

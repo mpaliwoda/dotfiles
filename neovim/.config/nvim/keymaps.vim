@@ -27,7 +27,7 @@ noremap <Leader>gh       <cmd>Telescope git_commits<cr>
 noremap <Leader>gs       <cmd>Git stash<cr>
 noremap <Leader>gS       <cmd>Telescope git_stash<cr>
 noremap <Leader>gB       <cmd>Telescope git_branches<cr>
-noremap <Leader>gm       <cmd>Git mergetool<cr>
+noremap <Leader>gM       <cmd>Git mergetool<cr>
 
 nnoremap <leader>t1      <cmd>ToggleTerm 1<cr>
 nnoremap <leader>t2      <cmd>ToggleTerm 2<cr>
