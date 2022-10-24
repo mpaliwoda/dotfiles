@@ -41,7 +41,7 @@ set_config("python.formatting.blackArgs", { "--line-length", "120" })
 
 set_config("python.linting.mypyEnabled", true)
 set_config("python.linting.mypyArgs",
-    { "--ignore-missing-imports", "--python-version=3.10", "--exclude=tests/*" })
+    { "--ignore-missing-imports", "--python-version=3.10", "--exclude=tests/", "--exclude=alembic/", "--exclude=logger*" })
 
 set_config("python.linting.flake8Enabled", true)
 set_config("python.linting.flake8Path", os.getenv("HOME") .. "/.pyenv/versions/neovim3/bin/flake8")
