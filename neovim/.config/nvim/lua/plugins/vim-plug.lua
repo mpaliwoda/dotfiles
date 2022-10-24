@@ -11,6 +11,7 @@ Plug('nvim-treesitter/nvim-treesitter-textobjects')
 Plug('slim-template/vim-slim')
 Plug('nvim-treesitter/nvim-treesitter-context')
 Plug('chrisbra/csv.vim')
+Plug('chr4/nginx.vim')
 
 -- debugging
 Plug('mfussenegger/nvim-dap')
