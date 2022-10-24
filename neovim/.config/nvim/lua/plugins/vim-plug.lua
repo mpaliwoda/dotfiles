@@ -10,6 +10,7 @@ Plug('fannheyward/telescope-coc.nvim')
 Plug('nvim-treesitter/nvim-treesitter-textobjects')
 Plug('slim-template/vim-slim')
 Plug('nvim-treesitter/nvim-treesitter-context')
+Plug('chrisbra/csv.vim')
 
 -- debugging
 Plug('mfussenegger/nvim-dap')
