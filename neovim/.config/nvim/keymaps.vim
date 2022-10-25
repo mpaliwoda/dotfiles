@@ -33,13 +33,13 @@ nnoremap <leader>t1      <cmd>ToggleTerm 1<cr>
 nnoremap <leader>t2      <cmd>ToggleTerm 2<cr>
 nnoremap <leader>t3      <cmd>ToggleTerm 3<cr>
 nnoremap <leader>t4      <cmd>ToggleTerm 4<cr>
-nnoremap <leadee>t5      <cmd>ToggleTerm 5<cr>
+nnoremap <leader>t5      <cmd>ToggleTerm 5<cr>
 
 nnoremap <leader>tf1     <cmd>ToggleTerm 1 direction=float<cr>
 nnoremap <leader>tf2     <cmd>ToggleTerm 2 direction=float<cr>
 nnoremap <leader>tf3     <cmd>ToggleTerm 3 direction=float<cr>
 nnoremap <leader>tf4     <cmd>ToggleTerm 4 direction=float<cr>
-nnoremap <leadee>tf5     <cmd>ToggleTerm 5 direction=float<cr>
+nnoremap <leader>tf5     <cmd>ToggleTerm 5 direction=float<cr>
 
 nnoremap <leader>'       <cmd>ToggleTerm size=25 direction=horizontal<cr>
 nnoremap <leader>"       <cmd>ToggleTerm direction=float<cr>
