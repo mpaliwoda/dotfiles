@@ -135,10 +135,10 @@ noremap D d$
 nnoremap <C-L> :nohl<cr><C-L>
 "
 " window, tab & buffer jumping + resizing
-nnoremap <Leader>h :wincmd h<cr>
-nnoremap <Leader>j :wincmd j<cr>
-nnoremap <Leader>k :wincmd k<cr>
-nnoremap <Leader>l :wincmd l<cr>
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
 nnoremap <Leader>tab :tabedit<cr>
 nnoremap <silent> = :exe "resize +5"<cr>
 nnoremap <silent> - :exe "resize -5"<cr>

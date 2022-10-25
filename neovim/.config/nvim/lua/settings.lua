@@ -46,7 +46,7 @@ set.splitright = true
 set.number = true
 set.relativenumber = true
 
-set.lazyredraw = true
+set.lazyredraw = false
 set.ttyfast = true
 
 set.timeout = true
