@@ -21,6 +21,7 @@ vim.g.coc_global_extensions = {
     "coc-toml",
     "coc-tsserver",
     "coc-yaml",
+    "@yaegassy/coc-marksman"
 }
 
 
