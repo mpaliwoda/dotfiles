@@ -41,6 +41,7 @@ local extensions = {
     "coc",
     "file_browser",
     "neoclip",
+    "noice",
     "notify",
     "terms",
     "themes",
