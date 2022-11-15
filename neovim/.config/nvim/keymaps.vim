@@ -154,3 +154,6 @@ vmap <M-k> :m '<-2<cr>gv=gv
 vmap <M-j> :m '>+1<cr>gv=gv
 
 nmap <M-c> <cmd>CloakToggle<cr>
+
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
