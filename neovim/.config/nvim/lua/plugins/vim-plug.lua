@@ -52,6 +52,7 @@ Plug('tpope/vim-fugitive')
 Plug('tveskag/nvim-blame-line')
 Plug('sodapopcan/vim-twiggy')
 Plug('rhysd/git-messenger.vim')
+Plug('akinsho/git-conflict.nvim', { tag = "*" })
 
 -- sql
 Plug('tpope/vim-dadbod')
