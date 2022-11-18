@@ -157,3 +157,5 @@ nmap <M-c> <cmd>CloakToggle<cr>
 
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
+
+nmap <M-z> <cmd>ZenMode<cr>

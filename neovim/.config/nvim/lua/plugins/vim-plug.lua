@@ -32,12 +32,13 @@ Plug('nvim-lua/plenary.nvim')
 -- ui
 Plug('mbbill/undotree', { on = "UndotreeToggle" })
 Plug('kyazdani42/nvim-tree.lua')
-Plug("akinsho/toggleterm.nvim", { tag = "v1.*" })
+Plug("akinsho/toggleterm.nvim")
 Plug('nvim-lualine/lualine.nvim')
 Plug('rcarriga/nvim-notify')
 Plug('stevearc/dressing.nvim')
 Plug('gen740/SmoothCursor.nvim')
 Plug('folke/noice.nvim')
+Plug('folke/zen-mode.nvim')
 
 -- whitespace and commenting
 Plug('numToStr/Comment.nvim')
@@ -52,7 +53,7 @@ Plug('tpope/vim-fugitive')
 Plug('tveskag/nvim-blame-line')
 Plug('sodapopcan/vim-twiggy')
 Plug('rhysd/git-messenger.vim')
-Plug('akinsho/git-conflict.nvim', { tag = "*" })
+Plug('akinsho/git-conflict.nvim')
 
 -- sql
 Plug('tpope/vim-dadbod')

@@ -34,6 +34,7 @@ require('plugins.todo-comments')
 require('plugins.toggletasks')
 require('plugins.undotree')
 require('plugins.visual-multi')
+require('plugins.zen-mode')
 
 vim.cmd('so ~/.config/nvim/keymaps.vim')
 vim.cmd('so ~/.config/nvim/autocmds.vim')
