@@ -18,6 +18,8 @@ Plug('mfussenegger/nvim-dap')
 Plug('rcarriga/nvim-dap-ui')
 Plug('mfussenegger/nvim-dap-python')
 Plug('theHamsta/nvim-dap-virtual-text')
+Plug('michaelb/sniprun', { ['do'] = 'bash install.sh' })
+
 
 -- file searching
 Plug('nvim-telescope/telescope.nvim')

@@ -159,3 +159,10 @@ nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 
 nmap <M-z> <cmd>ZenMode<cr>
+
+nmap <M-o>p <Plug>SnipRun
+vmap <M-o>p <Plug>SnipRun
+nmap <M-o>i <Plug>SnipRunOperator
+nmap <M-o>x <Plug>SnipReset
+nmap <M-o>c <Plug>SnipClose
+nmap <M-o>l <Plug>SnipLive
