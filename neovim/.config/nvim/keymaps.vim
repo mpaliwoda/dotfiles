@@ -166,3 +166,6 @@ nmap <M-o>i <Plug>SnipRunOperator
 nmap <M-o>x <Plug>SnipReset
 nmap <M-o>c <Plug>SnipClose
 nmap <M-o>l <Plug>SnipLive
+
+nmap <M-0> <cmd>CellularAutomaton make_it_rain<cr>
+nmap <M-9> <cmd>CellularAutomaton game_of_life<cr>

@@ -41,6 +41,7 @@ Plug('stevearc/dressing.nvim')
 Plug('gen740/SmoothCursor.nvim')
 Plug('folke/noice.nvim')
 Plug('folke/zen-mode.nvim')
+Plug('eandrju/cellular-automaton.nvim')
 
 -- whitespace and commenting
 Plug('numToStr/Comment.nvim')
