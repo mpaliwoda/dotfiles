@@ -7,6 +7,7 @@ nnoremap <leader>fb      <cmd>Telescope buffers<cr>
 nnoremap <leader>fh      <cmd>Telescope help_tags<cr>
 nnoremap <leader>fy      <cmd>Telescope neoclip<cr>
 nnoremap <leader>fe      <cmd>Telescope file_browser<cr>
+nnoremap <leader>fp      <cmd>Telescope git_files<cr>
 
 " nvimtree
 nnoremap <Leader>ft      <cmd>NvimTreeToggle<cr>

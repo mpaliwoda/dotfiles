@@ -40,6 +40,7 @@ telescope.setup({
 local extensions = {
     "coc",
     "file_browser",
+    "fzf",
     "neoclip",
     "noice",
     "notify",

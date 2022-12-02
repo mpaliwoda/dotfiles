@@ -27,6 +27,7 @@ Plug('jremmen/vim-ripgrep')
 Plug('windwp/nvim-spectre')
 Plug('AckslD/nvim-neoclip.lua')
 Plug('nvim-telescope/telescope-file-browser.nvim')
+Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 
 -- lua utils
 Plug('nvim-lua/plenary.nvim')
