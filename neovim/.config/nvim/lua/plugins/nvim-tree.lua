@@ -7,7 +7,6 @@ end
 ntree.setup({
     disable_netrw           = true,
     hijack_netrw            = true,
-    create_in_closed_folder = true,
     update_cwd              = true,
     actions                 = {
         change_dir = {
