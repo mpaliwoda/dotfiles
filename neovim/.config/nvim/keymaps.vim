@@ -116,7 +116,7 @@ function! s:check_back_space() abort
 endfunction
 
 nnoremap <silent> K :call <SID>show_documentation()<cr>
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : luaeval('require("nvim-autopairs").autopairs_cr()')
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -128,7 +128,6 @@ endfunction
 
 " nnoremap <leader>dl       :lua require('nvim-docker').containers.list_containers()<cr>
 nnoremap <M-t>            <cmd>TSContextToggle<cr>
-
 
 " general
 noremap Y y$
