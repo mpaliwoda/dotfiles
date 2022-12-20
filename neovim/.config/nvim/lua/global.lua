@@ -1,3 +1,4 @@
+---@type fun(module_name: string, callback: fun(module: table)): nil
 prequire = function(module_name, callback)
     if type(module_name) ~= "string" then
         vim.notify("Incorrect module_name type. Expected: string, got: " .. type(module_name), "error")
