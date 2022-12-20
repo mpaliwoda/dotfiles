@@ -1,7 +1,3 @@
-local present, hop = pcall(require, 'hop')
-
-if not present then
-    return
-end
-
-hop.setup()
+prequire("hop", function(hop)
+    hop.setup()
+end)

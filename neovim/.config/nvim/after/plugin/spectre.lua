@@ -1,7 +1,3 @@
-local present, spectre = pcall(require, 'spectre')
-
-if not present then
-    return
-end
-
-spectre.setup()
+prequire("spectre", function(spectre)
+    spectre.setup()
+end)

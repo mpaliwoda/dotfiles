@@ -1,7 +1,3 @@
-local present, conflict = pcall(require, 'git-conflict')
-
-if not present then
-    return
-end
-
-conflict.setup()
+prequire("git-conflict", function(conflict)
+    conflict.setup()
+end)

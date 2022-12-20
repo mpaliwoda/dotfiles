@@ -1,7 +1,3 @@
-local present, comment = pcall(require, 'Comment')
-
-if not present then
-    return
-end
-
-comment.setup()
+prequire("Comment", function(comment)
+    comment.setup()
+end)

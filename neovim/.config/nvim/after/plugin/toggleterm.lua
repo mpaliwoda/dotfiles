@@ -1,7 +1,3 @@
-local present, toggleterm = pcall(require, "toggleterm")
-
-if not present then
-    return
-end
-
-toggleterm.setup()
+prequire("toggleterm", function(toggleterm)
+    toggleterm.setup()
+end)

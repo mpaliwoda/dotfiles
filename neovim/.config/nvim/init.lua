@@ -2,7 +2,9 @@ pcall(require, 'impatient')
 
 require('plugins.plug')
 require('plugins.rocks')
+require("plugins.notify")
 require('settings')
+require('global')
 require('colorschemes.onedark')
 
 vim.cmd('so ~/.config/nvim/autocmds.vim')
