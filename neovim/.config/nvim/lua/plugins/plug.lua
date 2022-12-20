@@ -66,7 +66,6 @@ Plug('kristijanhusak/vim-dadbod-ui')
 
 -- themes
 Plug('navarasu/onedark.nvim')
-Plug('glepnir/zephyr-nvim')
 
 -- visual hints
 Plug('kyazdani42/nvim-web-devicons')
