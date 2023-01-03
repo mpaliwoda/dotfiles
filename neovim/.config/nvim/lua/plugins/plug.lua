@@ -2,11 +2,32 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
--- completion, linting, syntax highlighting
-Plug('neoclide/coc.nvim', { branch = 'release' })
+-- LSP
+Plug('neovim/nvim-lspconfig')
+Plug('williamboman/mason.nvim')
+Plug('williamboman/mason-lspconfig.nvim')
+Plug('VonHeikemen/lsp-zero.nvim')
+Plug('jubnzv/virtual-types.nvim')
+Plug('simrat39/symbols-outline.nvim')
+Plug('lvimuser/lsp-inlayhints.nvim')
+
+-- Completion
+Plug('hrsh7th/nvim-cmp')
+Plug('hrsh7th/cmp-buffer')
+Plug('hrsh7th/cmp-path')
+Plug('saadparwaiz1/cmp_luasnip')
+Plug('hrsh7th/cmp-nvim-lsp')
+Plug('hrsh7th/cmp-nvim-lua')
+Plug('b0o/schemastore.nvim')
+Plug("onsails/lspkind.nvim")
+
+-- Snippets
+Plug('L3MON4D3/LuaSnip')
+Plug('rafamadriz/friendly-snippets')
+
+-- syntax highlighting
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug('nathom/filetype.nvim')
-Plug('fannheyward/telescope-coc.nvim')
 Plug('nvim-treesitter/nvim-treesitter-textobjects')
 Plug('slim-template/vim-slim')
 Plug('nvim-treesitter/nvim-treesitter-context')

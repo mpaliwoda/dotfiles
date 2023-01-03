@@ -33,7 +33,6 @@ prequire("telescope", function(telescope)
     )
 
     local extensions = {
-        "coc",
         "file_browser",
         "fzf",
         "neoclip",

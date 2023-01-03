@@ -75,56 +75,7 @@ nnoremap <leader>sp      <cmd>lua require('spectre').open_file_search()<cr>
 nnoremap <Leader>ss      :%s/<C-r><C-w>/
 vnoremap <leader>s       <cmd>lua require('spectre').open_visual()<cr>
 
-nnoremap <Leader>coc     <cmd>Telescope coc<cr>
-nnoremap <Leader>com     <cmd>Telescope coc commands<cr>
-
-nnoremap <Leader>mgd     <cmd>call CocActionAsync('jumpDefinition')<cr>
-nnoremap <Leader>mgy     <cmd>call CocActionAsync('jumpTypeDefinition')<cr>
-nnoremap <Leader>mgi     <cmd>call CocActionAsync('jumpImplementation')<cr>
-nnoremap <Leader>mgF     <cmd>call CocActionAsync('doQuickfix')<cr>
-nnoremap <Leader>mgs     <cmd>Telescope coc references<cr>
-nnoremap <Leader>mgD     <cmd>Telescope coc diagnostics<cr>
-nnoremap <Leader>mgq     <cmd>Telescope coc document_symbols<cr>
-nnoremap <Leader>mgQ     <cmd>CocList -I symbols<cr>
-nnoremap <leader>fmt     <cmd>call CocActionAsync('format')<cr>
-xnoremap <leader>fmt     <cmd>call CocActionAsync('formatSelected', visualmode())<cr>
-nnoremap [g              <cmd>call CocActionAsync('diagnosticPrevious')<cr>
-nnoremap ]g              <cmd>call CocActionAsync('diagnosticNext')<cr>
-nnoremap <M-d>           <cmd>call CocAction('diagnosticToggleBuffer')<cr>
-
-nnoremap <Leader>isort   <cmd>call CocAction('runCommand', 'editor.action.organizeImport')<cr>
-
-nnoremap <leader><space> <cmd>call CocActionAsync('codeAction', '')<cr>
-xnoremap <leader><space> <cmd>call CocActionAsync('codeAction', visualmode())<cr>
-
-nnoremap <Leader>ren     <cmd>call CocActionAsync('rename')<cr>
-nnoremap <Leader>ref     <cmd>call CocActionAsync('refactor')<cr>
 vnoremap <Leader>a       :sort i<cr>
-
-inoremap <expr> <c-space> coc#refresh()
-
-" completion and code actions
-" Helpers for coc
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-nnoremap <silent> K :call <SID>show_documentation()<cr>
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : luaeval('require("nvim-autopairs").autopairs_cr()')
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " nnoremap <leader>dl       :lua require('nvim-docker').containers.list_containers()<cr>
 nnoremap <M-t>            <cmd>TSContextToggle<cr>
@@ -145,7 +96,7 @@ nnoremap <silent> - :exe "resize -5"<cr>
 nnoremap <silent> <Leader>= :exe "vertical resize +10"<cr>
 nnoremap <silent> <Leader>- :exe "vertical resize -10"<cr>
 
-nmap <F2> <Plug>(coc-codelens-action)
+" nmap <F2> <Plug>(coc-codelens-action)
 nmap <F3> <cmd>ToggleBlameLine<CR>
 
 nmap <M-b> <cmd>Twiggy<CR>

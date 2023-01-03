@@ -6,7 +6,6 @@ prequire("lualine", function(lualine)
         },
         sections = {
             lualine_x = {
-                'g:coc_status',
                 'encoding',
                 'fileformat',
                 'filetype',
