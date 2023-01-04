@@ -111,6 +111,7 @@ prequire("lsp-zero", function(lsp)
                 hint = {
                     enable = true,
                     paramName = "All",
+                    paramType = "All",
                     arrayIndex = "Enable",
                 },
                 diagnostics = {

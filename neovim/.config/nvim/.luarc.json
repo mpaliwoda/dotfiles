@@ -1,0 +1,17 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua": {
+        "workspace": {
+            "ignoreDir": [
+                "plugged",
+                "undodir"
+            ]
+        },
+        "hint": {
+            "enable": true,
+            "paramName": "All",
+            "paramType": "All",
+            "arrayIndex": "Enable"
+        }
+    }
+}
