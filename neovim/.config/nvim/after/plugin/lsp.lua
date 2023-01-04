@@ -28,6 +28,7 @@ prequire("lsp-zero", function(lsp)
         "bashls",
         "cssls",
         "dockerls",
+        "emmet_ls",
         "eslint",
         "gopls",
         "html",
@@ -231,7 +232,8 @@ prequire("lsp-zero", function(lsp)
             }
         })
 
-        table.insert(cmp_config.sources, {name = "emoji"})
+        table.insert(cmp_config.sources, { name = "emoji" })
+        table.insert(cmp_config.sources, { name = "emmet_vim" })
 
         local lspkind_present, lspkind = pcall(require, "lspkind")
 
