@@ -114,7 +114,7 @@ prequire("lsp-zero", function(lsp)
                     arrayIndex = "Enable",
                 },
                 diagnostics = {
-                    globals = { "vim" }
+                    globals = { "vim", "prequire" }
                 },
                 runtime = {
                     version = "LuaJIT",
@@ -157,7 +157,7 @@ prequire("lsp-zero", function(lsp)
         }
     })
 
-    lsp.configure("golang", {
+    lsp.configure("gopls", {
         settings = {
             gopls = {
                 hints = {
@@ -179,6 +179,22 @@ prequire("lsp-zero", function(lsp)
         local lenses = vim.lsp.codelens.get(bufnr)
         vim.lsp.codelens.display(lenses, bufnr, client)
 
+        local function toggle_diagnostics()
+            local toggled = true
+
+            local wrapped = function()
+                if toggled then
+                    vim.diagnostic.hide()
+                else
+                    vim.diagnostic.show()
+                end
+
+                toggled = not toggled
+            end
+
+            return wrapped
+        end
+
         vim.keymap.set("n", "<leader>mgd", "<cmd>lua vim.lsp.buf.definition()<cr>", noremap)
         vim.keymap.set("n", "<leader>mgs", "<cmd>lua vim.lsp.buf.references()<cr>", noremap)
         vim.keymap.set("n", "<leader>mgi", "<cmd>lua vim.lsp.buf.implementation()<cr>", noremap)
@@ -188,6 +204,7 @@ prequire("lsp-zero", function(lsp)
         vim.keymap.set("n", "<M-h>", "<cmd>lua vim.diagnostic.open_float()<cr>", noremap)
         vim.keymap.set("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<cr>", noremap)
         vim.keymap.set("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = false })<cr>", noremap)
+        vim.keymap.set("n", "<M-d>", toggle_diagnostics())
 
         vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.codelens.run()<cr>", noremap)
         vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", noremap)
@@ -203,7 +220,7 @@ prequire("lsp-zero", function(lsp)
     lsp.nvim_workspace()
     lsp.setup()
 
-    vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+    vim.opt.completeopt = { 'menu', 'menuone' }
 
     prequire("cmp", function(cmp)
         local cmp_config = lsp.defaults.cmp_config({
@@ -256,9 +273,7 @@ prequire("lsp-zero", function(lsp)
             end,
         })
 
-        vim.keymap.set("n", "<M-d>", (function()
-            vim.notify("Toggling inlay hints")
-        end))
+        vim.keymap.set("n", "<M-f>", hints.toggle)
     end)
 
     prequire("lsp_lines", function(lines)
