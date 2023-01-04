@@ -11,6 +11,8 @@ Plug('jubnzv/virtual-types.nvim')
 Plug('simrat39/symbols-outline.nvim')
 Plug('lvimuser/lsp-inlayhints.nvim')
 Plug('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
+Plug('kosayoda/nvim-lightbulb')
+Plug('antoinemadec/FixCursorHold.nvim')
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
@@ -24,7 +26,6 @@ Plug("onsails/lspkind.nvim")
 Plug('hrsh7th/cmp-emoji')
 Plug('mattn/emmet-vim')
 Plug('dcampos/cmp-emmet-vim')
-
 
 -- Snippets
 Plug('L3MON4D3/LuaSnip')
