@@ -21,6 +21,7 @@ Plug('hrsh7th/cmp-nvim-lsp')
 Plug('hrsh7th/cmp-nvim-lua')
 Plug('b0o/schemastore.nvim')
 Plug("onsails/lspkind.nvim")
+Plug('hrsh7th/cmp-emoji')
 
 -- Snippets
 Plug('L3MON4D3/LuaSnip')

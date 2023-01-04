@@ -231,6 +231,8 @@ prequire("lsp-zero", function(lsp)
             }
         })
 
+        table.insert(cmp_config.sources, {name = "emoji"})
+
         local lspkind_present, lspkind = pcall(require, "lspkind")
 
         if lspkind_present then
