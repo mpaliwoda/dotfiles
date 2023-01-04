@@ -10,6 +10,7 @@ Plug('VonHeikemen/lsp-zero.nvim')
 Plug('jubnzv/virtual-types.nvim')
 Plug('simrat39/symbols-outline.nvim')
 Plug('lvimuser/lsp-inlayhints.nvim')
+Plug('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
@@ -65,6 +66,7 @@ Plug('folke/noice.nvim')
 Plug('folke/zen-mode.nvim')
 Plug('eandrju/cellular-automaton.nvim')
 Plug('theprimeagen/harpoon')
+Plug('folke/trouble.nvim')
 
 -- whitespace and commenting
 Plug('numToStr/Comment.nvim')

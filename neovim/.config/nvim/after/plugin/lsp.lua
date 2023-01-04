@@ -64,7 +64,7 @@ prequire("lsp-zero", function(lsp)
                     jedi_hover = { enabled = true },
                     jedi_references = { enabled = true },
                     jedi_signature_help = { enabled = true },
-                    jedi_symbols = { enabled = true, all_scopes = true },
+                    edi_symbols = { enabled = true, all_scopes = true },
                     flake8 = {
                         enabled = true,
                         ignore = {},
@@ -88,9 +88,26 @@ prequire("lsp-zero", function(lsp)
         }
     })
 
+    local library = {}
+
+    local path = vim.split(package.path, ";", {})
+    table.insert(path, "lua/?.lua")
+    table.insert(path, "lua/?/init.lua")
+
+    local function add(lib)
+        for _, p in pairs(vim.fn.expand(lib, false, true)) do
+            p = vim.loop.fs_realpath(p)
+            library[p] = true
+        end
+    end
+
+    add(os.getenv("VIMRUNTIME"))
+    add(os.getenv("HOME") .. "/.config/nvim")
+
     lsp.configure("sumneko_lua", {
         settings = {
             Lua = {
+                completion = { callSnippet = "Both" },
                 hint = {
                     enable = true,
                     paramName = "All",
@@ -98,7 +115,17 @@ prequire("lsp-zero", function(lsp)
                 },
                 diagnostics = {
                     globals = { "vim" }
-                }
+                },
+                runtime = {
+                    version = "LuaJIT",
+                    path = path
+                },
+                workspace = {
+                    library = library,
+                    maxPreload = 2000,
+                    preloadFileSize = 50000
+                },
+                telemetry = { enable = false }
             },
         },
     })
@@ -116,7 +143,7 @@ prequire("lsp-zero", function(lsp)
                     includeInlayEnumMemberValueHints = true,
                 }
             },
-            javascript = {
+            avascript = {
                 inlayHints = {
                     includeInlayParameterNameHints = 'all',
                     includeInlayParameterNameHintsWhenArgumentMatchesName = false,
@@ -159,8 +186,8 @@ prequire("lsp-zero", function(lsp)
         vim.keymap.set("n", "<leader>ren", "<cmd>lua vim.lsp.buf.rename()<cr>", noremap)
 
         vim.keymap.set("n", "<M-h>", "<cmd>lua vim.diagnostic.open_float()<cr>", noremap)
-        vim.keymap.set("n", "[g", "<cmd>lua vim.diagnostic.goto_prev()<cr>", noremap)
-        vim.keymap.set("n", "]g", "<cmd>lua vim.diagnostic.goto_next()<cr>", noremap)
+        vim.keymap.set("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<cr>", noremap)
+        vim.keymap.set("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = false })<cr>", noremap)
 
         vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.codelens.run()<cr>", noremap)
         vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", noremap)
@@ -202,13 +229,10 @@ prequire("lsp-zero", function(lsp)
 
         vim.keymap.set("n", "<leader>mgq", t_builtin.lsp_document_symbols)
         vim.keymap.set("n", "<leader>mgQ", t_builtin.lsp_workspace_symbols)
-        vim.keymap.set("n", "<leader>diag", t_builtin.diagnostics)
     end)
 
     vim.lsp.handlers["textDocument/hover"]         = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
-
-    vim.diagnostic.config({ virtual_text = true })
 
     prequire("symbols-outline", function(symbols_outline)
         symbols_outline.setup()
@@ -235,5 +259,10 @@ prequire("lsp-zero", function(lsp)
         vim.keymap.set("n", "<M-d>", (function()
             vim.notify("Toggling inlay hints")
         end))
+    end)
+
+    prequire("lsp_lines", function(lines)
+        lines.setup()
+        vim.keymap.set("n", "<M-g>", lines.toggle)
     end)
 end)
