@@ -46,9 +46,6 @@ nnoremap <leader>'       <cmd>ToggleTerm size=25 direction=horizontal<cr>
 nnoremap <leader>"       <cmd>ToggleTerm direction=float<cr>
 vnoremap <leader>'       <cmd>ToggleTermSendVisualSelection<cr>
 
-nnoremap <leader>ww      <cmd>Telescope toggletasks spawn<cr>
-nnoremap <leader>ws      <cmd>Telescope toggletasks select<cr>
-
 nnoremap <leader>n       <cmd>HopWord<cr>
 nnoremap <Leader>undo    <cmd>UndotreeToggle<cr>
 
