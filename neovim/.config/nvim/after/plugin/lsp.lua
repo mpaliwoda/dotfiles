@@ -285,4 +285,9 @@ prequire("lsp-zero", function(lsp)
         lines.setup()
         vim.keymap.set("n", "<M-g>", lines.toggle)
     end)
+
+    vim.diagnostic.config({
+        virtual_text = true,
+        virtual_lines = { only_current_line = true }
+    })
 end)
