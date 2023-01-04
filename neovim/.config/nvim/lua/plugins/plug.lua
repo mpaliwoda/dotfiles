@@ -14,6 +14,7 @@ Plug('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
 Plug('kosayoda/nvim-lightbulb')
 Plug('antoinemadec/FixCursorHold.nvim')
 Plug('aznhe21/actions-preview.nvim')
+Plug('rmagatti/goto-preview')
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
