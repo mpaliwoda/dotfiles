@@ -1,7 +1,5 @@
 prequire("nvim-treesitter.configs", function(treesitter)
     treesitter.setup({
-        ensure_installed = "all",
-        ignore_install = { "phpdoc" },
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,

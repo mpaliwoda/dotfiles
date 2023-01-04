@@ -34,7 +34,7 @@ Plug('L3MON4D3/LuaSnip')
 Plug('rafamadriz/friendly-snippets')
 
 -- syntax highlighting
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSInstall all' })
 Plug('nathom/filetype.nvim')
 Plug('nvim-treesitter/nvim-treesitter-textobjects')
 Plug('slim-template/vim-slim')
@@ -55,7 +55,6 @@ Plug('nvim-telescope/telescope.nvim')
 Plug('jremmen/vim-ripgrep')
 Plug('windwp/nvim-spectre')
 Plug('AckslD/nvim-neoclip.lua')
-Plug('nvim-telescope/telescope-file-browser.nvim')
 Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 
 -- lua utils
@@ -117,12 +116,6 @@ Plug('tami5/sqlite.lua')
 Plug('lewis6991/impatient.nvim')
 Plug('romgrk/fzy-lua-native')
 
--- tasks
-Plug('jedrzejboczar/toggletasks.nvim')
-
--- docker
--- Plug('dgrbrady/nvim-docker')
-
 -- motions
 Plug('phaazon/hop.nvim')
 Plug('mg979/vim-visual-multi')
@@ -130,5 +123,6 @@ Plug('mg979/vim-visual-multi')
 Plug('theHamsta/nvim_rocks',
     { ['do'] = 'pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua' })
 
+Plug('dstein64/vim-startuptime')
 
 vim.call('plug#end')

@@ -1,7 +1,6 @@
 pcall(require, 'impatient')
 
 require('plugins.plug')
-require('plugins.rocks')
 require("plugins.notify")
 require('settings')
 require('global')

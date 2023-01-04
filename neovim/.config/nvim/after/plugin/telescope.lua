@@ -33,17 +33,12 @@ prequire("telescope", function(telescope)
     )
 
     local extensions = {
-        "file_browser",
         "fzf",
         "neoclip",
-        "noice",
         "notify",
-        "terms",
-        "themes",
-        "toggletasks",
     }
 
-    for _, ext in ipairs(extensions) do
+    for ext in ipairs(extensions) do
         pcall(telescope.load_extension, ext)
     end
 end)
