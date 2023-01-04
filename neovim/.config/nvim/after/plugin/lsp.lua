@@ -214,9 +214,6 @@ prequire("lsp-zero", function(lsp)
 
         vim.keymap.set("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", noremap)
         vim.keymap.set("v", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", noremap)
-
-        vim.keymap.set("n", "<leader><space>", "<cmd>lua vim.lsp.buf.code_action()<cr>", noremap)
-        vim.keymap.set("v", "<leader><space>", "<cmd>lua vim.lsp.buf.code_action()<cr>", noremap)
     end)
 
     lsp.nvim_workspace()
