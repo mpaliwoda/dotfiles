@@ -1,7 +1,6 @@
 prequire("noice", function(noice)
     noice.setup({
         lsp = {
-            signature = { enabled = true, view = "virtualtext" },
             override = {
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                 ["vim.lsp.util.stylize_markdown"] = true,
