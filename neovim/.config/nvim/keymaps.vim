@@ -80,7 +80,7 @@ nnoremap <M-t>            <cmd>TSContextToggle<cr>
 " general
 noremap Y y$
 noremap D d$
-nnoremap <C-L> :nohl<cr><C-L>
+nnoremap <silent> <C-L> :nohl<cr><C-L>
 "
 " window, tab & buffer jumping + resizing
 nnoremap <Leader>h <C-w>h
