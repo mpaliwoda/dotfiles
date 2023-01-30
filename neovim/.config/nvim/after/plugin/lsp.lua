@@ -87,6 +87,16 @@ prequire("lsp-zero", function(lsp)
         }
     })
 
+    lsp.configure("rust_analyzer", {
+        settings = {
+            rust_analyzer = {
+                diagnostics = {
+                    disabled = {"inactive-code"},
+                }
+            }
+        }
+    })
+
     local library = {}
 
     local path = vim.split(package.path, ";", {})
