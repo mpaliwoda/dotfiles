@@ -311,12 +311,14 @@ prequire("lsp-zero", function(lsp)
 	prequire("lsp_lines", function(lines)
 		lines.setup()
 		vim.keymap.set("n", "<M-g>", lines.toggle)
-	end)
 
-	vim.diagnostic.config({
-		virtual_text = true,
-		virtual_lines = { only_current_line = true },
-	})
+		vim.diagnostic.config({
+			virtual_text = true,
+			virtual_lines = { only_current_line = true },
+		})
+
+		lines.toggle()
+	end)
 end)
 
 prequire("mason-nvim-dap", function(mason_nvim_dap)
