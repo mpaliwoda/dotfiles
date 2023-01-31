@@ -49,6 +49,7 @@ Plug('rcarriga/nvim-dap-ui')
 Plug('mfussenegger/nvim-dap-python')
 Plug('theHamsta/nvim-dap-virtual-text')
 Plug('michaelb/sniprun', { ['do'] = 'bash install.sh' })
+Plug('jayp0521/mason-nvim-dap.nvim')
 
 
 -- file searching
