@@ -51,7 +51,7 @@ prequire("lsp-zero", function(lsp)
 	lsp.configure("pylsp", {
 		settings = {
 			pylsp = {
-				configurationSources = { "flake8" },
+				configurationSources = {},
 				plugins = {
 					autopep8 = { enabled = false },
 					mccabe = { enabled = false },
@@ -61,15 +61,15 @@ prequire("lsp-zero", function(lsp)
 					pyflakes = { enabled = false },
 					pylint = { enabled = false },
 					yapf = { enabled = false },
+					flake8 = { enabled = false },
+					isort = { enabled = false },
+					mypy = { enabled = false },
 
-					flake8 = { enabled = true },
-					isort = { enabled = true },
 					jedi_completion = { enabled = true },
 					jedi_hover = { enabled = true },
 					jedi_references = { enabled = true },
 					jedi_signature_help = { enabled = true },
 					jedi_symbols = { enabled = true, all_scopes = true },
-					mypy = { enabled = true, live_mode = true },
 					rope_autoimport = { enabled = true },
 					rope_completion = { enabled = true },
 				},
