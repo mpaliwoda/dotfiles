@@ -258,7 +258,11 @@ prequire("lsp-zero", function(lsp)
 				null_opts.on_attach(client, bufnr)
 			end,
 			sources = {
-				-- here goes anything not supported by mason
+				null_ls.builtins.formatting.black.with({
+					cwd = function(params)
+						return vim.fn.fnamemodify(params.bufname, ":h")
+					end,
+				}),
 			},
 		})
 
