@@ -91,7 +91,7 @@ prequire("lsp-zero", function(lsp)
         settings = {
             rust_analyzer = {
                 diagnostics = {
-                    disabled = {"inactive-code"},
+                    disabled = { "inactive-code" },
                 }
             }
         }
@@ -249,6 +249,30 @@ prequire("lsp-zero", function(lsp)
         end
 
         cmp.setup(cmp_config)
+    end)
+
+
+    prequire('null-ls', function(null_ls)
+        local null_opts = lsp.build_options('null-ls', {})
+
+        null_ls.setup({
+            on_attach = function(client, bufnr)
+                null_opts.on_attach(client, bufnr)
+            end,
+            sources = {
+                -- here goes anything not supported by mason
+            }
+        })
+
+        prequire('mason-null-ls', function(mason_null_ls)
+            mason_null_ls.setup({
+                ensure_installed = nil,
+                automatic_installation = false,
+                automatic_setup = true,
+            })
+            mason_null_ls.setup_handlers()
+        end)
+
     end)
 
     prequire("telescope.builtin", function(t_builtin)

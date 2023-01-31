@@ -14,6 +14,8 @@ Plug('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
 Plug('antoinemadec/FixCursorHold.nvim')
 Plug('aznhe21/actions-preview.nvim')
 Plug('rmagatti/goto-preview')
+Plug('jose-elias-alvarez/null-ls.nvim')
+Plug 'jay-babu/mason-null-ls.nvim'
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
