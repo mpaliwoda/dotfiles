@@ -28,7 +28,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && \
 eval "$(fasd --init auto)"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init - bash)"
+eval "$(pyenv virtualenv-init - zsh)"
 eval "$(rbenv init -)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 . "$HOME/.cargo/env"
