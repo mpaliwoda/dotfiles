@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+
+# shellcheck disable=2163
 alias v=nvim
 alias vi=nvim
 alias vim=nvim
@@ -14,39 +17,34 @@ alias ll='ls -alF'
 
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 
-
-py_clean () {
+py_clean() {
     __clean "(__pycache__|\.pyc|\.pyo$|.mypy_cache|.pytest_cache|.benchmarks)"
 }
 
-
-__clean () {
+__clean() {
     find . | grep -E "$1" | xargs rm -rf
 }
 
-
-j () {
+j() {
     fasd_cd -id "$1"
 }
 
-
-current_branch () {
+current_branch() {
+    # shellcheck disable=2063
     git branch | grep \* | cut -d ' ' -f2
 }
 
-
-push () {
-    git push origin -u $(current_branch)
+push() {
+    git push origin -u "$(current_branch)"
 }
 
-
-rename () {
+rename() {
     case $1 in
         local)
-            git branch -m $(current_branch) "$2"
+            git branch -m "$(current_branch)" "$2"
             ;;
         remote)
-            __rename_remote $2
+            __rename_remote "$2"
             ;;
         *)
             printf "You're called: 'Idiot' from now on\\n"
@@ -54,65 +52,58 @@ rename () {
     esac
 }
 
-
-__rename_remote () {
+__rename_remote() {
     new_name="$1"
     old_name=$(current_branch)
 
-    git branch -m $old_name $new_name
-    git push origin --delete $old_name
+    git branch -m "$old_name" "$new_name"
+    git push origin --delete "$old_name"
     push
 }
 
-
-merge_diff () {
-    if [ -z "$1" ]; then
+merge_diff() {
+    if [ "$1" = "" ]; then
         branch_to_compare="origin/master"
     else
         branch_to_compare="$1"
     fi
 
-    git log $branch_to_compare..$(current_branch) --oneline | grep "Merge pull*"
+    git log "$branch_to_compare..$(current_branch)" --oneline | grep "Merge pull*"
 }
 
-
-datever () {
+datever() {
     date +%Y.%m.%d.%H%M
 }
 
-
-genpass () {
+genpass() {
     openssl rand -base64 "$1"
 }
 
-
-import () {
+import() {
     env_file="$1"
 
-    while IFS='' read -r line || [ -n "${LINE}" ]; do
+    while IFS='' read -r line || [ "$LINE" != "" ]; do
         if [ "$line" = "" ]; then
             continue
         fi
 
         export "$line"
-    done < $env_file
+    done <"$env_file"
 }
-
 
 # shamelessly copied from https://polothy.github.io/post/2019-08-19-fzf-git-checkout/
-fzf-git-branch () {
-    git rev-parse HEAD > /dev/null 2>&1 || return
+fzf-git-branch() {
+    git rev-parse HEAD >/dev/null 2>&1 || return
 
     git branch --color=always --all --sort=-committerdate |
-        grep -v HEAD |
-        fzf --height 50% --ansi --no-multi --preview-window right:65% \
-            --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed "s/.* //" <<< {})' |
-        sed "s/.* //"
+    grep -v HEAD |
+    fzf --height 50% --ansi --no-multi --preview-window right:65% \
+        --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed "s/.* //" <<< {})' |
+    sed "s/.* //"
 }
 
-
-ch () {
-    git rev-parse HEAD > /dev/null 2>&1 || return
+ch() {
+    git rev-parse HEAD >/dev/null 2>&1 || return
 
     local branch
 
@@ -126,13 +117,12 @@ ch () {
     # using --track and a remote branch name, it is the same as:
     # git checkout -b branchName --track origin/branchName
     if [[ "$branch" = 'remotes/'* ]]; then
-        git checkout --track $branch
+        git checkout --track "$branch"
     else
-        git checkout $branch;
+        git checkout "$branch"
     fi
 }
 
-
-docker-murder () {
-    docker rm $(docker ps -a -q)
+docker-murder() {
+    docker rm "$(docker ps -a -q)"
 }
