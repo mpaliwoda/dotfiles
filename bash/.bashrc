@@ -14,7 +14,7 @@ export LANG=en_US.UTF-8
 export EDITOR=/opt/homebrew/bin/nvim
 
 export BASH_IT="$HOME/Terminal/bash-it"
-export BASH_IT_THEME='powerline'
+export BASH_IT_THEME='powerline-multiline'
 export VCPROMPT_EXECUTABLE="$HOME/Terminal/vcprompt"
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -53,6 +53,4 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init - bash)"
 eval "$(rbenv init -)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-
-source /Users/marcin.paliwoda/.config/broot/launcher/bash/br
+export PATH=$PATH:/Users/marcin/.spicetify

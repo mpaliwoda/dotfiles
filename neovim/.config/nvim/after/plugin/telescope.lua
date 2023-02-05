@@ -1,5 +1,10 @@
 prequire("telescope", function(telescope)
     telescope.setup({
+        pickers = {
+            find_files = {
+                hidden = true,
+            },
+        },
         defaults = {
             prompt_prefix        = "   ",
             sorting_strategy     = "ascending",

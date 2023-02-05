@@ -26,3 +26,5 @@ celerybeat-schedule
 !**/.teamcity
 db-data
 **/performance/results/*.json
+
+actionlint.yaml

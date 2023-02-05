@@ -5,11 +5,6 @@
     editor = nvim
     excludesfile = ~/.gitignore_global
     pager = delta
-[filter "lfs"]
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
 [init]
     defaultBranch = main
 [pull]
@@ -25,6 +20,11 @@
     colorMoved = default
 [push]
     default = current
-	autoSetupRemote = true
+    autoSetupRemote = true
 [remote "origin"]
-	prune = true
+    prune = true
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
