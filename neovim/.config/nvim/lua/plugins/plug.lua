@@ -116,7 +116,7 @@ Plug('MunifTanjim/nui.nvim')
 Plug('tami5/sqlite.lua')
 Plug('lewis6991/impatient.nvim')
 Plug('romgrk/fzy-lua-native')
-Plug('RRethy/vim-illuminate')
+-- Plug('RRethy/vim-illuminate')
 
 -- motions
 Plug('phaazon/hop.nvim')
