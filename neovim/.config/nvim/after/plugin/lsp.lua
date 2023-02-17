@@ -33,13 +33,13 @@ prequire("lsp-zero", function(lsp)
 		"html",
 		"jdtls",
 		"jsonls",
+		"lua_ls",
 		"marksman",
 		"pylsp",
 		"ruby_ls",
 		"rust_analyzer",
 		"solargraph",
 		"sqlls",
-		"sumneko_lua",
 		"tailwindcss",
 		"terraformls",
 		"tflint",
@@ -112,7 +112,7 @@ prequire("lsp-zero", function(lsp)
 	add(os.getenv("VIMRUNTIME"))
 	add(os.getenv("HOME") .. "/.config/nvim")
 
-	lsp.configure("sumneko_lua", {
+	lsp.configure("lua_ls", {
 		settings = {
 			Lua = {
 				completion = { callSnippet = "Both" },
