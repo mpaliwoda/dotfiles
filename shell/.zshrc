@@ -44,5 +44,8 @@ zinit light Aloxaf/fzf-tab
 zinit light jeffreytse/zsh-vi-mode
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
-zinit light nocttuam/autodotenv
+# zinit light nocttuam/autodotenv
 zinit light wfxr/forgit
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
