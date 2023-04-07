@@ -8,3 +8,6 @@ require('colorschemes.onedark')
 
 vim.cmd('so ~/.config/nvim/autocmds.vim')
 vim.cmd('so ~/.config/nvim/keymaps.vim')
+
+
+require("plugins.silicon")

@@ -117,6 +117,10 @@ Plug('tami5/sqlite.lua')
 Plug('lewis6991/impatient.nvim')
 Plug('romgrk/fzy-lua-native')
 -- Plug('RRethy/vim-illuminate')
+-- Plug ('krivahtoo/silicon.nvim', { ['do'] = './install.sh build' })
+-- Plug('segeljakt/vim-silicon')
+Plug("narutoxy/silicon.lua")
+Plug("Rasukarusan/nvim-select-multi-line")
 
 -- motions
 Plug('phaazon/hop.nvim')
