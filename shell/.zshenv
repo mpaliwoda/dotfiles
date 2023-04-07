@@ -6,8 +6,6 @@ export CLICOLOR=1
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export EDITOR=/opt/homebrew/bin/nvim
-
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
 HISTFILESIZE=10000
@@ -29,6 +27,11 @@ eval "$(fasd --init auto)"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-eval "$(rbenv init -)"
+# eval "$(rbenv init - zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 . "$HOME/.cargo/env"
+. /Users/marcin.paliwoda/.rvm/scripts/rvm
+
+export EDITOR=/opt/homebrew/bin/nvim
+export LDFLAGS="-L/opt/homebrew/opt/capstone/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/capstone/include"
