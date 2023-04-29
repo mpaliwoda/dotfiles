@@ -28,6 +28,7 @@ Plug("onsails/lspkind.nvim")
 Plug('hrsh7th/cmp-emoji')
 Plug('mattn/emmet-vim')
 Plug('dcampos/cmp-emmet-vim')
+Plug('zbirenbaum/copilot.lua')
 
 -- Snippets
 Plug('L3MON4D3/LuaSnip')

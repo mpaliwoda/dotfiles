@@ -201,6 +201,19 @@ prequire("lspconfig", function(lspconfig)
                 end, { 'i', 's' })
             end)
 
+            prequire("copilot", function(copilot)
+                copilot.setup({
+                    suggestion = {
+                        auto_trigger = true,
+                        keymap = {
+                            accept = "<M-.>",
+                            next = "<M-l>",
+                            prev = "<M-h>",
+                        },
+                    },
+                })
+            end)
+
             cmp.setup(cmp_config)
         end)
     end)
