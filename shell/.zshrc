@@ -40,12 +40,55 @@ zpcompinit
 zpcdreplay
 
 zinit ice depth=1
-zinit light Aloxaf/fzf-tab
 zinit light jeffreytse/zsh-vi-mode
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
-# zinit light nocttuam/autodotenv
 zinit light wfxr/forgit
+zinit light zsh-users/zsh-completions
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' '+l:|=* r:|=*'
+# pyenv
+zinit ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh && git clone https://github.com/pyenv/pyenv-virtualenv ./plugins/pyenv-virtualenv' \
+    atinit'export PYENV_ROOT="$PWD"' atpull"%atclone" \
+    as'command' pick'bin/pyenv' src"zpyenv.zsh" nocompile'!'
+zinit light pyenv/pyenv
+
+zinit light Aloxaf/fzf-tab
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+function sil() {
+    mv ~/.config/silicon/config.bak ~/.config/silicon/config
+    silicon "$@"
+    mv ~/.config/silicon/config ~/.config/silicon/config.bak
+}
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+typeset -g HISTSIZE=290000 SAVEHIST=290000 HISTFILE=~/.zhistory
+setopt inc_append_history
+setopt share_history
+setopt hist_ignore_space
