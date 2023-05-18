@@ -128,5 +128,6 @@ Plug('theHamsta/nvim_rocks',
     { ['do'] = 'pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua' })
 
 Plug('dstein64/vim-startuptime')
+Plug("jbyuki/venn.nvim")
 
 vim.call('plug#end')
