@@ -265,6 +265,16 @@ prequire("lspconfig", function(lspconfig)
         },
     })
 
+    lspconfig.yamlls.setup({
+        settings = {
+            yaml = {
+                rules = {
+                    ['key-ordering'] = "disable"
+                }
+            }
+        }
+    })
+
     local library = {}
 
     local path = vim.split(package.path, ";", {})
