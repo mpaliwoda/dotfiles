@@ -6,6 +6,7 @@ prequire("telescope", function(telescope)
             },
         },
         defaults = {
+            -- border               = false,
             prompt_prefix        = "   ",
             sorting_strategy     = "ascending",
             file_sorter          = require("telescope.sorters").get_fuzzy_file,

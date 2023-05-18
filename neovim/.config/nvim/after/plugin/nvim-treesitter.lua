@@ -16,10 +16,10 @@ prequire("nvim-treesitter.configs", function(treesitter)
             swap = {
                 enable = true,
                 swap_next = {
-                    ["<M-l>"] = "@parameter.inner",
+                    ["<M-L>"] = "@parameter.inner",
                 },
                 swap_previous = {
-                    ["<M-h>"] = "@parameter.inner",
+                    ["<M-H>"] = "@parameter.inner",
                 },
             },
             move = {
