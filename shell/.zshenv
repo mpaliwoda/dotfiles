@@ -35,3 +35,4 @@ eval "$(pyenv virtualenv-init -)"
 export EDITOR=/opt/homebrew/bin/nvim
 export LDFLAGS="-L/opt/homebrew/opt/capstone/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/capstone/include"
+export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
