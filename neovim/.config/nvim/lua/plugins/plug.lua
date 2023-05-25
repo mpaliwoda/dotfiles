@@ -72,27 +72,18 @@ Plug('stevearc/dressing.nvim')
 Plug('gen740/SmoothCursor.nvim')
 Plug('folke/noice.nvim')
 Plug('folke/zen-mode.nvim')
-Plug('eandrju/cellular-automaton.nvim')
-Plug('theprimeagen/harpoon')
 Plug('folke/trouble.nvim')
 
 -- whitespace and commenting
 Plug('numToStr/Comment.nvim')
 Plug('kylechui/nvim-surround')
 Plug('windwp/nvim-autopairs')
-Plug('tpope/vim-sleuth')
 
 -- git
 Plug('airblade/vim-gitgutter')
 Plug('rhysd/committia.vim')
 Plug('tpope/vim-fugitive')
-Plug('sodapopcan/vim-twiggy')
-Plug('rhysd/git-messenger.vim')
 Plug('akinsho/git-conflict.nvim')
-
--- sql
-Plug('tpope/vim-dadbod')
-Plug('kristijanhusak/vim-dadbod-ui')
 
 -- themes
 Plug('navarasu/onedark.nvim')
@@ -117,7 +108,6 @@ Plug('tami5/sqlite.lua')
 Plug('lewis6991/impatient.nvim')
 Plug('romgrk/fzy-lua-native')
 Plug("narutoxy/silicon.lua")
-Plug("Rasukarusan/nvim-select-multi-line")
 Plug("linux-cultist/venv-selector.nvim/")
 
 -- motions
@@ -127,7 +117,6 @@ Plug('mg979/vim-visual-multi')
 Plug('theHamsta/nvim_rocks',
     { ['do'] = 'pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua' })
 
-Plug('dstein64/vim-startuptime')
 Plug("jbyuki/venn.nvim")
 
 vim.call('plug#end')
