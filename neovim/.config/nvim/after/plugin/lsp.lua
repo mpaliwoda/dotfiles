@@ -456,8 +456,8 @@ end)
 prequire("mason-null-ls", function(mason_null_ls)
     mason_null_ls.setup({
         ensure_installed = {
-            "mypy",
-            "pyproject-flake8",
+            "black",
+            "isort",
         },
         automatic_setup = true,
         handlers = {}
@@ -465,7 +465,14 @@ prequire("mason-null-ls", function(mason_null_ls)
 
     prequire("null-ls", function(null_ls)
         null_ls.setup({
-            sources = {}
+            sources = {
+                null_ls.builtins.diagnostics.pyproject_flake8.with({
+                    prefer_local = ".venv/bin"
+                }),
+                null_ls.builtins.diagnostics.mypy.with({
+                    prefer_local = ".venv/bin"
+                }),
+            }
         })
     end)
 end)

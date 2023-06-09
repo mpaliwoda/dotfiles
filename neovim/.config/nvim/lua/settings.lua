@@ -54,10 +54,10 @@ set.timeoutlen = 400
 set.updatetime = 400
 
 set.undofile = true
-set.undodir = os.getenv("HOME") .. '/.config/nvim/undodir'
+set.undodir = { os.getenv("HOME") .. '/.config/nvim/undodir' }
 
 set.signcolumn = "yes"
 
-vim.g.python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
+vim.g.python3_host_prog = '~/.pyenv/shims/python'
 vim.g.did_load_filetypes = 1
 vim.g.loaded_perl_provider = 0

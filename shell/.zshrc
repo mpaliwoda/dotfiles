@@ -47,11 +47,6 @@ zinit light wfxr/forgit
 zinit light zsh-users/zsh-completions
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' '+l:|=* r:|=*'
-# pyenv
-zinit ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh && git clone https://github.com/pyenv/pyenv-virtualenv ./plugins/pyenv-virtualenv' \
-    atinit'export PYENV_ROOT="$PWD"' atpull"%atclone" \
-    as'command' pick'bin/pyenv' src"zpyenv.zsh" nocompile'!'
-zinit light pyenv/pyenv
 
 zinit light Aloxaf/fzf-tab
 # disable sort when completing `git checkout`

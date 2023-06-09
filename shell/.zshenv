@@ -15,24 +15,17 @@ for file in "${TO_SOURCE[@]}"; do
     [ -f $file ] && source $file
 done
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PATH="$PATH:/usr/local/bin:$PYENV_ROOT/bin"
+export PATH="$PATH:/usr/local/bin"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && \
     printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
 
 eval "$(fasd --init auto)"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-# eval "$(rbenv init - zsh)"
+eval "$(rbenv init - zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 . "$HOME/.cargo/env"
-. /Users/marcin.paliwoda/.rvm/scripts/rvm
+# . /Users/marcin.paliwoda/.rvm/scripts/rvm
 
 export EDITOR=/opt/homebrew/bin/nvim
-export LDFLAGS="-L/opt/homebrew/opt/capstone/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/capstone/include"
 export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
