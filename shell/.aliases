@@ -25,8 +25,54 @@ __clean() {
     find . | grep -E "$1" | xargs rm -rf
 }
 
+__find_in_dir() {
+    local sought_dir="$1"
+    local base_dir="$2"
+
+    fd "$sought_dir" \
+        --type d \
+        --hidden \
+        --absolute-path \
+        --exclude ".git" \
+        --exclude "Library/" \
+        --exclude "node_modules/" \
+        --exclude "go" \
+        --prune \
+        --max-depth 3 \
+        "$base_dir"
+}
+
+
 j() {
-    fasd_cd -id "$1"
+    local sought_dir="$1"
+    # first try to search in current directory
+    local candidates
+
+    local fd_result=$(__find_in_dir "$sought_dir" $PWD)
+
+    if [ "$fd_result" != "" ]; then
+        candidates=("${(@f)$(echo $fd_result)}")
+    else
+        fd_result=$(__find_in_dir "$sought_dir" $HOME)
+
+        if [ "$fd_result" != "" ]; then
+            candidates=("${(@f)$(echo $fd_result)}")
+        else
+            echo "Couldn't find any directory matching $sought_dir"
+            return
+        fi
+
+    fi
+
+    if [ ${#candidates[@]} -eq 1 ]; then
+        cd "${candidates}"
+        return
+    else
+        # use fzf to select directory
+        local selected_dir
+        selected_dir=$(printf '%s\n' "${candidates[@]}" | fzf --height 40% --reverse --preview 'tree -C {} | head -50')
+        cd "$selected_dir" || return
+    fi
 }
 
 current_branch() {
@@ -47,7 +93,7 @@ rename() {
             __rename_remote "$2"
             ;;
         *)
-            printf "You're called: 'Idiot' from now on\\n"
+            printf "Usage:\\n\\trename local \\$BRANCH_NAME\\n\\trename remote \\$BRANCH_NAME\\n"
             ;;
     esac
 }
