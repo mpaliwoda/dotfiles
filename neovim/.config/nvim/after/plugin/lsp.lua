@@ -52,7 +52,6 @@ prequire("lspconfig", function(lspconfig)
                     "eslint",
                     "gopls",
                     "html",
-                    "jdtls",
                     "jsonls",
                     "marksman",
                     "pylsp",
@@ -470,6 +469,9 @@ prequire("mason-null-ls", function(mason_null_ls)
                     prefer_local = ".venv/bin"
                 }),
                 null_ls.builtins.diagnostics.mypy.with({
+                    prefer_local = ".venv/bin"
+                }),
+                null_ls.builtins.diagnostics.ruff.with({
                     prefer_local = ".venv/bin"
                 }),
             }
