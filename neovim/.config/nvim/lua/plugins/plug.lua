@@ -15,6 +15,7 @@ Plug('aznhe21/actions-preview.nvim')
 Plug('rmagatti/goto-preview')
 Plug('jose-elias-alvarez/null-ls.nvim')
 Plug 'jay-babu/mason-null-ls.nvim'
+Plug('scalameta/nvim-metals')
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
@@ -80,7 +81,6 @@ Plug('kylechui/nvim-surround')
 Plug('windwp/nvim-autopairs')
 
 -- git
-Plug('airblade/vim-gitgutter')
 Plug('rhysd/committia.vim')
 Plug('tpope/vim-fugitive')
 Plug('akinsho/git-conflict.nvim')
