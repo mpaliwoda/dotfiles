@@ -65,12 +65,6 @@ prequire("nvim-treesitter.configs", function(treesitter)
                 },
             },
         },
-        -- section for nvim-ts-rainbow
-        rainbow = {
-            enable = true,
-            extended_mode = true,
-            max_file_lines = nil,
-        }
     })
 
     prequire("treesitter-context", function(treesitter_context)
@@ -80,4 +74,26 @@ prequire("nvim-treesitter.configs", function(treesitter)
             mode = 'cursor',
         })
     end)
+end)
+
+prequire('rainbow-delimiters', function(rainbow_delimiters)
+    vim.g.rainbow_delimiters = {
+        strategy = {
+            [''] = rainbow_delimiters.strategy['global'],
+            vim = rainbow_delimiters.strategy['local'],
+        },
+        query = {
+            [''] = 'rainbow-delimiters',
+            lua = 'rainbow-blocks',
+        },
+        highlight = {
+            'RainbowDelimiterRed',
+            'RainbowDelimiterYellow',
+            'RainbowDelimiterBlue',
+            'RainbowDelimiterOrange',
+            'RainbowDelimiterGreen',
+            'RainbowDelimiterViolet',
+            'RainbowDelimiterCyan',
+        },
+    }
 end)

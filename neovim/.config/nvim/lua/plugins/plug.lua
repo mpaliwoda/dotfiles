@@ -16,6 +16,7 @@ Plug('rmagatti/goto-preview')
 Plug('jose-elias-alvarez/null-ls.nvim')
 Plug 'jay-babu/mason-null-ls.nvim'
 Plug('scalameta/nvim-metals')
+Plug('roobert/tailwindcss-colorizer-cmp.nvim')
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
@@ -43,6 +44,9 @@ Plug('slim-template/vim-slim')
 Plug('nvim-treesitter/nvim-treesitter-context')
 Plug('chrisbra/csv.vim')
 Plug('chr4/nginx.vim')
+Plug('Glench/Vim-Jinja2-Syntax')
+-- Plug('adelarsq/neofsharp.vim')
+Plug('ionide/Ionide-vim')
 
 -- debugging
 Plug('mfussenegger/nvim-dap')
@@ -92,10 +96,10 @@ Plug('navarasu/onedark.nvim')
 Plug('kyazdani42/nvim-web-devicons')
 Plug('lewis6991/gitsigns.nvim')
 Plug('machakann/vim-highlightedyank')
-Plug('p00f/nvim-ts-rainbow')
 Plug('lukas-reineke/indent-blankline.nvim')
 Plug('laytan/cloak.nvim')
 Plug('folke/todo-comments.nvim')
+Plug('https://gitlab.com/HiPhish/rainbow-delimiters.nvim')
 
 -- additional markdown support
 Plug('jghauser/follow-md-links.nvim')
@@ -107,7 +111,7 @@ Plug('MunifTanjim/nui.nvim')
 Plug('tami5/sqlite.lua')
 Plug('lewis6991/impatient.nvim')
 Plug('romgrk/fzy-lua-native')
-Plug("narutoxy/silicon.lua")
+Plug('0oAstro/silicon.lua')
 Plug("linux-cultist/venv-selector.nvim/")
 
 -- motions

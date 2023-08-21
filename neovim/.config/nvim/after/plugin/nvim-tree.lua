@@ -68,8 +68,8 @@ prequire("nvim-tree", function(ntree)
         -- Mappings migrated from view.mappings.list
         --
         -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-        vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
-        vim.keymap.set('n', 's', api.node.open.horizontal, opts('Open: Horizontal Split'))
+        vim.keymap.set('n', 'V', api.node.open.vertical, opts('Open: Vertical Split'))
+        vim.keymap.set('n', 'S', api.node.open.horizontal, opts('Open: Horizontal Split'))
     end
 
     ntree.setup({
@@ -86,12 +86,6 @@ prequire("nvim-tree", function(ntree)
         },
         view          = {
             width = 35,
-            mappings = {
-                list = {
-                    { key = "v", action = "vsplit" },
-                    { key = "s", action = "split" },
-                }
-            },
             number = true,
             relativenumber = true,
         },

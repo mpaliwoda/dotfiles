@@ -71,10 +71,46 @@ prequire("lspconfig", function(lspconfig)
             })
 
             for _, server_name in ipairs(mason_lspconfig.get_installed_servers()) do
-                lspconfig[server_name].setup({
-                    -- on_attach = lsp_attach,
-                    capabilities = cmp_nvim_lsp.default_capabilities(),
-                })
+                if server_name == "tailwindcss" then
+                    lspconfig[server_name].setup({
+                        filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure",
+                            "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby",
+                            "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf",
+                            "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim",
+                            "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript",
+                            "jinja", "j2", "jinja.html",
+                            "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
+                        capabilities = cmp_nvim_lsp.default_capabilities(),
+                    })
+                elseif server_name == "html" then
+                    local capabilities = cmp_nvim_lsp.default_capabilities()
+                    capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+                    lspconfig[server_name].setup({
+                        filetypes = { "html", "htmldjango", "jinja", "j2", "jinja.html" },
+                        capabilities = capabilities,
+                        init_options = {
+                            configurationSection = { "html", "css", "javascript" },
+                            embeddedLanguages = {
+                                css = true,
+                                javascript = true
+                            },
+                            provideFormatter = false,
+                        }
+
+                    })
+                elseif server_name == "emmet_ls" then
+                    lspconfig[server_name].setup({
+                        filetypes = { "astro", "css", "eruby", "html", "htmldjango", "javascript", "javascriptreact",
+                            "less", "pug", "sass", "scss", "svelte", "typescriptreact", "vue", "jinja", "j2",
+                            "jinja.html" },
+                        capabilities = cmp_nvim_lsp.default_capabilities(),
+                    })
+                else
+                    lspconfig[server_name].setup({
+                        capabilities = cmp_nvim_lsp.default_capabilities(),
+                    })
+                end
             end
         end)
 
@@ -211,6 +247,10 @@ prequire("lspconfig", function(lspconfig)
                         },
                     },
                 })
+            end)
+
+            prequire("tailwindcss-colorizer-cmp", function(tailwindcss_colorizer_cmp)
+                cmp_config.formatting["format"] = tailwindcss_colorizer_cmp.formatter
             end)
 
             cmp.setup(cmp_config)
@@ -473,6 +513,14 @@ prequire("mason-null-ls", function(mason_null_ls)
                 }),
                 null_ls.builtins.diagnostics.ruff.with({
                     prefer_local = ".venv/bin"
+                }),
+                null_ls.builtins.diagnostics.djlint.with({
+                    prefer_local = ".venv/bin",
+                    filetypes = { "htmldjango", "jinja", "jinja.html", "j2" },
+                }),
+                null_ls.builtins.formatting.djlint.with({
+                    prefer_local = ".venv/bin",
+                    filetypes = { "htmldjango", "jinja", "jinja.html", "j2" },
                 }),
             }
         })

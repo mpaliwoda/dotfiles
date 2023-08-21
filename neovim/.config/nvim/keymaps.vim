@@ -119,3 +119,5 @@ nmap <M-0> <cmd>CellularAutomaton make_it_rain<cr>
 nmap <M-9> <cmd>CellularAutomaton game_of_life<cr>
 
 nnoremap <Space>v :call sml#mode_on()<CR>
+
+nnoremap <C-M-n> <cmd>FSharpNewFile<cr>
