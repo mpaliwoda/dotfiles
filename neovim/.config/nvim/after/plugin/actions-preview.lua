@@ -1,5 +1,0 @@
-prequire("actions-preview", function (preview)
-    preview.setup()
-    vim.keymap.set("n", "<leader><space>", preview.code_actions)
-    vim.keymap.set("v", "<leader><space>", preview.code_actions)
-end)

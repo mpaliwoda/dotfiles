@@ -51,21 +51,6 @@ nnoremap <Leader>undo    <cmd>UndotreeToggle<cr>
 
 tnoremap <Esc>           <C-\><C-n>
 
-nnoremap <Leader>ab      <cmd>lua require'dap'.toggle_breakpoint()<cr>
-nnoremap <Leader>ar      <cmd>lua require'dap'.repl.open()<cr>
-nnoremap <Leader>au      <cmd>lua require'dapui'.toggle()<cr>
-
-nnoremap <F5>            <cmd>lua require'dap'.continue()<cr>
-
-nnoremap <F6>            <cmd>lua require'dap'.step_into()<cr>
-nnoremap <F7>            <cmd>lua require'dap'.step_over()<cr>
-nnoremap <F8>            <cmd>lua require'dap'.step_out()<cr>
-
-nnoremap <F9>            <cmd>lua require'dap-python'.test_method()<cr>
-vnoremap <F9>            <cmd>lua require'dap-python'.debug_selection()<cr>
-nnoremap <F10>           <cmd>lua require('dap.ext.vscode').load_launchjs()<cr>
-
-
 nnoremap <leader>S       <cmd>lua require('spectre').open()<cr>
 nnoremap <leader>sw      <cmd>lua require('spectre').open_visual({select_word=true})<cr>
 nnoremap <leader>sp      <cmd>lua require('spectre').open_file_search()<cr>
@@ -93,11 +78,6 @@ nnoremap <silent> - :exe "resize -5"<cr>
 nnoremap <silent> <Leader>= :exe "vertical resize +10"<cr>
 nnoremap <silent> <Leader>- :exe "vertical resize -10"<cr>
 
-" nmap <F2> <Plug>(coc-codelens-action)
-nmap <F3> <cmd>ToggleBlameLine<CR>
-
-nmap <M-b> <cmd>Twiggy<CR>
-
 vmap <M-k> :m '<-2<cr>gv=gv
 vmap <M-j> :m '>+1<cr>gv=gv
 
@@ -107,17 +87,5 @@ nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 
 nmap <M-z> <cmd>ZenMode<cr>
-
-nmap <M-o>p <Plug>SnipRun
-vmap <M-o>p <Plug>SnipRun
-nmap <M-o>i <Plug>SnipRunOperator
-nmap <M-o>x <Plug>SnipReset
-nmap <M-o>c <Plug>SnipClose
-nmap <M-o>l <Plug>SnipLive
-
-nmap <M-0> <cmd>CellularAutomaton make_it_rain<cr>
-nmap <M-9> <cmd>CellularAutomaton game_of_life<cr>
-
-nnoremap <Space>v :call sml#mode_on()<CR>
 
 nnoremap <C-M-n> <cmd>FSharpNewFile<cr>

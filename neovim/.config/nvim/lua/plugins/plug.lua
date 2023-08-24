@@ -7,15 +7,10 @@ Plug('neovim/nvim-lspconfig')
 Plug('williamboman/mason.nvim')
 Plug('williamboman/mason-lspconfig.nvim')
 Plug('jubnzv/virtual-types.nvim')
-Plug('simrat39/symbols-outline.nvim')
 Plug('lvimuser/lsp-inlayhints.nvim')
 Plug('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
-Plug('antoinemadec/FixCursorHold.nvim')
-Plug('aznhe21/actions-preview.nvim')
-Plug('rmagatti/goto-preview')
 Plug('jose-elias-alvarez/null-ls.nvim')
 Plug 'jay-babu/mason-null-ls.nvim'
-Plug('scalameta/nvim-metals')
 Plug('roobert/tailwindcss-colorizer-cmp.nvim')
 
 -- Completion
@@ -38,9 +33,8 @@ Plug('rafamadriz/friendly-snippets')
 
 -- syntax highlighting
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSInstall all' })
-Plug('nathom/filetype.nvim')
+-- Plug('nathom/filetype.nvim')
 Plug('nvim-treesitter/nvim-treesitter-textobjects')
-Plug('slim-template/vim-slim')
 Plug('nvim-treesitter/nvim-treesitter-context')
 Plug('chrisbra/csv.vim')
 Plug('chr4/nginx.vim')
@@ -48,20 +42,10 @@ Plug('Glench/Vim-Jinja2-Syntax')
 -- Plug('adelarsq/neofsharp.vim')
 Plug('ionide/Ionide-vim')
 
--- debugging
-Plug('mfussenegger/nvim-dap')
-Plug('rcarriga/nvim-dap-ui')
-Plug('mfussenegger/nvim-dap-python')
-Plug('theHamsta/nvim-dap-virtual-text')
-Plug('michaelb/sniprun', { ['do'] = 'bash install.sh' })
-Plug('jayp0521/mason-nvim-dap.nvim')
-
-
 -- file searching
 Plug('nvim-telescope/telescope.nvim')
 Plug('jremmen/vim-ripgrep')
 Plug('windwp/nvim-spectre')
-Plug('AckslD/nvim-neoclip.lua')
 Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 
 -- lua utils
@@ -103,13 +87,11 @@ Plug('https://gitlab.com/HiPhish/rainbow-delimiters.nvim')
 
 -- additional markdown support
 Plug('jghauser/follow-md-links.nvim')
-Plug('ellisonleao/glow.nvim', { branch = 'main' })
 Plug('lukas-reineke/headlines.nvim')
 
 -- other utils
 Plug('MunifTanjim/nui.nvim')
 Plug('tami5/sqlite.lua')
-Plug('lewis6991/impatient.nvim')
 Plug('romgrk/fzy-lua-native')
 Plug('0oAstro/silicon.lua')
 Plug("linux-cultist/venv-selector.nvim/")
@@ -120,7 +102,5 @@ Plug('mg979/vim-visual-multi')
 -- rocks
 Plug('theHamsta/nvim_rocks',
     { ['do'] = 'pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua' })
-
-Plug("jbyuki/venn.nvim")
 
 vim.call('plug#end')

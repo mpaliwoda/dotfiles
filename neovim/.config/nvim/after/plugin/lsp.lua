@@ -429,11 +429,6 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { 
 vim.lsp.handlers["textDocument/signatureHelp"] =
     vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
-prequire("symbols-outline", function(symbols_outline)
-    symbols_outline.setup()
-    vim.keymap.set("n", "<M-k>", "<cmd>SymbolsOutline<cr>")
-end)
-
 prequire("lsp-inlayhints", function(hints)
     hints.setup()
 
@@ -454,49 +449,10 @@ prequire("lsp-inlayhints", function(hints)
     vim.keymap.set("n", "<M-f>", hints.toggle)
 end)
 
-prequire("mason-nvim-dap", function(mason_nvim_dap)
-    mason_nvim_dap.setup({ automatic_setup = true })
-
-    prequire("dap", function(dap)
-        vim.fn.sign_define("DapBreakpoint", { text = "⬢", texthl = "Yellow", linehl = "", numhl = "Yellow" })
-        vim.fn.sign_define("DapStopped", { text = "▶", texthl = "Green", linehl = "ColorColumn", numhl = "Green" })
-        vim.api.nvim_set_keymap("n", "<M-'>", '<Cm>lua require("dap.ui.widgets").hover()<CR>', { silent = true })
-
-        -- DAP UI
-        prequire("dapui", function(dap_ui)
-            dap_ui.setup()
-
-            -- open on dap startup
-            dap.listeners.after.event_initialized["dapui_config"] = function()
-                dap_ui.open()
-            end
-
-            dap.listeners.before.event_terminated["dapui_config"] = function()
-                dap_ui.close()
-            end
-
-            dap.listeners.before.event_exited["dapui_config"] = function()
-                dap_ui.close()
-            end
-        end)
-    end)
-
-    -- DAP VIRTUALTEXT
-    prequire("nvim-dap-virtual-text", function(dap_vtext)
-        dap_vtext.setup()
-    end)
-
-    prequire("dap-python", function(dap_python)
-        dap_python.test_runner = "pytest"
-        dap_python.setup()
-    end)
-end)
-
 prequire("mason-null-ls", function(mason_null_ls)
     mason_null_ls.setup({
         ensure_installed = {
             "black",
-            "isort",
         },
         automatic_setup = true,
         handlers = {}
@@ -511,9 +467,9 @@ prequire("mason-null-ls", function(mason_null_ls)
                 null_ls.builtins.diagnostics.mypy.with({
                     prefer_local = ".venv/bin"
                 }),
-                null_ls.builtins.diagnostics.ruff.with({
-                    prefer_local = ".venv/bin"
-                }),
+                -- null_ls.builtins.diagnostics.ruff.with({
+                --     prefer_local = ".venv/bin"
+                -- }),
                 null_ls.builtins.diagnostics.djlint.with({
                     prefer_local = ".venv/bin",
                     filetypes = { "htmldjango", "jinja", "jinja.html", "j2" },
