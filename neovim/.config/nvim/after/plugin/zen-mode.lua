@@ -3,7 +3,7 @@ prequire("zen-mode", function(zen)
 
     zen.setup({
         window = {
-            width = 120,
+            width = 140,
             height = 1,
             options = {
                 list = true,
@@ -23,7 +23,7 @@ prequire("zen-mode", function(zen)
             },
             kitty = {
                 enabled = true,
-                font = "+4"
+                font = "+2"
             },
         },
         on_open = function(win)
