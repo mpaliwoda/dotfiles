@@ -46,7 +46,6 @@ nnoremap <leader>'       <cmd>ToggleTerm size=25 direction=horizontal<cr>
 nnoremap <leader>"       <cmd>ToggleTerm direction=float<cr>
 vnoremap <leader>'       <cmd>ToggleTermSendVisualSelection<cr>
 
-nnoremap <leader>n       <cmd>HopWord<cr>
 nnoremap <Leader>undo    <cmd>UndotreeToggle<cr>
 
 tnoremap <Esc>           <C-\><C-n>

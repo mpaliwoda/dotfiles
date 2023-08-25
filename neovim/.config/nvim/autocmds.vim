@@ -1,12 +1,5 @@
 autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
 
-" augroup htmldjango_ft
-"   au!
-"   autocmd BufNewFile,BufRead *.html      set ft=htmldjango
-"   autocmd BufNewFile,BufRead *.html.j2   set ft=htmldjango
-"   autocmd BufNewFile,BufRead *.jinja     set ft=htmldjango
-" augroup END
-
 augroup dockerfiles
   au!
   autocmd BufNewFile,BufRead Dockerfile* set ft=dockerfile
@@ -14,7 +7,7 @@ augroup END
 
 augroup terraform
   au!
-  autocmd BufNewFile,BufRead *.tf        set ft=hcl
+  autocmd BufNewFile,BufRead *.tf        set ft=terraform
 augroup END
 
 augroup env_files

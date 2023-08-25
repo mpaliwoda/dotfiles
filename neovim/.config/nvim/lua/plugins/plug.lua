@@ -6,7 +6,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 Plug('neovim/nvim-lspconfig')
 Plug('williamboman/mason.nvim')
 Plug('williamboman/mason-lspconfig.nvim')
-Plug('jubnzv/virtual-types.nvim')
 Plug('lvimuser/lsp-inlayhints.nvim')
 Plug('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
 Plug('jose-elias-alvarez/null-ls.nvim')
@@ -23,7 +22,6 @@ Plug('hrsh7th/cmp-nvim-lua')
 Plug('b0o/schemastore.nvim')
 Plug("onsails/lspkind.nvim")
 Plug('hrsh7th/cmp-emoji')
-Plug('mattn/emmet-vim')
 Plug('dcampos/cmp-emmet-vim')
 Plug('zbirenbaum/copilot.lua')
 
@@ -33,13 +31,11 @@ Plug('rafamadriz/friendly-snippets')
 
 -- syntax highlighting
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSInstall all' })
--- Plug('nathom/filetype.nvim')
 Plug('nvim-treesitter/nvim-treesitter-textobjects')
 Plug('nvim-treesitter/nvim-treesitter-context')
 Plug('chrisbra/csv.vim')
 Plug('chr4/nginx.vim')
 Plug('Glench/Vim-Jinja2-Syntax')
--- Plug('adelarsq/neofsharp.vim')
 Plug('ionide/Ionide-vim')
 
 -- file searching
@@ -86,7 +82,6 @@ Plug('folke/todo-comments.nvim')
 Plug('https://gitlab.com/HiPhish/rainbow-delimiters.nvim')
 
 -- additional markdown support
-Plug('jghauser/follow-md-links.nvim')
 Plug('lukas-reineke/headlines.nvim')
 
 -- other utils
@@ -94,10 +89,8 @@ Plug('MunifTanjim/nui.nvim')
 Plug('tami5/sqlite.lua')
 Plug('romgrk/fzy-lua-native')
 Plug('0oAstro/silicon.lua')
-Plug("linux-cultist/venv-selector.nvim/")
 
 -- motions
-Plug('phaazon/hop.nvim')
 Plug('mg979/vim-visual-multi')
 -- rocks
 Plug('theHamsta/nvim_rocks',

@@ -1,7 +1,7 @@
 prequire("silicon", function(silicon)
 	silicon.setup({
-		theme = "Dracula",
-		output = "SILICON_${year}-${month}-${date}_${time}.png", -- auto generate file name based on time (absolute or relative to cwd)
+		theme = "Monokai Extended",
+		output = "./.images/SILICON_${year}-${month}-${date}_${time}.png", -- auto generate file name based on time (absolute or relative to cwd)
 		bgColor = '#fff',
 		-- bgImage = "", -- path to image, must be png
 		roundCorner = true,
