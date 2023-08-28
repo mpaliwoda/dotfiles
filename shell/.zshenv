@@ -1,31 +1,16 @@
+skip_global_compinit=1
+setopt noglobalrcs
+setopt inc_append_history
+setopt share_history
+setopt hist_ignore_space
+
 eval $(/opt/homebrew/bin/brew shellenv)
 
-export TERM=xterm-kitty
-export CLICOLOR=1
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-HISTCONTROL=ignoreboth
-HISTSIZE=10000
-HISTFILESIZE=10000
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
 
 TO_SOURCE=("$HOME/.secrets" "$HOME/.aliases" "$HOME/.airhelp_aliases")
 for file in "${TO_SOURCE[@]}"; do
     [ -f $file ] && source $file
 done
-
-export PATH="$PATH:/usr/local/bin"
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && \
-    printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-
-
-eval "$(fasd --init auto)"
-eval "$(rbenv init - zsh)"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-. "$HOME/.cargo/env"
-# . /Users/marcin.paliwoda/.rvm/scripts/rvm
-
-export EDITOR=/opt/homebrew/bin/nvim
-export DOCKER_HOST="unix://$HOME/.colima/docker.sock"

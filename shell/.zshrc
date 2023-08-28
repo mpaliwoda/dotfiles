@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -10,8 +11,6 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export PATH=$PATH:/Users/marcin/.spicetify
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -45,34 +44,21 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light wfxr/forgit
 zinit light zsh-users/zsh-completions
+zinit light Aloxaf/fzf-tab
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' '+l:|=* r:|=*'
-
-zinit light Aloxaf/fzf-tab
-# disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+
+# # preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -la --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
 zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-function sil() {
-    mv ~/.config/silicon/config.bak ~/.config/silicon/config
-    silicon "$@"
-    mv ~/.config/silicon/config ~/.config/silicon/config.bak
-}
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="$PATH:$HOME/.local/bin"
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
@@ -81,9 +67,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
+eval "$(pyenv init -)"
+eval "$(rbenv init - zsh)"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+. "$HOME/.cargo/env"
 
-typeset -g HISTSIZE=290000 SAVEHIST=290000 HISTFILE=~/.zhistory
-setopt inc_append_history
-setopt share_history
-setopt hist_ignore_space
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/shell/.p10k.zsh.
+[[ ! -f ~/dotfiles/shell/.p10k.zsh ]] || source ~/dotfiles/shell/.p10k.zsh

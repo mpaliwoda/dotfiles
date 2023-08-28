@@ -172,3 +172,16 @@ ch() {
 docker-murder() {
     docker rm "$(docker ps -a -q)"
 }
+
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+
+sil () {
+    now=$(date '%(%Y-%m-%d_%H:%M:%S)T\n' -1)
+    silicon \
+        --output "./.images/silicon_${now}" \
+        --font "mononoki Nerd Font=26" \
+        --shadow-offset-x 8 \
+        --shadow-offset-y 8 \
+        --theme "Monokai Extended Bright"
+}
