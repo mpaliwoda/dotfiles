@@ -11,6 +11,7 @@ Plug('https://git.sr.ht/~whynothugo/lsp_lines.nvim')
 Plug('jose-elias-alvarez/null-ls.nvim')
 Plug 'jay-babu/mason-null-ls.nvim'
 Plug('roobert/tailwindcss-colorizer-cmp.nvim')
+Plug('aznhe21/actions-preview.nvim')
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
