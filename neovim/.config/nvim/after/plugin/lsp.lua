@@ -44,42 +44,12 @@ prequire("lspconfig", function(lspconfig)
     prequire("cmp_nvim_lsp", function(cmp_nvim_lsp)
         prequire("mason-lspconfig", function(mason_lspconfig)
             mason_lspconfig.setup({
-                ensure_installed = {
-                    "bashls",
-                    "cssls",
-                    "dockerls",
-                    "emmet_ls",
-                    "eslint",
-                    "gopls",
-                    "html",
-                    "jsonls",
-                    "marksman",
-                    "pylsp",
-                    "ruby_ls",
-                    "rust_analyzer",
-                    "solargraph",
-                    "sqlls",
-                    "lua_ls",
-                    "tailwindcss",
-                    "terraformls",
-                    "tflint",
-                    "tsserver",
-                    "vimls",
-                    "yamlls",
-
-                }
+                ensure_installed = {}
             })
 
             for _, server_name in ipairs(mason_lspconfig.get_installed_servers()) do
                 if server_name == "tailwindcss" then
                     lspconfig[server_name].setup({
-                        filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure",
-                            "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby",
-                            "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf",
-                            "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim",
-                            "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript",
-                            "jinja", "j2", "jinja.html",
-                            "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
                         capabilities = cmp_nvim_lsp.default_capabilities(),
                     })
                 elseif server_name == "html" then
@@ -181,6 +151,10 @@ prequire("lspconfig", function(lspconfig)
                     ['<C-e>'] = cmp.mapping.abort(),
                     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                     ['<CR>'] = cmp.mapping.confirm({ select = false }),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-g>'] = cmp.mapping.close(),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                     ['<Tab>'] = cmp.mapping(function(fallback)
                         local col = vim.fn.col('.') - 1
 
@@ -257,29 +231,49 @@ prequire("lspconfig", function(lspconfig)
         end)
     end)
 
-    lspconfig.pylsp.setup({
+    -- lspconfig.pylsp.setup({
+    --     settings = {
+    --         pylsp = {
+    --             configurationSources = {},
+    --             plugins = {
+    --                 autopep8 = { enabled = false },
+    --                 mccabe = { enabled = false },
+    --                 preload = { enabled = false },
+    --                 pycodestyle = { enabled = false },
+    --                 pydocstyle = { enabled = false },
+    --                 pyflakes = { enabled = false },
+    --                 pylint = { enabled = false },
+    --                 yapf = { enabled = false },
+    --                 flake8 = { enabled = false },
+    --                 isort = { enabled = false },
+    --                 mypy = { enabled = false },
+    --                 jedi_completion = { enabled = true },
+    --                 jedi_hover = { enabled = true },
+    --                 jedi_references = { enabled = true },
+    --                 jedi_signature_help = { enabled = true },
+    --                 jedi_symbols = { enabled = true, all_scopes = true },
+    --                 rope_autoimport = { enabled = true },
+    --                 rope_completion = { enabled = true },
+    --             },
+    --         },
+    --     },
+    -- })
+
+    lspconfig.pyright.setup({
         settings = {
-            pylsp = {
-                configurationSources = {},
-                plugins = {
-                    autopep8 = { enabled = false },
-                    mccabe = { enabled = false },
-                    preload = { enabled = false },
-                    pycodestyle = { enabled = false },
-                    pydocstyle = { enabled = false },
-                    pyflakes = { enabled = false },
-                    pylint = { enabled = false },
-                    yapf = { enabled = false },
-                    flake8 = { enabled = false },
-                    isort = { enabled = false },
-                    mypy = { enabled = false },
-                    jedi_completion = { enabled = true },
-                    jedi_hover = { enabled = true },
-                    jedi_references = { enabled = true },
-                    jedi_signature_help = { enabled = true },
-                    jedi_symbols = { enabled = true, all_scopes = true },
-                    rope_autoimport = { enabled = true },
-                    rope_completion = { enabled = true },
+            pyright = {
+                -- disableLanguageServices = true,
+                -- disableOrganizeImports = true,
+                -- reportMissingModuleSource = "none",
+                -- reportMissingImports = "none",
+                reportUndefinedVariable = "none",
+            },
+            python = {
+                analysis = {
+                    -- autoSearchPaths = true,
+                    -- diagnosticMode = "workspace",
+                    typeCheckingMode = "off",
+                    -- useLibraryCodeForTypes = true,
                 },
             },
         },
@@ -467,9 +461,9 @@ prequire("mason-null-ls", function(mason_null_ls)
                 null_ls.builtins.diagnostics.mypy.with({
                     prefer_local = ".venv/bin"
                 }),
-                -- null_ls.builtins.diagnostics.ruff.with({
-                --     prefer_local = ".venv/bin"
-                -- }),
+                null_ls.builtins.diagnostics.ruff.with({
+                    prefer_local = ".venv/bin"
+                }),
                 null_ls.builtins.diagnostics.djlint.with({
                     prefer_local = ".venv/bin",
                     filetypes = { "htmldjango", "jinja", "jinja.html", "j2" },
@@ -477,6 +471,9 @@ prequire("mason-null-ls", function(mason_null_ls)
                 null_ls.builtins.formatting.djlint.with({
                     prefer_local = ".venv/bin",
                     filetypes = { "htmldjango", "jinja", "jinja.html", "j2" },
+                }),
+                null_ls.builtins.formatting.ruff.with({
+                    prefer_local = ".venv/bin"
                 }),
             }
         })

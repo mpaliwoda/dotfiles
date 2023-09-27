@@ -12,6 +12,7 @@ Plug('jose-elias-alvarez/null-ls.nvim')
 Plug 'jay-babu/mason-null-ls.nvim'
 Plug('roobert/tailwindcss-colorizer-cmp.nvim')
 Plug('aznhe21/actions-preview.nvim')
+Plug('jidn/vim-dbml')
 
 -- Completion
 Plug('hrsh7th/nvim-cmp')
