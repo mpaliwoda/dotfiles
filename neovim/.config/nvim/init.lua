@@ -1,13 +1,6 @@
-vim.loader.enable()
+require("mpaliwoda.lazy")
+require("mpaliwoda.settings")
 
-require('plugins.plug')
-require('settings')
-require('global')
-require('colorschemes.onedark')
-require("plugins.notify")
-
-vim.cmd('so ~/.config/nvim/autocmds.vim')
-vim.cmd('so ~/.config/nvim/keymaps.vim')
-
-
-require("plugins.silicon")
+require("lazy").setup({
+    spec = "mpaliwoda.plugins"
+})
