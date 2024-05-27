@@ -231,6 +231,7 @@ return {
                 map("n", "<leader>mgy", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
 
                 map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
+                map("n", "<M-h>", "<cmd>lua vim.diagnostic.open_float()<cr>")
 
                 map("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>")
                 map("v", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>")
