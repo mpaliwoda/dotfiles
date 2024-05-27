@@ -50,11 +50,14 @@ return {
         local mason_null_ls = require("mason-null-ls")
 
         mason.setup({
-            config = {
-                ui = {
-                    border = "rounded",
-                },
-            }
+            ui = {
+                border = "rounded",
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗"
+                }
+            },
         })
 
         local default_capabilities = cmp_nvim_lsp.default_capabilities()
