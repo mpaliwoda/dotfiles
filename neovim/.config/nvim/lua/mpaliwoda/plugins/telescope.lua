@@ -6,13 +6,13 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
     },
     keys = {
-        { "<Leader>ff", "<cmd>Telescope find_files hidden=true<cr>" },
-        { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
-        { "<leader>fb", "<cmd>Telescope buffers<cr>" },
-        { "<leader>fh", "<cmd>Telescope help_tags<cr>" },
-        { "<leader>ft", "<cmd>Telescope file_browser<cr>" },
-        { "<leader>fp", "<cmd>Telescope git_files<cr>" },
-        { "<leader>fp", "<cmd>Telescope git_files<cr>" },
+        { "<Leader>ff",   "<cmd>Telescope find_files hidden=true<cr>" },
+        { "<leader>fg",   "<cmd>Telescope live_grep<cr>" },
+        { "<leader>fb",   "<cmd>Telescope buffers<cr>" },
+        { "<leader>fh",   "<cmd>Telescope help_tags<cr>" },
+        { "<leader>ft",   "<cmd>Telescope file_browser initial_mode=normal<cr>" },
+        { "<leader>fp",   "<cmd>Telescope git_files<cr>" },
+        { "<leader>fp",   "<cmd>Telescope git_files<cr>" },
         { "<leader>diag", "<cmd>Telescope diagnostics<cr>" },
     },
     config = function()
@@ -25,7 +25,6 @@ return {
                 },
             },
             defaults = {
-                initial_mode         = "normal",
                 prompt_prefix        = "   ",
                 sorting_strategy     = "ascending",
                 file_sorter          = require("telescope.sorters").get_fuzzy_file,
