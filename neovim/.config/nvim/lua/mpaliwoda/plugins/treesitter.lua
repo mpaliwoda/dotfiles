@@ -2,7 +2,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "nvim-treesitter/nvim-treesitter-context",
     },
     config = function()
         local treesitter = require("nvim-treesitter.configs")
@@ -78,14 +77,6 @@ return {
                     },
                 },
             },
-        })
-
-        local context = require("treesitter-context")
-
-        context.setup({
-            enable = true,
-            max_lines = -1,
-            mode = 'cursor',
         })
     end,
 }

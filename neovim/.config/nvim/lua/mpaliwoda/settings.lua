@@ -51,6 +51,7 @@ vim.opt.updatetime = 400
 
 vim.opt.undofile = true
 vim.opt.undodir = { os.getenv("HOME") .. '/.config/nvim/undodir' }
+vim.opt.swapfile = false
 
 vim.opt.signcolumn = "yes"
 

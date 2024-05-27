@@ -13,6 +13,7 @@ return {
         { "<leader>ft", "<cmd>Telescope file_browser<cr>" },
         { "<leader>fp", "<cmd>Telescope git_files<cr>" },
         { "<leader>fp", "<cmd>Telescope git_files<cr>" },
+        { "<leader>diag", "<cmd>Telescope diagnostics<cr>" },
     },
     config = function()
         local telescope = require("telescope")
