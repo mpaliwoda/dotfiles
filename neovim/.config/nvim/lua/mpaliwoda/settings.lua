@@ -54,5 +54,6 @@ vim.opt.undodir = { os.getenv("HOME") .. '/.config/nvim/undodir' }
 vim.opt.swapfile = false
 
 vim.opt.signcolumn = "yes"
+vim.opt.foldenable = false
 
 vim.g.mapleader = " "
