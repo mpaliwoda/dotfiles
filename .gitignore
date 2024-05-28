@@ -1,7 +1,14 @@
-**/plugged/
-**/undodir/
-
 !.gitignore
+
+!git/**
+!kitty/**
+!yabai/**
+!skhd/**
+!python/**
+!starship/**
+
+!neovim/**
+neovim/**/undodir
 
 !zsh/**/.*
 zsh/**/.antidote
