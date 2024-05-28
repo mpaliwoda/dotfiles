@@ -1,0 +1,9 @@
+**/plugged/
+**/undodir/
+
+!.gitignore
+
+!zsh/**/.*
+zsh/**/.antidote
+zsh/**/.zsh_history
+zsh/**/.zsh_plugins.zsh
