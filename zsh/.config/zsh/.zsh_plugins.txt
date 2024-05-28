@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+# WARNING: Order matters!
+
+### Completions
+
+# This plugin is meant to be run near the TOP of your .zsh_plugins.txt file.
+# Most other compinit plugins should be near the END of .zsh_plugins.txt so that $fpath
+# has been fully populated. One such plugin is zsh-utils and its completion subplugin.
+
+mattmc3/zephyr path:plugins/completion
+
+### Regular Plugins
+
+jeffreytse/zsh-vi-mode
+wfxr/forgit
+
+### Local Plugins
+
+$ZDOTDIR/.aliases
+$ZDOTDIR/user/git.zsh
+$ZDOTDIR/user/utils.zsh
+$ZDOTDIR/user/zvm.zsh
+
+### Framework plugins
+
+ohmyzsh/ohmyzsh path:lib/clipboard.zsh
+ohmyzsh/ohmyzsh path:plugins/brew
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
+ohmyzsh/ohmyzsh path:plugins/starship
+
+unixorn/fzf-zsh-plugin path=bin kind=path
+
+### Final Plugins
+
+Aloxaf/fzf-tab
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search

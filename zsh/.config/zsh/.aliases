@@ -1,0 +1,38 @@
+#!/bin/zsh
+
+# editor stuff
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
+
+# git
+alias gtree="git log --graph --pretty=oneline --abbrev-commit"
+alias untracked="git ls-files --others --exclude-standard"
+alias current-branch="git branch | grep \* | cut -d ' ' -f2"
+alias push='git push origin -u "$(current-branch)"'
+
+# more ways to ls
+alias ls="lsd"
+alias l="ls -CF"
+alias la="ls -1a"
+alias ll="ls -alF"
+alias ldot="ls -ld .*"
+
+# fix common typos
+alias cd..="cd .."
+
+# tar
+alias tarls="tar -tvf"
+alias untar="tar -xf"
+
+# better defaults or sth ig
+alias mc="mc --nosubshell"
+alias grep="grep --color=auto"
+
+# generators
+alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
+alias genpass="openssl rand -base64"
+alias datever="date +%Y.%m.%d.%H%M"
+
+# docker
+alias docker-murder='docker rm "$(docker ps -a -q)"'
