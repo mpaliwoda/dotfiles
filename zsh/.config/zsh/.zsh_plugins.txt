@@ -29,6 +29,9 @@ ohmyzsh/ohmyzsh path:plugins/brew kind:defer
 ohmyzsh/ohmyzsh path:plugins/command-not-found kind:defer
 ohmyzsh/ohmyzsh path:plugins/extract kind:defer
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z kind:defer
+ohmyzsh/ohmyzsh path:plugins/nvm kind:defer
+ohmyzsh/ohmyzsh path:plugins/pyenv kind:defer
+ohmyzsh/ohmyzsh path:plugins/rbenv kind:defer
 ohmyzsh/ohmyzsh path:plugins/starship 
 
 unixorn/fzf-zsh-plugin path=bin kind=path
