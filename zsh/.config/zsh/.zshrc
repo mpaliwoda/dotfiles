@@ -16,9 +16,14 @@ autoload -Uz $fpath[1]/*(.:t)
 [[ -d ${ZDOTDIR:-~}/.antidote ]] ||
   git clone https://github.com/mattmc3/antidote ${ZDOTDIR:-~}/.antidote
 
-# Create an amazing Zsh config using antidote plugins.
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-antidote load
+zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+  (
+    source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+  )
+fi
+source ${zsh_plugins}.zsh
 
 eval "$(zoxide init zsh --cmd j)"
 
