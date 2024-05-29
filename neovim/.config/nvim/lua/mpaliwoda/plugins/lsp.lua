@@ -110,17 +110,7 @@ return {
                         },
                     })
                 end,
-                ["rust_analyzer"] = function()
-                    require("lspconfig").rust_analyzer.setup({
-                        settings = {
-                            rust_analyzer = {
-                                diagnostics = {
-                                    disabled = { "inactive-code" },
-                                },
-                            },
-                        },
-                    })
-                end,
+                ["rust_analyzer"] = function() end,
                 ["yamlls"] = function()
                     lspconfig.yamlls.setup({
                         settings = {
