@@ -22,6 +22,9 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTFILE="${ZDOTDIR}/.zhistory"
 
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+export PATH="$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools"
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU path fpath
 
