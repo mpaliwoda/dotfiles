@@ -36,6 +36,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "b0o/schemastore.nvim",
     },
+    event = {'BufReadPre', 'BufNewFile'},
     config = function()
         local neodev = require("neodev")
         neodev.setup()
@@ -60,7 +61,10 @@ return {
             },
         })
 
-        local default_capabilities = cmp_nvim_lsp.default_capabilities()
+        local default_capabilities = vim.tbl_deep_extend("force",
+            vim.lsp.protocol.make_client_capabilities(),
+            cmp_nvim_lsp.default_capabilities()
+        )
 
         mason_lspconfig.setup({
             ensure_installed = {},

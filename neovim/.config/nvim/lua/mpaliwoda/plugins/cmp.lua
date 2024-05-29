@@ -57,7 +57,7 @@ return {
         "windwp/nvim-autopairs",
         "luckasRanarison/tailwind-tools.nvim",
     },
-
+    event = 'InsertEnter',
     config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -68,12 +68,14 @@ return {
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
         autopairs.setup({
-            disable_filetype = { "TelescopePrompt", "vim" },
+            disable_filetype = {
+                "TelescopePrompt",
+                "vim",
+            },
         })
 
         cmp.setup({
             sources = {
-                { name = "cody" },
                 { name = "nvim_lsp",               keyword_length = 1 },
                 { name = "nvim_lsp_signature_help" },
                 { name = "luasnip" },
@@ -87,7 +89,7 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             formatting = {
-                format = require("lspkind").cmp_format({
+                format = lspkind.cmp_format({
                     before = require("tailwind-tools.cmp").lspkind_format
                 })
             },
