@@ -10,6 +10,11 @@ return {
         {
             mode = { 'v', 'n' },
             '<C-n>',
+            '<cmd>MCunderCursor<cr>',
+        },
+        {
+            mode = { 'v', 'n' },
+            '<M-N>',
             '<cmd>MCstart<cr>',
         },
     },
