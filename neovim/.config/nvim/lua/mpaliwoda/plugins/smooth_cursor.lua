@@ -17,4 +17,5 @@ return {
             tail = { cursor = nil, texthl = "SmoothCursor" }
         }
     },
+    event = "VeryLazy",
 }

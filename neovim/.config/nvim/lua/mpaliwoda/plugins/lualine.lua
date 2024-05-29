@@ -4,6 +4,7 @@ return {
         "nvim-tree/nvim-web-devicons",
         "justinhj/battery.nvim",
     },
+    event = "VeryLazy",
     opts = {
         options = {
             theme = "auto",

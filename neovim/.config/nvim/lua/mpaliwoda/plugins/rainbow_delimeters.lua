@@ -26,5 +26,6 @@ return {
                 'RainbowDelimiterCyan',
             },
         }
-    end
+    end,
+    lazy = true,
 }

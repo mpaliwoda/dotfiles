@@ -2,6 +2,7 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
+        event = "VeryLazy",
         config = function()
             require("telescope").setup({
                 pickers = {
@@ -84,8 +85,9 @@ return {
         },
         config = function()
             require("telescope").load_extension("file_browser")
-
-            vim.keymap.set("n", "<leader>ft", "<cmd>Telescope file_browser initial_mode=normal hidden=true<cr>")
-        end
+        end,
+        keys = {
+            { "<leader>ft", "<cmd>Telescope file_browser initial_mode=normal hidden=true<cr>" }
+        }
     }
 }

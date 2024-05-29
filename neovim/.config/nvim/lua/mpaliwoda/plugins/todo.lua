@@ -4,6 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
     },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         require("todo-comments").setup({})
 

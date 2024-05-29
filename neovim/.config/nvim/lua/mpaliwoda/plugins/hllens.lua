@@ -1,5 +1,6 @@
 return {
     "kevinhwang91/nvim-hlslens",
+    lazy = true,
     config = function()
         require('hlslens').setup()
 
