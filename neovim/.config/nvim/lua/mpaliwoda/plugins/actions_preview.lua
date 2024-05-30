@@ -10,7 +10,7 @@ return {
 
         actions.setup({
             highlight_command = {
-                require("actions-preview.highlight").delta(),
+               require("actions-preview.highlight").diff_so_fancy(),
             },
             telescope = require("telescope.themes").get_dropdown({ initial_mode = "normal" })
         })
