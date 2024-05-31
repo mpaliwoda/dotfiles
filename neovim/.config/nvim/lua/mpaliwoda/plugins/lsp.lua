@@ -224,7 +224,6 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "LSP actions",
             callback = function()
-                ---@alias KeymapMode "n" | "v" | "i"
                 ---@alias MappingRHS string | fun(): nil
                 ---@type fun(mode: KeymapMode, lhs: string, rhs: MappingRHS): nil
                 local map = function(mode, lhs, rhs)
