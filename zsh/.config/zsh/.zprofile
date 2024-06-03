@@ -40,3 +40,6 @@ path=(
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER="${BROWSER:-open}"
 fi
+
+# Created by `pipx` on 2024-05-31 20:13:44
+export PATH="$PATH:/Users/marcin/.local/bin"
