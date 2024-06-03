@@ -25,8 +25,6 @@ sign({ name = 'DiagnosticSignInfo', text = '' })
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "folke/neodev.nvim",
-
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
 
@@ -38,9 +36,6 @@ return {
     },
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
-        local neodev = require("neodev")
-        neodev.setup()
-
         local lspconfig = require("lspconfig")
 
         local mason = require("mason")
