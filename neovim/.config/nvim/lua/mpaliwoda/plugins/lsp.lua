@@ -28,9 +28,6 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
 
-        "nvimtools/none-ls.nvim",
-        "jay-babu/mason-null-ls.nvim",
-
         "hrsh7th/cmp-nvim-lsp",
         "b0o/schemastore.nvim",
     },
@@ -41,9 +38,6 @@ return {
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-        local null_ls = require("null-ls")
-        local mason_null_ls = require("mason-null-ls")
 
         mason.setup({
             ui = {
@@ -246,29 +240,5 @@ return {
         })
 
         vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
-
-        mason_null_ls.setup({
-            ensure_installed = {},
-            automatic_setup = true,
-            handlers = {},
-            automatic_installation = true,
-        })
-
-        null_ls.setup({
-            sources = {
-                null_ls.builtins.diagnostics.mypy.with({ prefer_local = ".venv/bin" }),
-                -- null_ls.builtins.diagnostics.ruff.with({ prefer_local = ".venv/bin" }),
-                -- null_ls.builtins.formatting.ruff.with({ prefer_local = ".venv/bin" }),
-                null_ls.builtins.diagnostics.djlint.with({
-                    prefer_local = ".venv/bin",
-                    filetypes = { "htmldjango", "jinja", "jinja.html", "j2" },
-                }),
-                null_ls.builtins.formatting.djlint.with({
-                    prefer_local = ".venv/bin",
-                    filetypes = { "htmldjango", "jinja", "jinja.html", "j2" },
-                }),
-            }
-        })
     end,
 }
