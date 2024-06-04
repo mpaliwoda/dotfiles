@@ -29,6 +29,7 @@ return {
             "hrsh7th/cmp-nvim-lsp",
             "b0o/schemastore.nvim",
         },
+        event = { "VeryLazy" },
         opts = function(_plugin, _opts)
             local default_capabilities = vim.tbl_deep_extend("force",
                 vim.lsp.protocol.make_client_capabilities(),
@@ -174,7 +175,7 @@ return {
                         }
                     end,
                     ["rust_analyzer"] = function() end,
-                    ["ruff"] = function () end,
+                    ["ruff"] = function() end,
                 },
             }
         end

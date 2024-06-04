@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     init = function()
         local function toggle_diagnostics()
             local toggled = true
