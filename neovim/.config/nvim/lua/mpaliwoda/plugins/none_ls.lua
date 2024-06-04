@@ -7,6 +7,51 @@ return {
         },
         event = { "BufReadPre", "BufNewFile" },
         opts = function()
+            local fsharplint = {
+                name = "FSharpLint",
+                method = require("null-ls").methods.DIAGNOSTICS,
+                filetypes = { "fsharp" },
+                generator = require("null-ls").generator({
+                    command = "dotnet-fsharplint",
+                    args = { "lint", "--file-type=file", "$FILENAME" },
+                    from_stderr = true,
+                    format = "raw",
+                    check_exit_code = function(code)
+                        return code <= 1
+                    end,
+                    on_output = function(params, done)
+                        local out = params.output
+
+                        if not out then
+                            done(nil)
+                            return
+                        end
+
+                        local sanitized = out:gsub("==========.-==========\n?", "")
+                        local diagnostics = {}
+
+                        for raw_diagnostic in sanitized:gmatch("(.-)%-%-%-+\n") do
+                            local m = {
+                                raw_diagnostic:match(
+                                    "(.-)\nError on line (%d+) starting at column (%d+)\n(.-\nSee.-%/(%w+%d+)%.html)"
+                                )
+                            }
+
+                            table.insert(diagnostics, {
+                                message = m[1] .. "\n" .. m[4],
+                                row = m[2],
+                                col = m[3],
+                                code = m[5],
+                                source = "FSharpLint",
+                                filename = params.bufname,
+                                severity = require("null-ls.helpers").diagnostics.severities.warning,
+                            })
+                        end
+
+                        done(diagnostics)
+                    end,
+                }),
+            }
             return {
                 sources = {
                     require("null-ls").builtins.diagnostics.mypy.with({
@@ -26,6 +71,7 @@ return {
                     require("none-ls.formatting.ruff").with({
                         prefer_local = ".venv/bin",
                     }),
+                    fsharplint,
                 }
             }
         end,
