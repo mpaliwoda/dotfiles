@@ -2,7 +2,7 @@ local opts = function(cmp)
     return { behavior = cmp.SelectBehavior.Select }
 end
 
-local function next_or_tab(cmp)
+local function next_or_indent(cmp)
     local select_opts = opts(cmp)
 
     local function wrapped(fallback)
@@ -107,7 +107,7 @@ return {
                 ["<C-g>"] = cmp.mapping.close(),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                ["<Tab>"] = cmp.mapping(next_or_tab(cmp), { "i", "s" }),
+                ["<Tab>"] = cmp.mapping(next_or_indent(cmp), { "i", "s" }),
                 ["<S-Tab>"] = cmp.mapping(prev_or_dedent(cmp), { "i", "s" }),
 
                 ["<M-f>"] = cmp.mapping(jump_or_fallback(luasnip, 1), { "i", "s" }),

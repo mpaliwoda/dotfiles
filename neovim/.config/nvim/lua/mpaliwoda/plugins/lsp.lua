@@ -1,219 +1,34 @@
-local function toggle_diagnostics()
-    local toggled = true
-
-    local wrapped = function()
-        if toggled then vim.diagnostic.hide() else vim.diagnostic.show() end
-        toggled = not toggled
-    end
-
-    return wrapped
-end
-
-local sign = function(opts)
-    vim.fn.sign_define(opts.name, {
-        texthl = opts.name,
-        text = opts.text,
-        numhl = ''
-    })
-end
-
-sign({ name = 'DiagnosticSignError', text = '✘' })
-sign({ name = 'DiagnosticSignWarn', text = '▲' })
-sign({ name = 'DiagnosticSignHint', text = '⚑' })
-sign({ name = 'DiagnosticSignInfo', text = '' })
-
 return {
     "neovim/nvim-lspconfig",
-    dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-
-        "hrsh7th/cmp-nvim-lsp",
-        "b0o/schemastore.nvim",
-    },
     event = { 'BufReadPre', 'BufNewFile' },
-    config = function()
-        local lspconfig = require("lspconfig")
+    init = function()
+        local function toggle_diagnostics()
+            local toggled = true
 
-        local mason = require("mason")
-        local mason_lspconfig = require("mason-lspconfig")
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+            local wrapped = function()
+                if toggled then vim.diagnostic.hide() else vim.diagnostic.show() end
+                toggled = not toggled
+            end
 
-        mason.setup({
-            ui = {
-                border = "rounded",
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗"
-                }
-            },
-        })
+            return wrapped
+        end
 
-        local default_capabilities = vim.tbl_deep_extend("force",
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_nvim_lsp.default_capabilities()
-        )
+        local sign = function(opts)
+            vim.fn.sign_define(opts.name, {
+                texthl = opts.name,
+                text = opts.text,
+                numhl = ''
+            })
+        end
 
-        mason_lspconfig.setup({
-            ensure_installed = {},
-            automatic_installation = true,
-            handlers = {
-                -- default handler
-                function(server_name)
-                    require("lspconfig")[server_name].setup({ capabilities = default_capabilities })
-                end,
-                ["html"] = function()
-                    local capabilities = vim.deepcopy(default_capabilities)
-                    capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-                    require("lspconfig").html.setup({
-                        filetypes = { "html", "htmldjango", "jinja", "j2", "jinja.html" },
-                        capabilities = capabilities,
-                        init_options = {
-                            configurationSection = { "html", "css", "javascript" },
-                            embeddedLanguages = {
-                                css = true,
-                                javascript = true
-                            },
-                            provideFormatter = false,
-                        }
-                    })
-                end,
-                ["emmet_ls"] = function()
-                    require("lspconfig").emmet_ls.setup({
-                        filetypes = {
-                            "astro",
-                            "css",
-                            "eruby",
-                            "html",
-                            "htmldjango",
-                            "j2",
-                            "javascript",
-                            "javascriptreact",
-                            "jinja",
-                            "jinja.html",
-                            "less",
-                            "pug",
-                            "sass",
-                            "scss",
-                            "svelte",
-                            "typescriptreact",
-                            "vue",
-                        },
-                        capabilities = default_capabilities,
-                    })
-                end,
-                ["solargraph"] = function()
-                    require("lspconfig").solargraph.setup({
-                        init_options = { formatting = true },
-                        settings = {
-                            solargraph = {
-                                diagnostics = true,
-                            },
-                        },
-                    })
-                end,
-                ["rust_analyzer"] = function() end,
-                ["yamlls"] = function()
-                    lspconfig.yamlls.setup({
-                        settings = {
-                            yaml = {
-                                schemaStore = {
-                                    enable = false,
-                                    url = "",
-                                },
-                                rules = {
-                                    ['key-ordering'] = "disable"
-                                },
-                                schemas = require('schemastore').yaml.schemas(),
-                            },
-                        },
-                    })
-                end,
-                ["pyright"] = function()
-                    require("lspconfig").pyright.setup({
-                        settings = {
-                            pyright = {
-                                reportUndefinedVariable = "none",
-                            },
-                            python = {
-                                analysis = {
-                                    typeCheckingMode = "off",
-                                },
-                            },
-                        },
-                    })
-                end,
-                ["tsserver"] = function()
-                    require("lspconfig").tsserver.setup({
-                        settings = {
-                            typescript = {
-                                inlayHints = {
-                                    includeInlayParameterNameHints = "all",
-                                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                                    includeInlayFunctionParameterTypeHints = true,
-                                    includeInlayVariableTypeHints = true,
-                                    includeInlayPropertyDeclarationTypeHints = true,
-                                    includeInlayFunctionLikeReturnTypeHints = true,
-                                    includeInlayEnumMemberValueHints = true,
-                                },
-                            },
-                            javascript = {
-                                inlayHints = {
-                                    includeInlayParameterNameHints = "all",
-                                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                                    includeInlayFunctionParameterTypeHints = true,
-                                    includeInlayVariableTypeHints = true,
-                                    includeInlayPropertyDeclarationTypeHints = true,
-                                    includeInlayFunctionLikeReturnTypeHints = true,
-                                    includeInlayEnumMemberValueHints = true,
-                                },
-                            },
-                        },
-                    })
-                end,
-                ["gopls"] = function()
-                    require("lspconfig").gopls.setup({
-                        settings = {
-                            gopls = {
-                                hints = {
-                                    assignVariableTypes = true,
-                                    compositeLiteralFields = true,
-                                    compositeLiteralTypes = true,
-                                    constantValues = true,
-                                    functionTypeParameters = true,
-                                    parameterNames = true,
-                                    rangeVariableTypes = true,
-                                },
-                            },
-                        },
-                    })
-                end,
-                ["jsonls"] = function()
-                    require('lspconfig').jsonls.setup {
-                        settings = {
-                            json = {
-                                schemas = require('schemastore').json.schemas(),
-                                validate = { enable = true },
-                            },
-                        },
-                    }
-                end
-            },
-        })
-
-
-        lspconfig.util.default_config.capabilities = vim.tbl_deep_extend(
-            'force',
-            lspconfig.util.default_config.capabilities,
-            default_capabilities
-        )
+        sign({ name = 'DiagnosticSignError', text = '✘' })
+        sign({ name = 'DiagnosticSignWarn', text = '▲' })
+        sign({ name = 'DiagnosticSignHint', text = '⚑' })
+        sign({ name = 'DiagnosticSignInfo', text = '' })
 
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "LSP actions",
             callback = function()
-                ---@alias MappingRHS string | fun(): nil
                 ---@type fun(mode: KeymapMode, lhs: string, rhs: MappingRHS): nil
                 local map = function(mode, lhs, rhs)
                     local opts = { buffer = true, remap = false }
@@ -241,4 +56,7 @@ return {
 
         vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
     end,
+    config = function ()
+        require("lspconfig").gleam.setup({})
+    end
 }

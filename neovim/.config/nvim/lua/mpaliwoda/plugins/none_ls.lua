@@ -9,6 +9,9 @@ return {
         opts = function()
             return {
                 sources = {
+                    require("null-ls").builtins.diagnostics.mypy.with({
+                        prefer_local = ".venv/bin",
+                    }),
                     require("null-ls").builtins.diagnostics.djlint.with({
                         prefer_local = ".venv/bin",
                         filetypes = { "htmldjango", "jinja", "jinja.html", "j2" },
