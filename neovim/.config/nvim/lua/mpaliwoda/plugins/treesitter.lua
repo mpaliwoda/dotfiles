@@ -3,7 +3,6 @@ return {
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
     },
-    event = { "BufReadPre", "BufNewFile" },
     config = function()
         local treesitter = require("nvim-treesitter.configs")
 
@@ -14,7 +13,7 @@ return {
             ignore_install = {},
             highlight = {
                 enable = true,
-                additional_vim_regex_highlighting = false,
+                additional_vim_regex_highlighting = true,
             },
             auto_install = true,
             incremental_selection = {
