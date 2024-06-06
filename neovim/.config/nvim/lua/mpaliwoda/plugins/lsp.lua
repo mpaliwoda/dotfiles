@@ -2,6 +2,8 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     init = function()
+        vim.lsp.set_log_level("ERROR")
+
         local function toggle_diagnostics()
             local toggled = true
 
