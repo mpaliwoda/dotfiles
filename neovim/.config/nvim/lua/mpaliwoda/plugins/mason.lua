@@ -174,6 +174,25 @@ return {
                             },
                         }
                     end,
+                    ["bashls"] = function()
+                        require("lspconfig").bashls.setup {
+                            filetypes = { "sh", "bash" },
+                            settings = {
+                                bashIde = {
+                                    globPattern = "*@(.sh|.inc|.bash|.command)",
+                                    enableSourceErrorDiagnostics = true,
+                                    includeAllWorkspaceSymbols = true,
+                                    shellcheckPath = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/shellcheck",
+                                    shfmt = {
+                                        path = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/shfmt",
+                                        caseIndent = true,
+                                        simplifyCode = true,
+                                        binaryNextLine = true,
+                                    },
+                                },
+                            }
+                        }
+                    end,
                     ["rust_analyzer"] = function() end,
                     ["ruff"] = function() end,
                 },
