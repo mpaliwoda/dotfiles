@@ -68,7 +68,7 @@ return {
                     require("none-ls.diagnostics.ruff").with({
                         prefer_local = ".venv/bin",
                     }),
-                    require("none-ls.formatting.ruff").with({
+                    require("none-ls.formatting.ruff_format").with({
                         prefer_local = ".venv/bin",
                     }),
                     fsharplint,
