@@ -52,7 +52,7 @@ vim.api.nvim_buf_create_user_command(0, "PyUpgrade", function(opts)
     end
 
     local version_opt = format_version_option(target_ver)
-    local result = os.execute("pyupgrade " .. version_opt .. " " .. vim.api.nvim_buf_get_name(0) .. "2>&1 /dev/null")
+    local result = os.execute("pyupgrade " .. version_opt .. " " .. vim.api.nvim_buf_get_name(0) .. " 2>&1 /dev/null")
 
     if type(result) == "number" and result ~= 0 then
         vim.notify("Upgraded python, reloading.", vim.log.levels.INFO)
