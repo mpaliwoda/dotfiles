@@ -21,4 +21,4 @@ vim.keymap.set("v", "<Leader>a", ":sort i<cr>", { silent = true })
 vim.keymap.set("n", "Y", "y$")
 vim.keymap.set("n", "D", "d$")
 
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")

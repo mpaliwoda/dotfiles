@@ -2,6 +2,7 @@ return {
     'akinsho/toggleterm.nvim',
     opts = {
         shell = "/bin/zsh",
+        shade_terminals = false,
     },
     keys = {
         { "<leader>t1",  "<cmd>ToggleTerm 1<cr>" },
