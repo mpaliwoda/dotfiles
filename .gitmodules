@@ -1,3 +1,6 @@
 [submodule "yazi/.config/yazi/flavors/tokyo-night.yazi"]
 	path = yazi/.config/yazi/flavors/tokyo-night.yazi
 	url = https://github.com/BennyOe/tokyo-night.yazi.git
+[submodule "tmux/.config/tmux/plugins/tpm"]
+	path = tmux/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
