@@ -7,6 +7,7 @@ tap 'homebrew/cask-fonts' || true
 tap 'neovim/neovim' || true
 
 brew 'bat'
+brew 'btop'
 brew 'colima'
 brew 'coreutils'
 brew 'docker'
