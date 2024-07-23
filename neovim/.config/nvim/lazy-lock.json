@@ -59,7 +59,7 @@
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "b29da4a6061a88270e875b38367d82c04c856128" },
   "rustaceanvim": { "branch": "master", "commit": "047f9c9d8cd2861745eb9de6c1570ee0875aa795" },
-  "schemastore.nvim": { "branch": "main", "commit": "623df28bf9a2661d9d5a0f391bf30bdd8f8de62b" },
+  "schemastore.nvim": { "branch": "main", "commit": "4abc1ab13ad5031049864cba0bfaec06a908e7e5" },
   "sqlite.lua": { "branch": "master", "commit": "d0ffd703b56d090d213b497ed4eb840495f14a11" },
   "tailwind-tools.nvim": { "branch": "master", "commit": "ce3ab3fd6ad05d08fbfc1ef84b3f5312cd05ee6d" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "8574946bf6d0d820d7f600f3db808f5900a2ae23" },
