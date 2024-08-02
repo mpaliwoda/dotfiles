@@ -3,7 +3,6 @@
 
 cask_args appdir: '/Applications' if OS.mac?
 
-tap 'homebrew/cask-fonts' || true
 tap 'neovim/neovim' || true
 
 brew 'bat'
@@ -34,22 +33,22 @@ brew 'ripgrep'
 brew 'starship'
 brew 'stow'
 brew 'tldr'
-brew 'tree'
 brew 'tmux'
+brew 'tree'
+brew 'yazi'
 brew 'zoxide'
 
+cask 'alt-tab'
 cask 'bruno'
 cask 'discord'
 cask 'font-mononoki-nerd-font'
 cask 'google-chrome'
+cask 'hyperkey'
 cask 'kitty'
 cask 'protonvpn'
 cask 'qbittorrent'
+cask 'raycast'
+cask 'sf-symbols'
 cask 'slack'
 cask 'spotify'
 cask 'vlc'
-
-cask 'alt-tab' if OS.mac?
-cask 'hyperkey' if OS.mac?
-cask 'raycast' if OS.mac?
-cask 'sf-symbols' if OS.mac?
