@@ -43,3 +43,8 @@ fi
 
 # Created by `pipx` on 2024-05-31 20:13:44
 export PATH="$PATH:/Users/marcin/.local/bin"
+
+
+if [[ "$OSTYPE" == linux* ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
