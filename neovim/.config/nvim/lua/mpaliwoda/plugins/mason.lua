@@ -119,8 +119,8 @@ return {
                             },
                         })
                     end,
-                    ["tsserver"] = function()
-                        require("lspconfig").tsserver.setup({
+                    ["ts_ls"] = function()
+                        require("lspconfig").ts_ls.setup({
                             settings = {
                                 typescript = {
                                     inlayHints = {
