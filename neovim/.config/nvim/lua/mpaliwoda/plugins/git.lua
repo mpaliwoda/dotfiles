@@ -44,9 +44,9 @@ return {
     },
     {
         "lewis6991/gitsigns.nvim",
-        opts = {},
         event = { 'BufReadPre', 'BufNewFile' },
         config = function()
+            require("gitsigns").setup({})
             vim.keymap.set("n", "<Leader>gb", "<cmd>Gitsigns blame<cr>")
         end,
     }
