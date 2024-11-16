@@ -58,7 +58,4 @@ return {
 
         vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
     end,
-    config = function ()
-        require("lspconfig").gleam.setup({})
-    end
 }

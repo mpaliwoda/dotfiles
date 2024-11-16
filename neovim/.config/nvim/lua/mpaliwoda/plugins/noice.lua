@@ -16,6 +16,15 @@ return {
             lsp_doc_border = true,
             inc_rename = true,
         },
+        routes = {
+            {
+                filter = {
+                    event = "notify",
+                    find = "No information available",
+                },
+                opts = { skip = true },
+            },
+        },
     },
     dependencies = {
         "MunifTanjim/nui.nvim",

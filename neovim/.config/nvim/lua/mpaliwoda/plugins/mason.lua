@@ -114,8 +114,15 @@ return {
                                 basedpyright = {
                                     analysis = {
                                         typeCheckingMode = "off",
-                                    }
+                                    },
+                                    disableOrganizeImports = true,
+                                    typeCheckingMode = 'off',
                                 },
+                                python = {
+                                    analysis = {
+                                        typeCheckingMode = "off"
+                                    }
+                                }
                             },
                         })
                     end,
@@ -193,8 +200,6 @@ return {
                             }
                         }
                     end,
-                    ["rust_analyzer"] = function() end,
-                    ["ruff"] = function() end,
                 },
             }
         end
