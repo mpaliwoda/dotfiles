@@ -1,6 +1,6 @@
 {
   "Ionide-vim": { "branch": "master", "commit": "c7e8973426431839e9d888a4aa8d6a41251ba16f" },
-  "LuaSnip": { "branch": "master", "commit": "4e584350cacddfccc137e9c828343eeaa4a57899" },
+  "LuaSnip": { "branch": "master", "commit": "2592b91577136dbb355a4708be1e60619456b7f6" },
   "SmoothCursor.nvim": { "branch": "main", "commit": "12518b284e1e3f7c6c703b346815968e1620bee2" },
   "actions-preview.nvim": { "branch": "master", "commit": "9f52a01c374318e91337697ebed51c6fae57f8a4" },
   "avante.nvim": { "branch": "main", "commit": "71c9a7911b9cd91c946f22099a515bb495a4b256" },
@@ -48,7 +48,7 @@
   "nvim-cmp": { "branch": "main", "commit": "ca4d3330d386e76967e53b85953c170658255ecb" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
   "nvim-hlslens": { "branch": "main", "commit": "0bd7ddb0aecf095055e9cb6eef0c25c70fb69cfc" },
-  "nvim-lspconfig": { "branch": "master", "commit": "e869c7e6af0a3c40a2b344a9765779d74dd12720" },
+  "nvim-lspconfig": { "branch": "master", "commit": "7b0a2f6b14485bb5a237fc1328a487ff3e4a08c5" },
   "nvim-neoclip.lua": { "branch": "main", "commit": "32e05f2d23dc5b6a284a688c0535a83d1bfc633f" },
   "nvim-notify": { "branch": "master", "commit": "fbef5d32be8466dd76544a257d3f3dce20082a07" },
   "nvim-spectre": { "branch": "master", "commit": "08be31c104df3b4b049607694ebb2b6ced4f928b" },
