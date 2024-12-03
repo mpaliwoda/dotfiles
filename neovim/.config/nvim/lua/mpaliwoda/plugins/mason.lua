@@ -82,16 +82,6 @@ return {
                             capabilities = default_capabilities,
                         })
                     end,
-                    ["solargraph"] = function()
-                        require("lspconfig").solargraph.setup({
-                            init_options = { formatting = true },
-                            settings = {
-                                solargraph = {
-                                    diagnostics = true,
-                                },
-                            },
-                        })
-                    end,
                     ["yamlls"] = function()
                         require("lspconfig").yamlls.setup({
                             settings = {
