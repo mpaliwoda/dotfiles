@@ -15,21 +15,15 @@ return {
         require("avante_lib").load()
         require("avante").setup({
             provider = "ollama",
-            auto_suggestions_provider = "ollama",
             vendors = {
                 ollama = {
                     __inherited_from = "openai",
                     api_key_name = "",
                     endpoint = "http://127.0.0.1:11434/v1",
-                    -- model = "qwen2.5-coder:7b-instruct",
-                    model = "opencoder:1.5b-instruct-q4_K_M",
+                    model = "qwen2.5-coder:7b-instruct",
                 },
             },
-            behaviour = {
-                auto_suggestions = true,
-            }
         })
-
 
         vim.api.nvim_create_user_command("ToggleProvider", function()
             local current_provider = require("avante.config").provider
