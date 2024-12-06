@@ -27,9 +27,8 @@ return {
 
         ibl.setup({
             enabled = true,
-            indent = {
-                highlight = highlight
-            }
+            indent = { highlight = highlight },
+            scope = { enabled = false }
         })
     end,
 }

@@ -62,7 +62,7 @@ return {
             vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
             vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
             vim.keymap.set("n", "<leader>diag", "<cmd>Telescope diagnostics<cr>")
-            
+
             vim.keymap.set("n", "<Leader>gS", "<cmd>Telescope git_stash<cr>")
             vim.keymap.set("n", "<Leader>gB", "<cmd>Telescope git_branches<cr>")
             vim.keymap.set("n", "<Leader>gh", "<cmd>Telescope git_commits<cr>")
