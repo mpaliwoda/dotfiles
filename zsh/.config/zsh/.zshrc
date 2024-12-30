@@ -28,3 +28,4 @@ source ${zsh_plugins}.zsh
 eval "$(zoxide init zsh --cmd j)"
 
 source "$HOME/.cargo/env"
+source "$HOME/.secrets"
