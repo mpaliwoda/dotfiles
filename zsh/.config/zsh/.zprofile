@@ -2,7 +2,7 @@
 # .zprofile - Zsh file loaded on login.
 
 # General exports
-export TERM=xterm-kitty
+export TERM=xterm-256color
 export CLICOLOR=1
 
 export LC_ALL=en_US.UTF-8
