@@ -13,8 +13,6 @@ GRTAGS
 
 .DS_Store
 
-.*
-
 pact*.log
 tags*
 
