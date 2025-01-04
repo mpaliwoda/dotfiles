@@ -1,6 +1,6 @@
 {
   "Ionide-vim": { "branch": "master", "commit": "c7e8973426431839e9d888a4aa8d6a41251ba16f" },
-  "LuaSnip": { "branch": "master", "commit": "33b06d72d220aa56a7ce80a0dd6f06c70cd82b9d" },
+  "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
   "actions-preview.nvim": { "branch": "master", "commit": "9f52a01c374318e91337697ebed51c6fae57f8a4" },
   "avante.nvim": { "branch": "main", "commit": "81e5f1937f47a7fc855e03a41f2af445f2777de9" },
   "battery.nvim": { "branch": "main", "commit": "5b0fc97f8ae29ddd2668eced7f352337d5d07f52" },
@@ -40,7 +40,7 @@
   "neogit": { "branch": "master", "commit": "9ea60f79e370d8f4847efc145e53afe4b0613fc1" },
   "noice.nvim": { "branch": "main", "commit": "eaed6cc9c06aa2013b5255349e4f26a6b17ab70f" },
   "none-ls-extras.nvim": { "branch": "main", "commit": "6557f20e631d2e9b2a9fd27a5c045d701a3a292c" },
-  "none-ls.nvim": { "branch": "main", "commit": "00421b9dc7a4d132ca74cfb4c7e8030d05d6fd0b" },
+  "none-ls.nvim": { "branch": "main", "commit": "20f5650988cd849e18c7f3d2dce4b0e6a260e126" },
   "nui.nvim": { "branch": "main", "commit": "53e907ffe5eedebdca1cd503b00aa8692068ca46" },
   "nvim-autopairs": { "branch": "master", "commit": "b464658e9b880f463b9f7e6ccddd93fb0013f559" },
   "nvim-bqf": { "branch": "main", "commit": "ebb6d2689e4427452180f17c53f29f7e460236f1" },
