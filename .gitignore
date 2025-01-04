@@ -1,7 +1,7 @@
-.*
 !.gitignore
 
 !git/**
+!git/.*
 !kitty/**
 !yabai/**
 !skhd/**
