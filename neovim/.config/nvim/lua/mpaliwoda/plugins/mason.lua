@@ -102,17 +102,11 @@ return {
                         require("lspconfig").basedpyright.setup({
                             settings = {
                                 basedpyright = {
+                                    disableOrganizeImports = true,
                                     analysis = {
                                         typeCheckingMode = "off",
-                                    },
-                                    disableOrganizeImports = true,
-                                    typeCheckingMode = 'off',
-                                },
-                                python = {
-                                    analysis = {
-                                        typeCheckingMode = "off"
                                     }
-                                }
+                                },
                             },
                         })
                     end,
