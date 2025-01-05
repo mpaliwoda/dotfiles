@@ -1,3 +1,6 @@
+window-height=59
+window-width=213
+
 keybind = ctrl+shift+enter=new_split:right
 keybind = ctrl+shift+right_bracket=goto_split:next
 keybind = ctrl+shift+left_bracket=goto_split:previous
