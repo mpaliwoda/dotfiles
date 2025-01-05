@@ -48,8 +48,8 @@ return {
 
                 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
                 map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-                map("n", "<M-h>", "<cmd>lua vim.diagnostic.open_float()<cr>")
-                map("n", "<M-d>", toggle_diagnostics())
+                map("n", "<C-M-h>", "<cmd>lua vim.diagnostic.open_float()<cr>")
+                map("n", "<C-M-d>", toggle_diagnostics())
 
                 map("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>")
                 map("v", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>")
