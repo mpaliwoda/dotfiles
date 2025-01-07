@@ -14,33 +14,21 @@ return {
     config = function()
         require("avante_lib").load()
         require("avante").setup({
-            provider = "ollama",
-            vendors = {
-                ollama = {
-                    __inherited_from = "openai",
-                    api_key_name = "",
-                    endpoint = "http://127.0.0.1:11434/v1",
-                    model = "qwen2.5-coder:7b-instruct",
-                },
+            provider = "claude",
+            auto_suggestions_provider = "claude",
+            claude = {
+                endpoint = "https://api.anthropic.com",
+                model = "claude-3-5-sonnet-20241022",
+                max_tokens = 4096,
+            },
+            behaviour = {
+                auto_suggestions = false,
+                auto_set_highlight_group = true,
+                auto_set_keymaps = true,
+                auto_apply_diff_after_generation = false,
+                support_paste_from_clipboard = false,
+                minimize_diff = false,
             },
         })
-
-        vim.api.nvim_create_user_command("ToggleProvider", function()
-            local current_provider = require("avante.config").provider
-
-            local toggle_to
-            if current_provider == "ollama" then
-                toggle_to = "gemini"
-            else
-                toggle_to = "ollama"
-            end
-
-            require("avante.config").override({
-                provider = toggle_to,
-                auto_suggestions_provider = toggle_to,
-            })
-
-            vim.notify("Toggled Avante to use: " .. toggle_to)
-        end, {})
     end
 }
