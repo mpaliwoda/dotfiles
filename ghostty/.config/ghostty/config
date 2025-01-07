@@ -12,3 +12,7 @@ keybind = ctrl+shift+right=resize_split:right,10
 keybind = ctrl+shift+t=new_tab
 keybind = ctrl+shift+h=previous_tab
 keybind = ctrl+shift+l=next_tab
+
+font-feature=-liga
+font-feature=-calt
+font-feature=-dlig
