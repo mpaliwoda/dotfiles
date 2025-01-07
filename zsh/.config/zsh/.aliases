@@ -20,6 +20,7 @@ alias ldot="ls -ld .*"
 
 # fix common typos
 alias cd..="cd .."
+alias ..="cd .."
 
 # tar
 alias tarls="tar -tvf"
