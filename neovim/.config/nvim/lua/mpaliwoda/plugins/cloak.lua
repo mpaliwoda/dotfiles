@@ -17,6 +17,6 @@ return {
             }
         })
 
-        vim.keymap.set("n", "<M-c>", "<cmd>CloakToggle<cr>")
+        vim.keymap.set("n", "<C-M-c>", "<cmd>CloakToggle<cr>")
     end
 }
