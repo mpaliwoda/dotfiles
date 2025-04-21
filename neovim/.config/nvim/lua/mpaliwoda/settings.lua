@@ -59,7 +59,7 @@ vim.opt.foldenable = false
 vim.g.mapleader = " "
 
 vim.g.python3_host_prog = os.getenv("HOME") .. "/dotfiles/.venv/bin/python"
-vim.g.node_host_prog = os.getenv("NVM_DIR") .. "/versions/node/v20.14.0/bin/neovim-node-host"
+-- vim.g.node_host_prog = os.getenv("NVM_DIR") .. "/versions/node/v20.14.0/bin/neovim-node-host"
 
 vim.g.loaded_perl_provider = 0
 

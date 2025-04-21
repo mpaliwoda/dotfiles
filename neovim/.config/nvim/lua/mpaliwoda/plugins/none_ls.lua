@@ -36,6 +36,7 @@ return {
                                     "(.-)\nError on line (%d+) starting at column (%d+)\n(.-\nSee.-%/(%w+%d+)%.html)"
                                 )
                             }
+                            vim.notify(vim.inspect(m))
 
                             table.insert(diagnostics, {
                                 message = m[1] .. "\n" .. m[4],

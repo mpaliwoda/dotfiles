@@ -1,17 +1,3 @@
---- @param filename string
-local function git_add(filename, params)
-    params = params or {}
-    local proc = io.popen("git add " .. filename .. " " .. table.concat(params, " "))
-
-    if not proc then
-        vim.notify("unknown err adding file: " .. filename)
-        return
-    end
-
-    proc:close()
-end
-
-
 return {
     {
         "NeogitOrg/neogit",
@@ -22,6 +8,7 @@ return {
         },
         config = function()
             local neogit = require("neogit")
+            local git = require("mpaliwoda.utils.git")
 
             neogit.setup({})
 
@@ -34,11 +21,11 @@ return {
             vim.keymap.set("n", "<Leader>gM", function() neogit.open({ "merge" }) end)
             vim.keymap.set("n", "<Leader>gw", function()
                 local filename = vim.fn.expand("%")
-                git_add(filename)
+                git.add(filename)
             end)
             vim.keymap.set("n", "<Leader>gW", function()
                 local filename = vim.fn.expand("%")
-                git_add(filename, { "-f" })
+                git.add(filename, { "-f" })
             end)
         end,
     },

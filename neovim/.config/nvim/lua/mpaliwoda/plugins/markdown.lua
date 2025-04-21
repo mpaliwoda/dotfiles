@@ -23,13 +23,13 @@ return {
         )
 
         markview.setup({
-            headings = headings,
+            markdown = { headings = headings, },
             checkboxes = presets.checkboxes.nerd,
             code_blocks = { sign = false, },
         });
 
-        vim.keymap.set("n", "<M-m>", function() markview.commands.toggleAll() end)
-        vim.keymap.set("n", "<M-h>i", function() require("markview.extras.headings").increase() end)
-        vim.keymap.set("n", "<M-h>o", function() require("markview.extras.headings").decrease() end)
+        vim.keymap.set("n", "<C-M-m>", markview.commands.toggleAll)
+        vim.keymap.set("n", "<C-M-h>i", require("markview.extras.headings").increase)
+        vim.keymap.set("n", "<C-M-h>o", require("markview.extras.headings").decrease)
     end
 }

@@ -22,7 +22,8 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTFILE="${ZDOTDIR}/.zhistory"
 
-export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+# export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export PATH="$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools:$HOME/go/bin:$GOPATH/bin:$HOME/.cargo/bin"
 
 # Ensure path arrays do not contain duplicates.
