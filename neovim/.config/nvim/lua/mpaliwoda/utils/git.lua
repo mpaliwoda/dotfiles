@@ -1,6 +1,8 @@
+local M = {}
+
 --- @param filename string
 --- @param params string[]?
-local function git_add(filename, params)
+M.add = function(filename, params)
     params = params or {}
     local proc = io.popen("git add " .. filename .. " " .. table.concat(params, " "))
 
@@ -11,3 +13,5 @@ local function git_add(filename, params)
 
     proc:close()
 end
+
+return M
