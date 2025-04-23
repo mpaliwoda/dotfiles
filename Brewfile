@@ -22,6 +22,7 @@ brew 'hyperfine'
 brew 'imagemagick'
 brew 'lazydocker'
 brew 'lsd'
+brew 'mise'
 brew 'neovim'
 brew 'nvm'
 brew 'ranger'
@@ -36,17 +37,18 @@ brew 'uv'
 brew 'yazi'
 brew 'zoxide'
 
-cask 'alt-tab'
-cask 'bruno'
-cask 'discord'
-cask 'font-mononoki-nerd-font'
-cask 'google-chrome'
-cask 'hyperkey'
-cask 'kitty'
-cask 'protonvpn'
-cask 'qbittorrent'
-cask 'raycast'
-cask 'sf-symbols'
-cask 'slack'
-cask 'spotify'
-cask 'vlc'
+cask 'alt-tab' if OS.mac?
+cask 'bruno' if OS.mac?
+cask 'discord' if OS.mac?
+cask 'font-mononoki-nerd-font' if OS.mac?
+cask 'ghostty' if OS.mac?
+cask 'google-chrome' if OS.mac?
+cask 'hyperkey' if OS.mac?
+cask 'kitty' if OS.mac?
+cask 'protonvpn' if OS.mac?
+cask 'qbittorrent' if OS.mac?
+cask 'raycast' if OS.mac?
+cask 'sf-symbols' if OS.mac?
+cask 'slack' if OS.mac?
+cask 'spotify' if OS.mac?
+cask 'vlc' if OS.mac?

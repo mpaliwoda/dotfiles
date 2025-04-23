@@ -1,0 +1,16 @@
+[tools]
+bun = "latest"
+ruby = "latest"
+"npm:neovim" = "latest"
+"gem:neovim" = "latest"
+
+[settings]
+env_file = ".env"
+idiomatic_version_file_enable_tools = ["python"]
+experimental = true
+
+[settings.python]
+uv_venv_auto = true
+
+[settings.npm]
+bun = true
