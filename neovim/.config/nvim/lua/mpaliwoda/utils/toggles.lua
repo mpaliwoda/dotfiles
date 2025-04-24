@@ -12,12 +12,13 @@ M._toggles = {}
 ---@param toggle ToggleState
 M.create = function(toggle)
     local state_changed = function()
-        if M._toggles[toggle.name].active then
+        if not M._toggles[toggle.name].active then
             M._toggles[toggle.name].toggled()
         else
             M._toggles[toggle.name].untoggled()
         end
     end
+
 
     local change_state = function()
         M._toggles[toggle.name].active = not M._toggles[toggle.name].active
@@ -29,6 +30,7 @@ M.create = function(toggle)
     end
 
     M._toggles[toggle.name] = toggle
+    state_changed()
 end
 
 
