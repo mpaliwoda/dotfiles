@@ -1,0 +1,12 @@
+GPATH
+GTAGS
+GRTAGS
+tags*
+
+.DS_Store
+
+**/node_modules/
+package-lock.json
+
+**/.env
+**/*cache*/
