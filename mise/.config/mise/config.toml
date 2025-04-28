@@ -1,15 +1,28 @@
 [tools]
-go = "latest"
-node = { version = "latest", postinstall = "corepack enable" }
-python = "3.13"
-ruby = "latest"
-ruff = "latest"
-rust = "latest"
-uv = "latest"
-
 "gem:neovim" = "latest"
 "npm:neovim" = "latest"
 "pipx:mypy" = "latest"
+bat = "latest"
+colima = "latest"
+docker-compose = "latest"
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+go = "latest"
+hyperfine = "latest"
+lazydocker = "latest"
+lsd = "latest"
+node = { version = "latest", postinstall = "corepack enable" }
+python = "3.13"
+ripgrep = "latest"
+ruby = "latest"
+ruff = "latest"
+rust = "latest"
+starship = "latest"
+uv = "latest"
+yazi = "latest"
+zoxide = "latest"
+java = "latest"
 
 [settings]
 env_file = ".env"

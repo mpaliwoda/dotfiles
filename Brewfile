@@ -5,30 +5,17 @@ cask_args appdir: '/Applications' if OS.mac?
 
 tap 'neovim/neovim' || true
 
-brew 'bat'
-brew 'colima'
 brew 'coreutils'
 brew 'docker'
 brew 'docker-buildx'
-brew 'docker-compose'
-brew 'fd'
-brew 'fzf'
-brew 'gh'
 brew 'git'
 brew 'git-delta'
 brew 'htop'
-brew 'hyperfine'
-brew 'lazydocker'
-brew 'lsd'
 brew 'mise'
 brew 'neovim'
-brew 'ripgrep'
-brew 'starship'
 brew 'stow'
 brew 'tlrc'
 brew 'tree'
-brew 'yazi'
-brew 'zoxide'
 
 cask 'alt-tab' if OS.mac?
 cask 'bruno' if OS.mac?
