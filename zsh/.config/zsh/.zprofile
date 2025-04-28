@@ -12,7 +12,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="bat"
 
-export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+export DOCKER_HOST="unix://${XDG_CONFIG_HOME}/colima/default/docker.sock"
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
