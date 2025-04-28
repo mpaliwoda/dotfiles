@@ -27,7 +27,6 @@ brew 'starship'
 brew 'stow'
 brew 'tlrc'
 brew 'tree'
-brew 'uv'
 brew 'yazi'
 brew 'zoxide'
 

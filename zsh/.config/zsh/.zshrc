@@ -31,6 +31,7 @@ fi
 
 
 eval "$(zoxide init zsh --cmd j)"
+eval "$(mise activate zsh)"
 
 source "$HOME/.cargo/env"
 source "$HOME/.secrets"

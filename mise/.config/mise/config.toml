@@ -1,16 +1,20 @@
 [tools]
-bun = "latest"
+node = { version = "latest", postinstall = "corepack enable" }
+python = "3.13"
 ruby = "latest"
-"npm:neovim" = "latest"
+ruff = "latest"
+uv = "latest"
+
 "gem:neovim" = "latest"
+"npm:neovim" = "latest"
 
 [settings]
 env_file = ".env"
-idiomatic_version_file_enable_tools = ["python"]
 experimental = true
+idiomatic_version_file_enable_tools = ["python"]
 
 [settings.python]
 uv_venv_auto = true
 
-[settings.npm]
-bun = true
+[env]
+_.python.venv = { path = ".venv", create = true, uv_create_args = ['--seed'] }

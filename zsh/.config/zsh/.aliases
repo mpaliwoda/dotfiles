@@ -38,4 +38,5 @@ alias datever="date +%Y.%m.%d.%H%M"
 # docker
 alias docker-murder='docker rm "$(docker ps -a -q)"'
 
+# misc
 alias craft="codecrafters"
