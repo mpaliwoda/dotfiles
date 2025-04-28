@@ -24,7 +24,6 @@ export HISTFILE="${ZDOTDIR}/.zhistory"
 
 # export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export PATH="$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools:$HOME/go/bin:$GOPATH/bin:$HOME/.cargo/bin"
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU path fpath
@@ -41,9 +40,6 @@ path=(
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER="${BROWSER:-open}"
 fi
-
-# Created by `pipx` on 2024-05-31 20:13:44
-export PATH="$PATH:/Users/marcin/.local/bin"
 
 if [[ "$OSTYPE" == linux* ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -17,6 +17,7 @@ idiomatic_version_file_enable_tools = ["python"]
 
 [settings.python]
 uv_venv_auto = true
+uv_venv_create_args = ["--seed"]
 
 [env]
-_.python.venv = { path = ".venv", create = true, uv_create_args = ['--seed'] }
+_.python.venv = { path = ".venv" }
