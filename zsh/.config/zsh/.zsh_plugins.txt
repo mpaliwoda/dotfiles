@@ -24,7 +24,6 @@ $ZDOTDIR/user/zvm.zsh
 
 ### Framework plugins
 
-# ohmyzsh/ohmyzsh path:lib/clipboard.zsh kind:defer
 ohmyzsh/ohmyzsh path:plugins/brew kind:defer
 ohmyzsh/ohmyzsh path:plugins/command-not-found kind:defer
 ohmyzsh/ohmyzsh path:plugins/extract kind:defer
