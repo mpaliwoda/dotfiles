@@ -1,8 +1,10 @@
 [tools]
+go = "latest"
 node = { version = "latest", postinstall = "corepack enable" }
 python = "3.13"
 ruby = "latest"
 ruff = "latest"
+rust = "latest"
 uv = "latest"
 
 "gem:neovim" = "latest"
