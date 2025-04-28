@@ -9,6 +9,7 @@ uv = "latest"
 
 "gem:neovim" = "latest"
 "npm:neovim" = "latest"
+"pipx:mypy" = "latest"
 
 [settings]
 env_file = ".env"
