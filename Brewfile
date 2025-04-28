@@ -18,7 +18,6 @@ brew 'git'
 brew 'git-delta'
 brew 'htop'
 brew 'hyperfine'
-brew 'imagemagick'
 brew 'lazydocker'
 brew 'lsd'
 brew 'mise'
@@ -26,7 +25,7 @@ brew 'neovim'
 brew 'ripgrep'
 brew 'starship'
 brew 'stow'
-brew 'tldr'
+brew 'tlrc'
 brew 'tree'
 brew 'uv'
 brew 'yazi'
@@ -38,6 +37,7 @@ cask 'discord' if OS.mac?
 cask 'font-mononoki-nerd-font' if OS.mac?
 cask 'ghostty' if OS.mac?
 cask 'hyperkey' if OS.mac?
+cask 'jordanbaird-ice' if OS.mac?
 cask 'kitty' if OS.mac?
 cask 'protonvpn' if OS.mac?
 cask 'qbittorrent' if OS.mac?
