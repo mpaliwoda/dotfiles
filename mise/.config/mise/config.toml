@@ -23,6 +23,7 @@ uv = "latest"
 yazi = "latest"
 zoxide = "latest"
 java = "latest"
+sqlite = "latest"
 
 [settings]
 env_file = ".env"

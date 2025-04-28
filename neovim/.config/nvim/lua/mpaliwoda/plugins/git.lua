@@ -8,7 +8,7 @@ return {
         },
         config = function()
             local neogit = require("neogit")
-            local git = require("mpaliwoda.utils.git")
+            local process = require("mpaliwoda.utils.process")
 
             neogit.setup({})
 
@@ -21,11 +21,11 @@ return {
             vim.keymap.set("n", "<Leader>gM", function() neogit.open({ "merge" }) end)
             vim.keymap.set("n", "<Leader>gw", function()
                 local filename = vim.fn.expand("%")
-                git.add(filename)
+                process.run("git", "add", filename)
             end)
             vim.keymap.set("n", "<Leader>gW", function()
                 local filename = vim.fn.expand("%")
-                git.add(filename, { "-f" })
+                process.run("git", "add", filename, "-f")
             end)
         end,
     },
