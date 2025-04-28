@@ -24,6 +24,7 @@ yazi = "latest"
 zoxide = "latest"
 java = "latest"
 sqlite = "latest"
+jq = "latest"
 
 [settings]
 env_file = ".env"
