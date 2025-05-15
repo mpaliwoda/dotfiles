@@ -1,5 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
+    dependencies = {
+        "b0o/schemastore.nvim",
+    },
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     init = function()
         local toggles = require("mpaliwoda.utils.toggles")
@@ -70,6 +73,138 @@ return {
 
         vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-        require("lspconfig").csharp_ls.setup({})
+        vim.lsp.config("html", {
+            filetypes = { "html", "htmldjango", "jinja", "j2", "jinja.html" },
+            init_options = {
+                configurationSection = { "html", "css", "javascript" },
+                embeddedLanguages = {
+                    css = true,
+                    javascript = true
+                },
+                provideFormatter = false,
+            }
+        })
+
+        vim.lsp.config("emmet_ls", {
+            filetypes = {
+                "astro",
+                "css",
+                "eruby",
+                "html",
+                "htmldjango",
+                "j2",
+                "javascript",
+                "javascriptreact",
+                "jinja",
+                "jinja.html",
+                "less",
+                "pug",
+                "sass",
+                "scss",
+                "svelte",
+                "typescriptreact",
+                "vue",
+            },
+        })
+
+        vim.lsp.config("yamlls", {
+            settings = {
+                yaml = {
+                    schemaStore = {
+                        enable = false,
+                        url = "",
+                    },
+                    rules = {
+                        ['key-ordering'] = "disable"
+                    },
+                    schemas = require('schemastore').yaml.schemas(),
+                },
+            },
+        })
+
+        vim.lsp.config("basedpyright", {
+            settings = {
+                basedpyright = {
+                    disableOrganizeImports = true,
+                    analysis = {
+                        typeCheckingMode = "off",
+                        inlayHints = {
+                            genericTypes = true,
+                        },
+                    }
+                },
+            },
+        })
+
+        vim.lsp.config("ts_ls", {
+            settings = {
+                typescript = {
+                    inlayHints = {
+                        includeInlayParameterNameHints = "all",
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                    },
+                },
+                javascript = {
+                    inlayHints = {
+                        includeInlayParameterNameHints = "all",
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                    },
+                },
+            },
+        })
+
+        vim.lsp.config("gopls", {
+            settings = {
+                gopls = {
+                    hints = {
+                        assignVariableTypes = true,
+                        compositeLiteralFields = true,
+                        compositeLiteralTypes = true,
+                        constantValues = true,
+                        functionTypeParameters = true,
+                        parameterNames = true,
+                        rangeVariableTypes = true,
+                    },
+                },
+            },
+        })
+
+        vim.lsp.config("jsonls", {
+            settings = {
+                json = {
+                    schemas = require('schemastore').json.schemas(),
+                    validate = { enable = true },
+                },
+            },
+        })
+
+        vim.lsp.config("bashls", {
+            filetypes = { "sh", "bash" },
+            settings = {
+                bashIde = {
+                    globPattern = "*@(.sh|.inc|.bash|.command)",
+                    enableSourceErrorDiagnostics = true,
+                    includeAllWorkspaceSymbols = true,
+                    shellcheckPath = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/shellcheck",
+                    shfmt = {
+                        path = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/shfmt",
+                        caseIndent = true,
+                        simplifyCode = true,
+                        binaryNextLine = true,
+                    },
+                },
+            }
+        }
+        )
     end,
 }
