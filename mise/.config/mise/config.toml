@@ -25,6 +25,7 @@ zoxide = "latest"
 java = "latest"
 sqlite = "latest"
 jq = "latest"
+ollama = "latest"
 
 [settings]
 env_file = ".env"
