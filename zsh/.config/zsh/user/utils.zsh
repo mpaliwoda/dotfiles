@@ -3,5 +3,5 @@ __clean() {
 }
 
 py_clean() {
-    __clean "(__pycache__|\.pyc|\.pyo$|.mypy_cache|.pytest_cache|.benchmarks)"
+    __clean "(__pycache__|\.pyc|\.pyo$|.mypy_cache|.pytest_cache|.benchmarks|.ruff_cache)"
 }
