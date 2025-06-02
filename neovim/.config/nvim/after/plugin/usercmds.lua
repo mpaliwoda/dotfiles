@@ -94,3 +94,14 @@ vim.api.nvim_create_user_command("PyUpgrade", function(opts)
         vim.notify("No changes needed.")
     end
 end, { desc = "Upgrade python to the latest version. Accepts an optional single parameter PYTHON_VER." })
+
+
+vim.api.nvim_create_user_command(
+    "DeleteComments",
+    function()
+        vim.cmd("%s/" .. vim.fn.substitute(vim.o.commentstring, "%s", ".*$", "g") .. "//")
+    end,
+    {
+        desc = "Delete comments in the current buffer",
+    }
+)

@@ -206,5 +206,8 @@ return {
             }
         }
         )
+
+        require("lspconfig").gleam.setup({})
+        vim.lsp.config("gleam", {})
     end,
 }

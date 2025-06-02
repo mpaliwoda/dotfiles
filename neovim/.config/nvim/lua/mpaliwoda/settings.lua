@@ -5,7 +5,7 @@ vim.opt.wildmenu = true
 vim.opt.wildmode = 'full'
 vim.opt.wildignore = { '*.swp', '*.bak', '*.pyc', '*.class', '*/tmp', '*/__pycache__', '*/node_modules' }
 
-vim.opt.laststatus = 1
+vim.opt.laststatus = 3
 vim.opt.showtabline = 1
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
