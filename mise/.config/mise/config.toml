@@ -26,6 +26,21 @@ java = "latest"
 sqlite = "latest"
 jq = "latest"
 ollama = "latest"
+gleam = "latest"
+erlang = "latest"
+deno = "latest"
+rust-analyzer = "latest"
+xh = "latest"
+"cargo:fselect" = "latest"
+"cargo:mprocs" = "latest"
+"cargo:diskonaut" = "latest"
+cmake = "latest"
+ninja = "latest"
+clang = "latest"
+"pipx:vectorcode" = { version = "latest", lsp = "", mcp = "" }
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:mcp-hub" = "latest"
+"cargo:just" = "latest"
 
 [settings]
 env_file = ".env"
@@ -33,5 +48,5 @@ experimental = true
 idiomatic_version_file_enable_tools = ["python"]
 
 [settings.python]
-uv_venv_auto = true
+uv_venv_auto = false
 uv_venv_create_args = ["--seed"]
