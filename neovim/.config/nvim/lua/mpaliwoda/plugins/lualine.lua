@@ -8,7 +8,7 @@ return {
     opts = {
         options = {
             theme = "auto",
-            globalstatus = true
+            globalstatus = true,
         },
         sections = {
             lualine_x = {
@@ -23,27 +23,27 @@ return {
                     end,
                 },
                 "progress",
-            }
+            },
         },
         tabline = {
             lualine_a = {
                 {
                     "tabs",
-                    mode = 2
-                }
+                    mode = 2,
+                },
             },
             lualine_y = {
                 {
                     "filename",
-                    path = 3
-                }
-            }
+                    path = 3,
+                },
+            },
         },
         extensions = {
             "fugitive",
             "nvim-dap-ui",
             "nvim-tree",
             "toggleterm",
-        }
-    }
+        },
+    },
 }

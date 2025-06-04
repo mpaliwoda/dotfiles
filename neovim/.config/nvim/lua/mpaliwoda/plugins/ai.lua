@@ -18,7 +18,7 @@ return {
                 extra_request_body = {
                     temperature = 0.5,
                     max_tokens = 8192 * 4,
-                }
+                },
             },
             groq = {
                 __inherited_from = "openai",
@@ -33,9 +33,8 @@ return {
                 model = "mistral-large-latest",
                 extra_request_body = {
                     max_tokens = 4096,
-                }
+                },
             },
-
         },
         disabled_tools = { "git_commit" },
         behaviour = {
@@ -46,5 +45,5 @@ return {
             support_paste_from_clipboard = false,
             minimize_diff = false,
         },
-    }
+    },
 }

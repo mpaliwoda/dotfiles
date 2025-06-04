@@ -1,5 +1,5 @@
 return {
-    'm-demare/hlargs.nvim',
+    "m-demare/hlargs.nvim",
     opts = {},
     lazy = true,
 }

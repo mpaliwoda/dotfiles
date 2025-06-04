@@ -19,7 +19,6 @@ M.create = function(toggle)
         end
     end
 
-
     local change_state = function()
         M._toggles[toggle.name].active = not M._toggles[toggle.name].active
         state_changed()
@@ -33,12 +32,16 @@ M.create = function(toggle)
     state_changed()
 end
 
-
 ---@param toggle ToggleState
 M.repr = function(toggle)
-    return "name    : " .. toggle.name .. "\n" ..
-        "active  : " .. vim.inspect(toggle.active) .. "\n" ..
-        "keybinds: " .. vim.inspect(toggle.keybinds)
+    return "name    : "
+        .. toggle.name
+        .. "\n"
+        .. "active  : "
+        .. vim.inspect(toggle.active)
+        .. "\n"
+        .. "keybinds: "
+        .. vim.inspect(toggle.keybinds)
 end
 
 vim.api.nvim_create_user_command("ListToggles", function()

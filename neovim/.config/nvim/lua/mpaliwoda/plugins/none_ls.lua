@@ -34,7 +34,7 @@ return {
                             local m = {
                                 raw_diagnostic:match(
                                     "(.-)\nError on line (%d+) starting at column (%d+)\n(.-\nSee.-%/(%w+%d+)%.html)"
-                                )
+                                ),
                             }
                             vim.notify(vim.inspect(m))
 
@@ -76,10 +76,9 @@ return {
                         prefer_local = ".venv/bin",
                     }),
                     fsharplint,
-                }
+                },
             }
         end,
-
     },
     {
         "jay-babu/mason-null-ls.nvim",
@@ -92,7 +91,7 @@ return {
             automatic_installation = true,
             automatic_setup = true,
             ensure_installed = {},
-            handlers = {}
-        }
+            handlers = {},
+        },
     },
 }

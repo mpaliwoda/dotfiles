@@ -1,4 +1,4 @@
 return {
-    'akinsho/git-conflict.nvim',
+    "akinsho/git-conflict.nvim",
     config = true,
 }

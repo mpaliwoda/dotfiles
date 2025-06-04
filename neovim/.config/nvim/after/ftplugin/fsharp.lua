@@ -10,9 +10,9 @@ vim.api.nvim_create_user_command("FSharpNewFile", function()
 
     ionide = ionide[1]
 
-    vim.cmd[[redir @a]]
+    vim.cmd([[redir @a]])
     vim.fn["fsharp#showLoadedProjects"]()
-    vim.cmd[[redir END]]
+    vim.cmd([[redir END]])
 
     local loaded_projects = vim.fn.getreg("a")
 

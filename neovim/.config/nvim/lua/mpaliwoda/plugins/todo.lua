@@ -9,5 +9,5 @@ return {
         require("todo-comments").setup({})
 
         vim.keymap.set("n", "<leader>todo", "<cmd>TodoTelescope<cr>", { buffer = false, silent = true })
-    end
+    end,
 }

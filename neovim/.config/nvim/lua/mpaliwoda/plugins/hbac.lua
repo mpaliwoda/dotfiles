@@ -1,4 +1,4 @@
 return {
-  'axkirillov/hbac.nvim',
-  opts = {},
+    "axkirillov/hbac.nvim",
+    opts = {},
 }

@@ -3,42 +3,42 @@ return {
     lazy = false,
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
-        "nvim-tree/nvim-web-devicons"
+        "nvim-tree/nvim-web-devicons",
     },
     opts = {
         markdown = {
             code_blocks = {
-                sign = false
-            }
+                sign = false,
+            },
         },
         markdown_inline = {
             checkboxes = {
                 ["-"] = {
                     hl = "MarkviewCheckboxPending",
-                    text = ""
+                    text = "",
                 },
                 checked = {
                     hl = "MarkviewCheckboxChecked",
                     scope_hl = "MarkviewCheckboxStriked",
-                    text = ""
+                    text = "",
                 },
                 enable = true,
                 o = {
                     hl = "MarkviewCheckboxCancelled",
-                    text = ""
+                    text = "",
                 },
                 unchecked = {
                     hl = "MarkviewCheckboxUnchecked",
-                    text = ""
+                    text = "",
                 },
                 ["~"] = {
                     hl = "MarkviewCheckboxProgress",
-                    text = ""
-                }
-            }
+                    text = "",
+                },
+            },
         },
         preview = {
             filetypes = { "markdown", "md", "rmd", "quarto", "Avante" },
-        }
+        },
     },
 }

@@ -13,14 +13,13 @@ return {
             underline = false,
             signs = function(_namespace, _bufnr)
                 return {
-                    { severity = vim.diagnostic.severity.ERROR, text = '✘' },
-                    { severity = vim.diagnostic.severity.WARN, text = '▲' },
-                    { severity = vim.diagnostic.severity.HINT, text = '⚑' },
-                    { severity = vim.diagnostic.severity.INFO, text = '' },
+                    { severity = vim.diagnostic.severity.ERROR, text = "✘" },
+                    { severity = vim.diagnostic.severity.WARN, text = "▲" },
+                    { severity = vim.diagnostic.severity.HINT, text = "⚑" },
+                    { severity = vim.diagnostic.severity.INFO, text = "" },
                 }
-            end
+            end,
         })
-
 
         toggles.create({
             name = "diagnostics",
@@ -45,9 +44,8 @@ return {
                     virtual_text = false,
                     virtual_lines = true,
                 })
-            end
+            end,
         })
-
 
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "LSP actions",
@@ -68,10 +66,10 @@ return {
 
                 vim.keymap.set("n", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", opts)
                 vim.keymap.set("v", "<leader>fmt", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", opts)
-            end
+            end,
         })
 
-        vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+        vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
         vim.lsp.config("html", {
             filetypes = { "html", "htmldjango", "jinja", "j2", "jinja.html" },
@@ -79,10 +77,10 @@ return {
                 configurationSection = { "html", "css", "javascript" },
                 embeddedLanguages = {
                     css = true,
-                    javascript = true
+                    javascript = true,
                 },
                 provideFormatter = false,
-            }
+            },
         })
 
         vim.lsp.config("emmet_ls", {
@@ -115,9 +113,9 @@ return {
                         url = "",
                     },
                     rules = {
-                        ['key-ordering'] = "disable"
+                        ["key-ordering"] = "disable",
                     },
-                    schemas = require('schemastore').yaml.schemas(),
+                    schemas = require("schemastore").yaml.schemas(),
                 },
             },
         })
@@ -131,7 +129,7 @@ return {
                         inlayHints = {
                             genericTypes = true,
                         },
-                    }
+                    },
                 },
             },
         })
@@ -182,7 +180,7 @@ return {
         vim.lsp.config("jsonls", {
             settings = {
                 json = {
-                    schemas = require('schemastore').json.schemas(),
+                    schemas = require("schemastore").json.schemas(),
                     validate = { enable = true },
                 },
             },
@@ -203,9 +201,8 @@ return {
                         binaryNextLine = true,
                     },
                 },
-            }
-        }
-        )
+            },
+        })
 
         require("lspconfig").gleam.setup({})
         vim.lsp.config("gleam", {})

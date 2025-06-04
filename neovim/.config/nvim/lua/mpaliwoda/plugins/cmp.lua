@@ -24,7 +24,11 @@ local function prev_or_dedent(cmp)
     local select_opts = opts(cmp)
 
     local function wrapped(fallback)
-        if cmp.visible() then cmp.select_prev_item(select_opts) else fallback() end
+        if cmp.visible() then
+            cmp.select_prev_item(select_opts)
+        else
+            fallback()
+        end
     end
 
     return wrapped
@@ -32,7 +36,11 @@ end
 
 local function jump_or_fallback(luasnip, step)
     local function wrapped(fallback)
-        if luasnip.jumpable(step) then luasnip.jump(step) else fallback() end
+        if luasnip.jumpable(step) then
+            luasnip.jump(step)
+        else
+            fallback()
+        end
     end
 
     return wrapped
@@ -57,7 +65,7 @@ return {
         "windwp/nvim-autopairs",
         "luckasRanarison/tailwind-tools.nvim",
     },
-    event = 'InsertEnter',
+    event = "InsertEnter",
     config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -65,7 +73,7 @@ return {
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
         local autopairs = require("nvim-autopairs")
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
         autopairs.setup({
             disable_filetype = {
@@ -76,13 +84,13 @@ return {
 
         cmp.setup({
             sources = {
-                { name = "nvim_lsp",               keyword_length = 1 },
+                { name = "nvim_lsp", keyword_length = 1 },
                 { name = "nvim_lsp_signature_help" },
                 { name = "luasnip" },
                 { name = "emmet_vim" },
                 { name = "path" },
                 { name = "emoji" },
-                { name = "buffer",                 keyword_length = 3 },
+                { name = "buffer", keyword_length = 3 },
             },
             window = {
                 completion = cmp.config.window.bordered(),
@@ -90,8 +98,8 @@ return {
             },
             formatting = {
                 format = lspkind.cmp_format({
-                    before = require("tailwind-tools.cmp").lspkind_format
-                })
+                    before = require("tailwind-tools.cmp").lspkind_format,
+                }),
             },
             mapping = {
                 ["<Up>"] = cmp.mapping.select_prev_item(opts(cmp)),
@@ -116,13 +124,10 @@ return {
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
-                end
+                end,
             },
         })
 
-        cmp.event:on(
-            'confirm_done',
-            cmp_autopairs.on_confirm_done()
-        )
-    end
+        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    end,
 }

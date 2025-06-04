@@ -4,7 +4,6 @@ local function dotfiles_repo_git(command)
     os.execute("git -C " .. dots .. " " .. command)
 end
 
-
 vim.api.nvim_create_user_command("UpdatePlugins", function(_)
     -- update plugins via Lazy
     require("lazy").update({ show = true, wait = true, concurrency = 8 })
@@ -74,7 +73,7 @@ vim.api.nvim_create_user_command("PyUpgrade", function(opts)
             return
         end
 
-        target_ver = raw_ver:gsub('\"', "")
+        target_ver = raw_ver:gsub('"', "")
     else
         vim.notify("Expected at most a single param: PYTHON_VER, got: " .. vim.inspect(opts.fargs))
     end
@@ -95,13 +94,8 @@ vim.api.nvim_create_user_command("PyUpgrade", function(opts)
     end
 end, { desc = "Upgrade python to the latest version. Accepts an optional single parameter PYTHON_VER." })
 
-
-vim.api.nvim_create_user_command(
-    "DeleteComments",
-    function()
-        vim.cmd("%s/" .. vim.fn.substitute(vim.o.commentstring, "%s", ".*$", "g") .. "//")
-    end,
-    {
-        desc = "Delete comments in the current buffer",
-    }
-)
+vim.api.nvim_create_user_command("DeleteComments", function()
+    vim.cmd("%s/" .. vim.fn.substitute(vim.o.commentstring, "%s", ".*$", "g") .. "//")
+end, {
+    desc = "Delete comments in the current buffer",
+})
