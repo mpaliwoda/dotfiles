@@ -13,6 +13,26 @@ return {
             enabled = true,
             replace_netrw = true,
         },
+        zen = {
+            win = {
+                style = {
+                    enter = true,
+                    fixbuf = true,
+                    minimal = true,
+                    width = 150,
+                    height = 0,
+                    backdrop = { transparent = true, blend = 10 },
+                    keys = { q = false },
+                    zindex = 40,
+                    wo = {
+                        winhighlight = "NormalFloat:Normal",
+                    },
+                    w = {
+                        snacks_main = true,
+                    },
+                }
+            }
+        },
         picker = {
             enabled = true,
             hidden = true,
@@ -166,6 +186,13 @@ return {
                 Snacks.picker.undo()
             end,
             desc = "Undo History",
+        },
+        {
+            "<leader>zen",
+            function()
+                Snacks.zen.zen()
+            end,
+            desc = "Zen",
         },
     },
 }
