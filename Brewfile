@@ -6,6 +6,7 @@ cask_args appdir: '/Applications' if OS.mac?
 tap 'neovim/neovim' || true
 
 brew 'coreutils'
+brew 'colima'
 brew 'docker'
 brew 'docker-buildx'
 brew 'git'
