@@ -15,7 +15,7 @@ alias push='git push origin -u "$(current-branch)"'
 alias ls="lsd"
 alias l="ls -CF"
 alias la="ls -1a"
-alias ll="ls -alF"
+alias ll="ls -AlF"
 alias ldot="ls -ld .*"
 
 # fix common typos
