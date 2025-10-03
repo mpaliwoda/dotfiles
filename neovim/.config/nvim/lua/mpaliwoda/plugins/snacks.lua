@@ -73,6 +73,13 @@ return {
             desc = "Smart Find Files",
         },
         {
+            "<leader>fh",
+            function()
+                Snacks.picker.help()
+            end,
+            desc = "Help pages",
+        },
+        {
             "<leader>ff",
             function()
                 Snacks.picker.files()
