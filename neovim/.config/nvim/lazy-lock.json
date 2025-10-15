@@ -2,7 +2,7 @@
   "Ionide-vim": { "branch": "master", "commit": "6d6583e4a23333b3bc6f7af5d2cbffed377c15a9" },
   "LuaSnip": { "branch": "master", "commit": "21e9fecfc07fb2cd707b6c7c3fa148550a34d053" },
   "actions-preview.nvim": { "branch": "master", "commit": "cb938c25edaac38d362555f19244a9cb85d561e8" },
-  "avante.nvim": { "branch": "main", "commit": "178b62a180e9c599a1846b28ac34a23abde0e973" },
+  "avante.nvim": { "branch": "main", "commit": "4fc83dc3086e18a0d05c8023aa51b2e8f1b28e03" },
   "battery.nvim": { "branch": "main", "commit": "ecc6cf13312a26179f67d3b99d203da9285b9b0a" },
   "cloak.nvim": { "branch": "main", "commit": "648aca6d33ec011dc3166e7af3b38820d01a71e4" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
