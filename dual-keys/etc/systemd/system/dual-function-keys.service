@@ -1,0 +1,12 @@
+[Unit]
+Description=Dual-function Caps Lock (Esc / Ctrl+Alt+Shift)
+After=systemd-modules-load.service
+Wants=systemd-modules-load.service
+
+[Service]
+ExecStart=/usr/bin/udevmon -c /etc/interception/udevmon.yaml
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
