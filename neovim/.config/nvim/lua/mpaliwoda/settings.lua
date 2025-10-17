@@ -55,6 +55,7 @@ vim.opt.swapfile = false
 
 vim.opt.signcolumn = "yes"
 vim.opt.foldenable = false
+vim.opt.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
 
