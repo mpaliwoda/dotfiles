@@ -1,18 +1,51 @@
-window-height=59
-window-width=213
+# Window dimensions
+window-height = 59
+window-width = 213
 
-# keybind = ctrl+shift+enter=new_split:right
-# keybind = ctrl+shift+right_bracket=goto_split:next
-# keybind = ctrl+shift+left_bracket=goto_split:previous
-# keybind = ctrl+shift+down=resize_split:down,10
-# keybind = ctrl+shift+left=resize_split:left,10
-# keybind = ctrl+shift+up=resize_split:up,10
-# keybind = ctrl+shift+right=resize_split:right,10
-# 
-# keybind = ctrl+shift+t=new_tab
-# keybind = ctrl+shift+h=previous_tab
-# keybind = ctrl+shift+l=next_tab
+# Disable client decorations
+window-decoration = none
 
-font-feature=-liga
-font-feature=-calt
-font-feature=-dlig
+# Disable all Ghostty split/tab/window bindings
+keybind = ctrl+shift+enter=unbind
+keybind = ctrl+shift+e=unbind
+keybind = ctrl+shift+o=unbind
+keybind = ctrl+shift+t=unbind
+keybind = ctrl+shift+w=unbind
+keybind = ctrl+shift+h=unbind
+keybind = ctrl+shift+l=unbind
+keybind = ctrl+shift+arrow_left=unbind
+keybind = ctrl+shift+arrow_right=unbind
+keybind = ctrl+shift+arrow_up=unbind
+keybind = ctrl+shift+arrow_down=unbind
+keybind = super+ctrl+shift+arrow_left=unbind
+keybind = super+ctrl+shift+arrow_right=unbind
+keybind = super+ctrl+shift+arrow_up=unbind
+keybind = super+ctrl+shift+arrow_down=unbind
+keybind = ctrl+alt+arrow_left=unbind
+keybind = ctrl+alt+arrow_right=unbind
+keybind = ctrl+alt+arrow_up=unbind
+keybind = ctrl+alt+arrow_down=unbind
+keybind = alt+digit_1=unbind
+keybind = alt+digit_2=unbind
+keybind = alt+digit_3=unbind
+keybind = alt+digit_4=unbind
+keybind = alt+digit_5=unbind
+keybind = alt+digit_6=unbind
+keybind = alt+digit_7=unbind
+keybind = alt+digit_8=unbind
+keybind = alt+digit_9=unbind
+keybind = alt+f4=unbind
+
+# Keep only useful terminal actions
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+-=decrease_font_size:1
+keybind = ctrl+0=reset_font_size
+keybind = ctrl+enter=toggle_fullscreen
+keybind = ctrl+shift+r=reload_config
+
+# Font shaping: disable ligatures for programming fonts
+font-feature = -liga
+font-feature = -calt
+font-feature = -dlig

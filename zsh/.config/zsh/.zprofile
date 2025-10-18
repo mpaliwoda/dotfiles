@@ -21,10 +21,7 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTFILE="${ZDOTDIR}/.zhistory"
-export CPATH=$(xcrun --sdk macosx --show-sdk-path)/usr/include/
 
-# export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU path fpath
@@ -40,10 +37,6 @@ path=(
 # Browser or sumtin
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER="${BROWSER:-open}"
-fi
-
-if [[ "$OSTYPE" == linux* ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 eval "$(mise activate zsh)"

@@ -32,3 +32,12 @@ fi
 
 eval "$(zoxide init zsh --cmd j)"
 source "$HOME/.secrets"
+
+if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
+  tmux list-sessions >/dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    tmux attach || tmux new
+  else
+    tmux new
+  fi
+fi
