@@ -11,14 +11,11 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     opts = {
+        -- provider = "gemini",
         provider = "gemini",
         providers = {
             gemini = {
-                model = "gemini-2.5-flash-preview-05-20",
-                extra_request_body = {
-                    temperature = 0.5,
-                    max_tokens = 8192 * 4,
-                },
+                model = "gemini-2.5-flash",
             },
             groq = {
                 __inherited_from = "openai",
@@ -34,6 +31,10 @@ return {
                 extra_request_body = {
                     max_tokens = 4096,
                 },
+            },
+            ollama = {
+                endpoint = "http://localhost:11434",
+                model = "gemma3:4b",
             },
         },
         disabled_tools = { "git_commit" },

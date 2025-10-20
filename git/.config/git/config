@@ -1,6 +1,7 @@
 [user]
     name = Marcin Paliwoda
-    email = paliwoda.marcin@zoho.com
+    email = marcin.paliwoda@playbookengineering.com
+    user = marcin.paliwoda
 [core]
     editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RF
