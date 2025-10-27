@@ -63,6 +63,13 @@ return {
         scroll = { enabled = false },
         statuscolumn = { enabled = false },
         words = { enabled = false },
+        terminal = {
+            enabled = true,
+            shell = "/bin/zsh",
+            win = {
+                style = "terminal",
+            },
+        },
     },
     keys = {
         {
@@ -200,6 +207,58 @@ return {
                 Snacks.zen.zen()
             end,
             desc = "Zen",
+        },
+        { "<leader>t1",  function() Snacks.terminal.toggle(nil, { count = 1 }) end },
+        { "<leader>t2",  function() Snacks.terminal.toggle(nil, { count = 2 }) end },
+        { "<leader>t3",  function() Snacks.terminal.toggle(nil, { count = 3 }) end },
+        { "<leader>t4",  function() Snacks.terminal.toggle(nil, { count = 4 }) end },
+        { "<leader>t5",  function() Snacks.terminal.toggle(nil, { count = 5 }) end },
+
+        -- floating versions
+        { "<leader>tf1", function() Snacks.terminal.toggle(nil, { count = 1, win = { relative = "editor" } }) end },
+        { "<leader>tf2", function() Snacks.terminal.toggle(nil, { count = 2, win = { relative = "editor" } }) end },
+        { "<leader>tf3", function() Snacks.terminal.toggle(nil, { count = 3, win = { relative = "editor" } }) end },
+        { "<leader>tf4", function() Snacks.terminal.toggle(nil, { count = 4, win = { relative = "editor" } }) end },
+        { "<leader>tf5", function() Snacks.terminal.toggle(nil, { count = 5, win = { relative = "editor" } }) end },
+
+        -- horizontal terminal (25 lines)
+        {
+            "<leader>'",
+            function()
+                Snacks.terminal.toggle(nil, {
+                    win = { position = "bottom", height = 25 },
+                })
+            end,
+            desc = "Toggle horizontal terminal",
+        },
+
+        -- floating terminal
+        {
+            '<leader>"',
+            function()
+                Snacks.terminal.toggle(nil, {
+                    win = { relative = "editor", width = 0.8, height = 0.8 },
+                })
+            end,
+            desc = "Toggle floating terminal",
+        },
+
+        -- send visual selection
+        {
+            "<leader>'",
+            function()
+                local start_pos = vim.fn.getpos("v")
+                local end_pos = vim.fn.getpos(".")
+                local lines = vim.fn.getregion(start_pos, end_pos)
+                local text = table.concat(lines, "\n")
+                local term = Snacks.terminal.get(nil, { create = true })
+                term:show()
+                if term.job then
+                    vim.api.nvim_chan_send(term.job, text .. "\n")
+                end
+            end,
+            mode = { "v" },
+            desc = "Send selection to terminal",
         },
     },
 }

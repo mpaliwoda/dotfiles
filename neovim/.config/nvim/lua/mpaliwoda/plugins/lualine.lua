@@ -2,7 +2,6 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
-        "justinhj/battery.nvim",
     },
     event = "VeryLazy",
     opts = {
@@ -17,11 +16,6 @@ return {
                 "filetype",
             },
             lualine_y = {
-                {
-                    function()
-                        return require("battery").get_status_line()
-                    end,
-                },
                 "progress",
             },
         },
