@@ -58,6 +58,7 @@ vim.opt.foldenable = false
 vim.opt.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 vim.g.python3_host_prog = os.getenv("HOME") .. "/dotfiles/.venv/bin/python"
