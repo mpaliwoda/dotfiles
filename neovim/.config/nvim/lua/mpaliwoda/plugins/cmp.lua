@@ -77,7 +77,6 @@ return {
 
         autopairs.setup({
             disable_filetype = {
-                "TelescopePrompt",
                 "vim",
             },
         })

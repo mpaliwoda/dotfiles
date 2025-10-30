@@ -7,7 +7,6 @@ return {
         bigfile = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
-        notifier = { enabled = true },
         quickfile = { enabled = true },
         explorer = {
             enabled = true,
@@ -63,6 +62,7 @@ return {
         scroll = { enabled = false },
         statuscolumn = { enabled = false },
         words = { enabled = false },
+        notifier = { enabled = true },
         terminal = {
             enabled = true,
             shell = "/bin/zsh",
