@@ -2,7 +2,7 @@
 window-height = 59
 window-width = 213
 
-# Disable client decorations
+# Disable client decorations (personal preference)
 window-decoration = none
 
 # Disable all Ghostty split/tab/window bindings
@@ -49,3 +49,6 @@ keybind = ctrl+shift+r=reload_config
 font-feature = -liga
 font-feature = -calt
 font-feature = -dlig
+
+# Include work-specific config if it exists (? suppresses errors if missing)
+config-file = ?config.work

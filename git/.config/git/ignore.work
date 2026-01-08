@@ -1,0 +1,6 @@
+# Work-specific git ignores
+# Merged into ignore.merged on work machines
+
+CLAUDE.md
+.*
+**/.claude/settings.local.json

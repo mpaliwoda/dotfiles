@@ -1,0 +1,5 @@
+# Work-specific mise tools
+# Auto-loaded via conf.d/work.toml symlink on work machines
+
+[tools]
+bun = "latest"

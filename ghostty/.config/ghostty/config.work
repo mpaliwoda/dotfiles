@@ -1,0 +1,9 @@
+# Work-specific Ghostty configuration
+# Overrides base config on work machine
+
+# Re-enable window decorations for work (override base)
+window-decoration = true
+
+# Disable fullscreen toggle on work (different window manager setup)
+keybind = ctrl+enter=unbind
+keybind = ctrl+shift+enter=unbind

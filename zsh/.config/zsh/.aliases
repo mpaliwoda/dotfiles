@@ -48,3 +48,16 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+function codesearch() {
+  local target_dir="${1:-$HOME/Developer}"
+
+  fzf --ansi --disabled \
+      --header "Searching in: $target_dir" \
+      --bind "start:reload:rg --line-number --no-heading --color=always --smart-case '' '$target_dir'" \
+      --bind "change:reload:rg --line-number --no-heading --color=always --smart-case {q} '$target_dir'" \
+      --delimiter : \
+      --preview 'bat --style=numbers --color=always --highlight-line {2} {1}' \
+      --preview-window 'up,60%,border-bottom,+{2}+3/3' \
+      --bind "enter:become(nvim +{2} {1})"
+}

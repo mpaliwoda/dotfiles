@@ -2,13 +2,17 @@
     name = Marcin Paliwoda
     email = paliwoda.marcin@zoho.com
     user = marcin.paliwoda
+
+[include]
+    path = config.local
+
 [core]
     editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RF
 [init]
     defaultBranch = main
 [pull]
-    rebase = false
+	rebase = true
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [merge]

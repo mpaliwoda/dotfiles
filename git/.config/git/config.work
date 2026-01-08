@@ -1,0 +1,5 @@
+# Work-specific git configuration
+# Included via config.local on work machines
+
+[user]
+    email = marcin.paliwoda@playbookengineering.com

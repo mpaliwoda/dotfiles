@@ -18,3 +18,9 @@ zsh/**/.antidote
 zsh/**/.zhistory
 zsh/**/.zsh_history
 zsh/**/.zsh_plugins.zsh
+zsh/**/.zsh_sessions
+
+# Machine-specific generated files (not stowed, created at runtime)
+git/.config/git/config.local
+git/.config/git/ignore.merged
+mise/.config/mise/conf.d/
