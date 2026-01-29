@@ -205,5 +205,34 @@ return {
         })
 
         vim.lsp.config("gleam", {})
+
+        vim.lsp.config("lua_ls", {
+            settings = {
+                Lua = {
+                    runtime = {
+                        version = "LuaJIT",
+                    },
+                    workspace = {
+                        checkThirdParty = false,
+                        library = {
+                            vim.env.VIMRUNTIME,
+                        },
+                    },
+                },
+            },
+        })
+
+        vim.lsp.enable({
+            "html",
+            "emmet_ls",
+            "yamlls",
+            "basedpyright",
+            "ts_ls",
+            "gopls",
+            "jsonls",
+            "bashls",
+            "gleam",
+            "lua_ls",
+        })
     end,
 }

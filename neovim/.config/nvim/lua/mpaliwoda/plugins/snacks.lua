@@ -35,6 +35,7 @@ return {
         picker = {
             enabled = true,
             hidden = true,
+            ui_select = true,
             sources = {
                 explorer = {
                     supports_live = true,

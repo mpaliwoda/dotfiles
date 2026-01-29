@@ -24,7 +24,16 @@ return {
                 "MasonLog",
             },
         },
+        {
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
+            opts = {
+                ensure_installed = {
+                    "ruff",
+                    "mypy",
+                    "djlint",
+                },
+            },
+        },
         "neovim/nvim-lspconfig",
-        "hrsh7th/cmp-nvim-lsp",
     },
 }

@@ -112,13 +112,15 @@ return {
                 lsp = {
                     name = "LSP",
                     module = "blink.cmp.sources.lsp",
-                    min_keyword_length = 1,
+                    min_keyword_length = 0,
+                    score_offset = 100,
                     fallbacks = { "buffer" },
                 },
                 snippets = {
                     name = "Snippets",
                     module = "blink.cmp.sources.snippets",
-                    score_offset = -1,
+                    min_keyword_length = 2,
+                    score_offset = -100,
                 },
                 path = {
                     name = "Path",
