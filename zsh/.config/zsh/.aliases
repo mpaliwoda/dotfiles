@@ -49,6 +49,35 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+function clean_branches() {
+    echo "Fetching and pruning..."
+    git fetch -p
+
+    local gone_branches
+    gone_branches=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | \
+                    awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}')
+
+    if [[ -z "$gone_branches" ]]; then
+        echo "Check complete. No orphaned branches found."
+        return 0
+    fi
+
+    echo "The following local branches are [gone] on remote:"
+    echo "$gone_branches"
+    echo -n "Do you want to delete these branches? (y/n): "
+    read -k 1 reply
+    echo 
+
+    if [[ "$reply" =~ ^[Yy]$ ]]; then
+        for branch in ${(f)gone_branches}; do
+            git branch -D "$branch"
+        done
+        echo "Cleanup complete."
+    else
+        echo "Cleanup aborted."
+    fi
+}
+
 function codesearch() {
   local target_dir="${1:-$HOME/Developer}"
 
