@@ -1,3 +1,7 @@
+current_branch () {
+    git branch --show-current
+}
+
 merge_diff() {
     if [ "$1" = "" ]; then
         branch_to_compare="origin/master"
