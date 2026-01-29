@@ -54,7 +54,7 @@ return {
                 vim.keymap.set("n", "<leader>mgd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
                 vim.keymap.set("n", "<leader>mgs", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
                 vim.keymap.set("n", "<leader>mgi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-                vim.keymap.set("n", "<leader>mg ffy", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+                vim.keymap.set("n", "<leader>mgt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
                 vim.keymap.set("n", "<leader>ren", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
                 vim.keymap.set("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<cr>", opts)
                 vim.keymap.set("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = false })<cr>", opts)

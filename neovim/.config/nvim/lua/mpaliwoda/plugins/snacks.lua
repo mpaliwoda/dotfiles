@@ -195,13 +195,6 @@ return {
             desc = "Diagnostics",
         },
         {
-            "<leader>undo",
-            function()
-                Snacks.picker.undo()
-            end,
-            desc = "Undo History",
-        },
-        {
             "<leader>zen",
             function()
                 Snacks.zen.zen()

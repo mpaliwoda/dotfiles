@@ -1,5 +1,6 @@
 return {
     "mason-org/mason-lspconfig.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {},
     dependencies = {
         {
@@ -13,9 +14,7 @@ return {
                         package_uninstalled = "✗",
                     },
                 },
-
             },
-            lazy = true,
             cmd = {
                 "Mason",
                 "MasonUpdate",

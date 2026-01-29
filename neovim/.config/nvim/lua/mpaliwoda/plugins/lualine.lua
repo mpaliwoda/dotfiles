@@ -33,11 +33,6 @@ return {
                 },
             },
         },
-        extensions = {
-            "fugitive",
-            "nvim-dap-ui",
-            "nvim-tree",
-            "toggleterm",
-        },
+        extensions = {},
     },
 }

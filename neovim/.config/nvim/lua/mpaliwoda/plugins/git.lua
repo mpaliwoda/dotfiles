@@ -3,44 +3,21 @@ return {
         "NeogitOrg/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "sindrets/diffview.nvim",
+            { "sindrets/diffview.nvim", lazy = true },
         },
-        config = function()
-            local neogit = require("neogit")
-            local process = require("mpaliwoda.utils.process")
-
-            neogit.setup({})
-
-            vim.keymap.set("n", "<Leader>gg", function()
-                neogit.open({ kind = "split" })
-            end)
-            vim.keymap.set("n", "<Leader>gc", function()
-                neogit.open({ "commit", kind = "split" })
-            end)
-            vim.keymap.set("n", "<Leader>gl", function()
-                neogit.open({ "log", kind = "split" })
-            end)
-            vim.keymap.set("n", "<Leader>gdi", function()
-                neogit.open({ "diff" })
-            end)
-            vim.keymap.set("n", "<Leader>gp", function()
-                neogit.open({ "push" })
-            end)
-            vim.keymap.set("n", "<Leader>gs", function()
-                neogit.open({ "stash" })
-            end)
-            vim.keymap.set("n", "<Leader>gM", function()
-                neogit.open({ "merge" })
-            end)
-            vim.keymap.set("n", "<Leader>gw", function()
-                local filename = vim.fn.expand("%")
-                process.run("git", "add", filename)
-            end)
-            vim.keymap.set("n", "<Leader>gW", function()
-                local filename = vim.fn.expand("%")
-                process.run("git", "add", filename, "-f")
-            end)
-        end,
+        cmd = "Neogit",
+        keys = {
+            { "<Leader>gg", function() require("neogit").open({ kind = "split" }) end, desc = "Neogit" },
+            { "<Leader>gc", function() require("neogit").open({ "commit", kind = "split" }) end, desc = "Neogit commit" },
+            { "<Leader>gl", function() require("neogit").open({ "log", kind = "split" }) end, desc = "Neogit log" },
+            { "<Leader>gdi", function() require("neogit").open({ "diff" }) end, desc = "Neogit diff" },
+            { "<Leader>gp", function() require("neogit").open({ "push" }) end, desc = "Neogit push" },
+            { "<Leader>gs", function() require("neogit").open({ "stash" }) end, desc = "Neogit stash" },
+            { "<Leader>gM", function() require("neogit").open({ "merge" }) end, desc = "Neogit merge" },
+            { "<Leader>gw", function() require("mpaliwoda.utils.process").run("git", "add", vim.fn.expand("%")) end, desc = "Git add file" },
+            { "<Leader>gW", function() require("mpaliwoda.utils.process").run("git", "add", vim.fn.expand("%"), "-f") end, desc = "Git add file (force)" },
+        },
+        opts = {},
     },
     {
         "lewis6991/gitsigns.nvim",

@@ -65,9 +65,4 @@ vim.g.python3_host_prog = os.getenv("HOME") .. "/dotfiles/.venv/bin/python"
 
 vim.g.loaded_perl_provider = 0
 
-local process = require("mpaliwoda.utils.process")
-local sqlite_mise_dir = process.run("mise", "where", "sqlite"):gsub("%s+", "")
-
-vim.g.sqlite_clib_path = sqlite_mise_dir .. "/lib/libsqlite3.dylib"
-
 vim.g.snacks_animate = false

@@ -8,12 +8,12 @@ return {
     },
     keys = {
         {
-            "<leader>sw",
+            "<leader>sr",
             function()
                 local word = vim.fn.expand("<cword>")
                 require("grug-far").open({ search = word })
             end,
-            desc = "Search word under cursor (grug-far)",
+            desc = "Search-replace word under cursor (grug-far)",
         },
         {
             "<leader>sp",
