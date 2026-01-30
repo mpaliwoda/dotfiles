@@ -1,5 +1,9 @@
 return {
-    "norcalli/nvim-colorizer.lua",
+    "brenoprata10/nvim-highlight-colors",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+        render = "virtual",
+        virtual_symbol_position = "eol",
+        enable_tailwind = true,
+    },
 }

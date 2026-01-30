@@ -12,9 +12,6 @@ return {
         -- Snippets
         "rafamadriz/friendly-snippets",
 
-        -- Autopairs
-        "windwp/nvim-autopairs",
-
         -- Tailwind
         "luckasRanarison/tailwind-tools.nvim",
     },
@@ -215,30 +212,4 @@ return {
         },
     },
 
-    config = function(_, opts)
-        local blink = require("blink.cmp")
-        blink.setup(opts)
-
-        -- Autopairs integration
-        local autopairs = require("nvim-autopairs")
-        autopairs.setup({
-            disable_filetype = { "vim" },
-        })
-
-        -- Hook into blink's accept to trigger autopairs
-        -- blink.cmp handles brackets via auto_brackets, but for other pairs:
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
-        -- Use blink's on_accept event
-        vim.api.nvim_create_autocmd("User", {
-            pattern = "BlinkCmpAccept",
-            callback = function(event)
-                local entry = event.data and event.data.entry
-                if entry then
-                    -- Trigger autopairs logic if needed
-                    cmp_autopairs.on_confirm_done()
-                end
-            end,
-        })
-    end,
 }
