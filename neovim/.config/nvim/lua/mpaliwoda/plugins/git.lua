@@ -17,7 +17,18 @@ return {
             { "<Leader>gw", function() require("mpaliwoda.utils.process").run("git", "add", vim.fn.expand("%")) end, desc = "Git add file" },
             { "<Leader>gW", function() require("mpaliwoda.utils.process").run("git", "add", vim.fn.expand("%"), "-f") end, desc = "Git add file (force)" },
         },
-        opts = {},
+        opts = {
+            -- Performance
+            graph_style = "ascii",
+            disable_context_highlighting = true,
+            commit_order = "",  -- fastest for large repos
+            status = {
+                recent_commit_count = 10,
+            },
+            -- Keep UI usable
+            disable_signs = false,
+            disable_hint = false,
+        },
     },
     {
         "lewis6991/gitsigns.nvim",
