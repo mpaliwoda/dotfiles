@@ -1,6 +1,6 @@
 return {
     "kevinhwang91/nvim-hlslens",
-    lazy = true,
+    event = "CmdlineEnter",
     config = function()
         require("hlslens").setup()
 

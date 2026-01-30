@@ -1,8 +1,5 @@
 return {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-        "b0o/schemastore.nvim",
-    },
+    "b0o/schemastore.nvim",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     init = function()
         local toggles = require("mpaliwoda.utils.toggles")
