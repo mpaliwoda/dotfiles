@@ -33,7 +33,7 @@ return {
             statusBarProvider = "on",
         }
 
-        config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+        config.capabilities = require("blink.cmp").get_lsp_capabilities()
 
         config.on_attach = function(client, bufnr)
             if vim.lsp.inlay_hint then

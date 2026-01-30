@@ -3,16 +3,14 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    event = "LspAttach",
+    keys = {
+        { "<leader><space>", function() require("actions-preview").code_actions() end, mode = { "n", "v" }, desc = "Code actions" },
+    },
     config = function()
-        local actions = require("actions-preview")
-
-        actions.setup({
+        require("actions-preview").setup({
             highlight_command = {
                 require("actions-preview.highlight").diff_so_fancy(),
             },
         })
-
-        vim.keymap.set({ "n", "v" }, "<leader><space>", "<cmd>lua require('actions-preview').code_actions()<cr>")
     end,
 }

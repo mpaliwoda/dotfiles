@@ -1,6 +1,7 @@
 return {
     "laytan/cloak.nvim",
-    event = "VeryLazy",
+    ft = { "sh", "zsh", "bash", "conf" },
+    keys = { { "<C-M-c>", "<cmd>CloakToggle<cr>", desc = "Toggle cloak" } },
     config = function()
         local cloak = require("cloak")
 
@@ -17,7 +18,5 @@ return {
                 },
             },
         })
-
-        vim.keymap.set("n", "<C-M-c>", "<cmd>CloakToggle<cr>")
     end,
 }

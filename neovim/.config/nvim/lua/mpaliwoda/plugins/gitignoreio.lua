@@ -1,9 +1,6 @@
 return {
     "wintermute-cell/gitignore.nvim",
-    event = "VeryLazy",
-    config = function()
-        local gitignore = require("gitignore")
-
-        vim.keymap.set("n", "<leader>gi", gitignore.generate)
-    end,
+    keys = {
+        { "<leader>gi", function() require("gitignore").generate() end, desc = "Generate .gitignore" },
+    },
 }

@@ -6,11 +6,16 @@ require("lazy").setup({
     checker = {
         enabled = true,
         concurrency = 8,
+        notify = false,
     },
     performance = {
         rtp = {
             disabled_plugins = {
                 "gzip",
+                "matchit",
+                "matchparen",
+                "netrwPlugin",
+                "rplugin",
                 "tarPlugin",
                 "tohtml",
                 "tutor",

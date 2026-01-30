@@ -1,6 +1,6 @@
 return {
     "echasnovski/mini.surround",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "VeryLazy",
     opts = {
         mappings = {
             add = "ys",

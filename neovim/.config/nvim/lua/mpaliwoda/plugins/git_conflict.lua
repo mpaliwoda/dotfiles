@@ -1,5 +1,5 @@
 return {
     "akinsho/git-conflict.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufNewFile" },
     config = true,
 }

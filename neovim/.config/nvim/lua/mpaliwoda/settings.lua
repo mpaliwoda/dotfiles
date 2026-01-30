@@ -43,7 +43,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.lazyredraw = false
-vim.opt.ttyfast = true
 
 vim.opt.timeout = true
 vim.opt.timeoutlen = 400

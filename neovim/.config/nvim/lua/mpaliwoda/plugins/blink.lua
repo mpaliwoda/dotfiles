@@ -2,18 +2,11 @@ return {
     "saghen/blink.cmp",
     version = "1.*",
     dependencies = {
-        -- Compat layer for nvim-cmp sources
         { "saghen/blink.compat", version = "2.*", lazy = true, opts = {} },
-
-        -- nvim-cmp sources via compat
-        "hrsh7th/cmp-emoji",
-        "dcampos/cmp-emmet-vim",
-
-        -- Snippets
-        "rafamadriz/friendly-snippets",
-
-        -- Tailwind
-        "luckasRanarison/tailwind-tools.nvim",
+        { "hrsh7th/cmp-emoji", lazy = true },
+        { "dcampos/cmp-emmet-vim", lazy = true },
+        { "rafamadriz/friendly-snippets", lazy = true },
+        { "luckasRanarison/tailwind-tools.nvim", lazy = true },
     },
     event = "InsertEnter",
 
