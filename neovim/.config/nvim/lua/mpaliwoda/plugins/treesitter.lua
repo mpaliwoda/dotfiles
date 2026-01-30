@@ -2,7 +2,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
     },
     config = function()
         local treesitter = require("nvim-treesitter.configs")

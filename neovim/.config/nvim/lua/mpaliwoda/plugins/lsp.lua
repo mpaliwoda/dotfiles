@@ -8,14 +8,18 @@ return {
 
         vim.diagnostic.config({
             underline = false,
-            signs = function(_namespace, _bufnr)
-                return {
-                    { severity = vim.diagnostic.severity.ERROR, text = "✘" },
-                    { severity = vim.diagnostic.severity.WARN, text = "▲" },
-                    { severity = vim.diagnostic.severity.HINT, text = "⚑" },
-                    { severity = vim.diagnostic.severity.INFO, text = "" },
-                }
-            end,
+            virtual_text = true,
+            virtual_lines = false,
+            update_in_insert = false,
+            severity_sort = true,
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = "✘",
+                    [vim.diagnostic.severity.WARN] = "▲",
+                    [vim.diagnostic.severity.HINT] = "⚑",
+                    [vim.diagnostic.severity.INFO] = "",
+                },
+            },
         })
 
         toggles.create({
@@ -28,7 +32,7 @@ return {
 
         toggles.create({
             name = "virtual_lines",
-            active = false,
+            active = true,
             keybinds = { n = "<C-M-l>" },
             toggled = function()
                 vim.diagnostic.config({
