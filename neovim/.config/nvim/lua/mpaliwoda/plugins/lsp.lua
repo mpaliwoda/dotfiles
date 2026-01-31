@@ -1,7 +1,8 @@
 return {
-    "b0o/schemastore.nvim",
+    "neovim/nvim-lspconfig",
+    dependencies = { "b0o/schemastore.nvim" },
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    init = function()
+    config = function()
         local toggles = require("mpaliwoda.utils.toggles")
 
         vim.lsp.set_log_level("ERROR")

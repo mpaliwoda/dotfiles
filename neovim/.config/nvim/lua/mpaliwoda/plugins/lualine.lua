@@ -6,7 +6,7 @@ return {
     event = "UIEnter",
     opts = {
         options = {
-            theme = "auto",
+            theme = "nord",
             globalstatus = true,
         },
         sections = {

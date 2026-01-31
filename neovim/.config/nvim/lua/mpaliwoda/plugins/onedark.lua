@@ -6,7 +6,7 @@ return {
 
         onedark.setup({
             -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'
-            style = "darker",
+            style = "deep",
             ending_tildes = true,
             code_style = {
                 comments = "italic",
