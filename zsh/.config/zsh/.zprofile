@@ -2,7 +2,6 @@
 # .zprofile - Zsh file loaded on login.
 
 # General exports
-export TERM=xterm-256color
 export CLICOLOR=1
 
 export LC_ALL=en_US.UTF-8
@@ -14,9 +13,8 @@ export PAGER="bat"
 
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 
-export HISTCONTROL=ignoreboth
 export HISTSIZE=10000
-export HISTFILESIZE=10000
+export SAVEHIST=10000
 export HISTFILE="${ZDOTDIR}/.zhistory"
 
 
@@ -28,6 +26,7 @@ path=(
   $HOME/.local/{,s}bin(N)
   $HOME/{,s}bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
+  /opt/homebrew/opt/libpq/bin(N)
   /usr/local/{,s}bin(N)
   $path
 )
@@ -69,4 +68,3 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 eval "$(mise activate zsh)"
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh

@@ -31,7 +31,7 @@ ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z kind:defer
 ohmyzsh/ohmyzsh path:plugins/starship 
 
 unixorn/fzf-zsh-plugin path=bin kind=path
-so-fancy/diff-so-fancy kind=path
+
 
 ### Final Plugins
 

@@ -8,8 +8,7 @@ alias vim=nvim
 # git
 alias gtree="git log --graph --pretty=oneline --abbrev-commit"
 alias untracked="git ls-files --others --exclude-standard"
-alias current-branch="git branch | grep \* | cut -d ' ' -f2"
-alias push='git push origin -u "$(current-branch)"'
+alias push="git push"
 
 # more ways to ls
 alias ls="lsd"
@@ -28,7 +27,6 @@ alias untar="tar -xf"
 
 # better defaults or sth ig
 alias mc="mc --nosubshell"
-alias grep="grep --color=auto"
 
 # generators
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"

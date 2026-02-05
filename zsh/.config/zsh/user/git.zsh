@@ -9,7 +9,7 @@ merge_diff() {
         branch_to_compare="$1"
     fi
 
-    git log "$branch_to_compare..$(current-branch)" --oneline | grep "Merge pull*"
+    git log "$branch_to_compare..$(current_branch)" --oneline | grep "Merge pull*"
 }
 
 __rename_remote() {

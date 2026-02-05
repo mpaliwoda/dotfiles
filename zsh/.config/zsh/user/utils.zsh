@@ -1,5 +1,5 @@
 __clean() {
-    find . | grep -E "$1" | xargs rm -rf
+    find -E . -regex ".*$1" -print0 | xargs -0 rm -rf
 }
 
 py_clean() {

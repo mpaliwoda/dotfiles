@@ -12,7 +12,7 @@ go = "latest"
 hyperfine = "latest"
 lazydocker = "latest"
 lsd = "latest"
-node = { version = "latest", postinstall = "corepack enable" }
+node = { version = "25", postinstall = "corepack enable" }
 python = "3.14"
 ripgrep = "latest"
 ruby = "latest"
@@ -32,6 +32,13 @@ xh = "latest"
 "cargo:diskonaut" = "latest"
 "npm:mcp-hub" = "latest"
 "cargo:just" = "latest"
+bun = "latest"
+terraform = "latest"
+yq = "latest"
+lazygit = "latest"
+direnv = "latest"
+scala = "latest"
+sbt = "latest"
 
 [settings]
 env_file = ".env"

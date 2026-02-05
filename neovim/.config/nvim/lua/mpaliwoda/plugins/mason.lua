@@ -1,37 +1,37 @@
 return {
-    "mason-org/mason.nvim",
-    cmd = {
-        "Mason",
-        "MasonUpdate",
-        "MasonInstall",
-        "MasonUninstall",
-        "MasonUninstallAll",
-        "MasonLog",
-    },
+    "mason-org/mason-lspconfig.nvim",
     opts = {
-        ui = {
-            border = "rounded",
-            icons = {
-                package_installed = "✓",
-                package_pending = "➜",
-                package_uninstalled = "✗",
-            },
+        ensure_installed = {
+            "bashls",
+            "basedpyright",
+            "emmet_ls",
+            "gopls",
+            "html",
+            "jsonls",
+            "lua_ls",
+            "ts_ls",
+            "yamlls",
         },
     },
     dependencies = {
         {
-            "mason-org/mason-lspconfig.nvim",
+            "mason-org/mason.nvim",
+            cmd = {
+                "Mason",
+                "MasonUpdate",
+                "MasonInstall",
+                "MasonUninstall",
+                "MasonUninstallAll",
+                "MasonLog",
+            },
             opts = {
-                ensure_installed = {
-                    "bashls",
-                    "basedpyright",
-                    "emmet_ls",
-                    "gopls",
-                    "html",
-                    "jsonls",
-                    "lua_ls",
-                    "ts_ls",
-                    "yamlls",
+                ui = {
+                    border = "rounded",
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗",
+                    },
                 },
             },
         },
