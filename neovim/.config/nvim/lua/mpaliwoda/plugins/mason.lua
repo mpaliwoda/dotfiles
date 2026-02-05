@@ -20,13 +20,18 @@ return {
     },
     dependencies = {
         {
-            "WhoIsSethDaniel/mason-tool-installer.nvim",
-            lazy = true,
+            "mason-org/mason-lspconfig.nvim",
             opts = {
                 ensure_installed = {
-                    "ruff",
-                    "mypy",
-                    "djlint",
+                    "bashls",
+                    "basedpyright",
+                    "emmet_ls",
+                    "gopls",
+                    "html",
+                    "jsonls",
+                    "lua_ls",
+                    "ts_ls",
+                    "yamlls",
                 },
             },
         },

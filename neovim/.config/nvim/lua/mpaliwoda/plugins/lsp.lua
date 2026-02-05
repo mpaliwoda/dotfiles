@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    dependencies = { "b0o/schemastore.nvim" },
+    dependencies = { "b0o/schemastore.nvim", "mason-org/mason-lspconfig.nvim" },
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     config = function()
         local toggles = require("mpaliwoda.utils.toggles")
@@ -224,17 +224,6 @@ return {
             },
         })
 
-        vim.lsp.enable({
-            "html",
-            "emmet_ls",
-            "yamlls",
-            "basedpyright",
-            "ts_ls",
-            "gopls",
-            "jsonls",
-            "bashls",
-            "gleam",
-            "lua_ls",
-        })
+        vim.lsp.enable({ "gleam" })
     end,
 }
