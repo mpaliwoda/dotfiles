@@ -1,14 +1,11 @@
 -- @param command string Git command to run
 local function dotfiles_repo_git(command)
     local dots = os.getenv("HOME") .. "/dotfiles"
-    os.execute("git -C " .. dots .. " " .. command)
+    return os.execute("git -C " .. dots .. " " .. command)
 end
 
 vim.api.nvim_create_user_command("UpdatePlugins", function(_)
-    -- update plugins via Lazy
     require("lazy").update({ show = true, wait = true, concurrency = 8 })
-
-    -- close Lazy float
     vim.api.nvim_win_close(require("lazy.view").view.win, false)
     vim.notify("Finished updating plugins.")
 
@@ -24,7 +21,6 @@ vim.api.nvim_create_user_command("UpdatePlugins", function(_)
     end
 end, { desc = "Update plugins and commit lockfile to repo" })
 
----
 --- @param version_string string
 local validate_python_version = function(version_string)
     if version_string:match("3%.[6789]") then

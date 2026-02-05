@@ -12,7 +12,6 @@ return {
     opts = {
         lang = "python3",
         arg = leet_arg,
-        -- image_support = true,
     },
     lazy = leet_arg ~= vim.fn.argv()[1],
 }
