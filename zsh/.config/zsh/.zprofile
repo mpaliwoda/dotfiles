@@ -68,5 +68,5 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER="${BROWSER:-open}"
 fi
 
-eval "$(mise activate zsh)"
+
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
