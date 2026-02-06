@@ -8,17 +8,21 @@
 
 [core]
     editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RF
+    pager = delta
 [init]
     defaultBranch = main
 [pull]
-	rebase = true
+    rebase = true
 [interactive]
-	diffFilter = diff-so-fancy --patch
+    diffFilter = delta --color-only
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
 [push]
     default = current
     autoSetupRemote = true
@@ -30,17 +34,4 @@
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
 [color]
-	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    ui = true
