@@ -224,6 +224,6 @@ return {
             },
         })
 
-        vim.lsp.enable({ "gleam" })
+        vim.lsp.enable({ "gleam", "gopls" })
     end,
 }

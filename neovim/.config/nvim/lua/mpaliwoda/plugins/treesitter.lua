@@ -1,8 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-        { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
+        { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main", lazy = true },
     },
     config = function()
         require("nvim-treesitter").setup()
