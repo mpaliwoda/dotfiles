@@ -2,7 +2,7 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-STOW_PACKAGES=(bat colima dual-keys ghostty git kitty lsd mise neovim starship tmux yazi zsh)
+IGNORED=(. .. .git)
 
 info() { printf '\033[1;34m[INFO]\033[0m %s\n' "$1"; }
 success() { printf '\033[1;32m[OK]\033[0m %s\n' "$1"; }
@@ -35,7 +35,9 @@ install_bundle() {
 
 stow_dotfiles() {
   info "Stowing dotfiles..."
-  for package in "${STOW_PACKAGES[@]}"; do
+  for package in "$DOTFILES_DIR"/*/; do
+    package="$(basename "$package")"
+    [[ " ${IGNORED[*]} " == *" $package "* ]] && continue
     info "Stowing $package"
     stow -d "$DOTFILES_DIR" -t "$HOME" --restow "$package"
   done
