@@ -38,8 +38,18 @@ stow_dotfiles() {
   for package in "$DOTFILES_DIR"/*/; do
     package="$(basename "$package")"
     [[ " ${IGNORED[*]} " == *" $package "* ]] && continue
-    info "Stowing $package"
-    stow -d "$DOTFILES_DIR" -t "$HOME" --restow "$package"
+
+    if [[ -d "$DOTFILES_DIR/$package/etc" ]]; then
+      if [[ "$(uname)" != "Linux" ]]; then
+        info "Skipping $package (Linux only)"
+        continue
+      fi
+      info "Stowing $package to /"
+      sudo stow -d "$DOTFILES_DIR" -t / --restow "$package"
+    else
+      info "Stowing $package"
+      stow -d "$DOTFILES_DIR" -t "$HOME" --restow "$package"
+    fi
   done
   success "All dotfiles stowed"
 }
