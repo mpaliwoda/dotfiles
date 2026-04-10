@@ -17,7 +17,6 @@ require("lazy").setup({
                 "netrwPlugin",
                 "rplugin",
                 "tarPlugin",
-                "tohtml",
                 "tutor",
                 "zipPlugin",
             },
@@ -27,3 +26,8 @@ require("lazy").setup({
         border = "none"
     },
 })
+
+-- Native 0.12 plugins
+vim.cmd.packadd("nvim.undotree")
+vim.cmd.packadd("nvim.difftool")
+vim.keymap.set("n", "<leader>undo", "<cmd>Undotree<cr>")
