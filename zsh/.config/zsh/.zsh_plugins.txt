@@ -30,7 +30,7 @@ ohmyzsh/ohmyzsh path:plugins/extract kind:defer
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z kind:defer
 ohmyzsh/ohmyzsh path:plugins/starship 
 
-unixorn/fzf-zsh-plugin path=bin kind=path
+unixorn/fzf-zsh-plugin path=bin kind:path
 
 
 ### Final Plugins

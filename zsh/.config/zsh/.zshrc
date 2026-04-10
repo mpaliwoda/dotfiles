@@ -80,3 +80,4 @@ _zb_path_append "$ZEROBREW_BIN"
 _zb_path_append "$ZEROBREW_PREFIX/bin"
 
 eval "$(mise activate zsh)"
+export PATH="$HOME/.local/bin:$PATH"
