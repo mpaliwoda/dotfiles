@@ -3,7 +3,7 @@ return {
     ft = { "markdown", "md", "rmd", "quarto", "Avante" },
     dependencies = {
         { "nvim-treesitter/nvim-treesitter", lazy = true },
-        { "nvim-tree/nvim-web-devicons", lazy = true },
+        { "echasnovski/mini.icons", lazy = true },
     },
     keys = {
         { "<Leader>cb", "<Cmd>Checkbox toggle<cr>", ft = "markdown", desc = "Toggle checkbox" },

@@ -13,7 +13,6 @@ return {
             },
             opts = {
                 ui = {
-                    border = "rounded",
                     icons = {
                         package_installed = "✓",
                         package_pending = "➜",
@@ -24,13 +23,18 @@ return {
         },
     },
     opts = {
+        -- Servers are enabled explicitly in `plugins/lsp.lua`.
+        automatic_enable = false,
         ensure_installed = {
             "bashls",
             "basedpyright",
+            "cssls",
             "emmet_ls",
             "html",
+            "jdtls",
             "jsonls",
             "lua_ls",
+            "tailwindcss",
             "ts_ls",
             "yamlls",
         },

@@ -23,3 +23,5 @@ vim.keymap.set("n", "D", "d$")
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<C-0>", ":edit<CR>", { silent = true })
+
+vim.keymap.set("n", "<Leader>gi", ":Gitignore ", { desc = "Generate .gitignore" })

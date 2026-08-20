@@ -14,8 +14,8 @@ return {
             { "<Leader>gp", function() require("neogit").open({ "push" }) end, desc = "Neogit push" },
             { "<Leader>gs", function() require("neogit").open({ "stash" }) end, desc = "Neogit stash" },
             { "<Leader>gM", function() require("neogit").open({ "merge" }) end, desc = "Neogit merge" },
-            { "<Leader>gw", function() require("mpaliwoda.utils.process").run("git", "add", vim.fn.expand("%")) end, desc = "Git add file" },
-            { "<Leader>gW", function() require("mpaliwoda.utils.process").run("git", "add", vim.fn.expand("%"), "-f") end, desc = "Git add file (force)" },
+            { "<Leader>gw", function() require("mpaliwoda.utils.process").run({ "git", "add", vim.fn.expand("%") }) end, desc = "Git add file" },
+            { "<Leader>gW", function() require("mpaliwoda.utils.process").run({ "git", "add", "-f", vim.fn.expand("%") }) end, desc = "Git add file (force)" },
         },
         opts = {
             -- Performance

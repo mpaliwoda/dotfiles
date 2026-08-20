@@ -63,7 +63,8 @@ return {
         scroll = { enabled = false },
         statuscolumn = { enabled = false },
         words = { enabled = false },
-        notifier = { enabled = true },
+        -- noice owns `vim.notify` (it loads after snacks and wins), so keep one owner
+        notifier = { enabled = false },
         terminal = {
             enabled = true,
             shell = "/bin/zsh",
@@ -118,7 +119,7 @@ return {
         {
             "<leader>fn",
             function()
-                Snacks.picker.notifications()
+                require("noice").cmd("history")
             end,
             desc = "Notification History",
         },

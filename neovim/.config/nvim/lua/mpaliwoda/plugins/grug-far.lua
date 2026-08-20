@@ -4,7 +4,6 @@ return {
         cmd = "rg",
         confirm = true,
         preview = true,
-        border = "rounded",
     },
     keys = {
         {

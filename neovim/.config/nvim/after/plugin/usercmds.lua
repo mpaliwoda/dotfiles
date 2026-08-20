@@ -1,7 +1,11 @@
--- @param command string Git command to run
-local function dotfiles_repo_git(command)
-    local dots = os.getenv("HOME") .. "/dotfiles"
-    return os.execute("git -C " .. dots .. " " .. command)
+local proc = require("mpaliwoda.utils.process")
+
+local DOTFILES = vim.env.HOME .. "/dotfiles"
+
+--- @param ... string Git arguments to run against the dotfiles repo
+--- @return boolean ok, string output
+local function dotfiles_repo_git(...)
+    return proc.ok({ "git", "-C", DOTFILES, ... })
 end
 
 vim.api.nvim_create_user_command("UpdatePlugins", function(_)
@@ -9,16 +13,18 @@ vim.api.nvim_create_user_command("UpdatePlugins", function(_)
     vim.api.nvim_win_close(require("lazy.view").view.win, false)
     vim.notify("Finished updating plugins.")
 
-    local lockfile_updated = dotfiles_repo_git("diff --quiet --exit-code neovim/.config/nvim/lazy-lock.json") ~= 0
+    local lockfile = "neovim/.config/nvim/lazy-lock.json"
+    local clean = dotfiles_repo_git("diff", "--quiet", "--exit-code", lockfile)
 
-    if lockfile_updated then
-        vim.notify("Found changes to the lockfile, committing.")
-        dotfiles_repo_git("add neovim/.config/nvim/lazy-lock.json")
-        dotfiles_repo_git("commit --quiet -m 'auto(nvim): update plugins 😭'")
-        dotfiles_repo_git("push --quiet")
-    else
+    if clean then
         vim.notify("No changes to the lockfile.")
+        return
     end
+
+    vim.notify("Found changes to the lockfile, committing.")
+    dotfiles_repo_git("add", lockfile)
+    dotfiles_repo_git("commit", "--quiet", "-m", "auto(nvim): update plugins 😭")
+    dotfiles_repo_git("push", "--quiet")
 end, { desc = "Update plugins and commit lockfile to repo" })
 
 --- @param version_string string
@@ -44,9 +50,7 @@ vim.api.nvim_create_user_command("PyUpgrade", function(opts)
         return
     end
 
-    local has_pyupgrade = os.execute("which -s pyupgrade")
-
-    if type(has_pyupgrade) ~= "number" or has_pyupgrade ~= 0 then
+    if vim.fn.executable("pyupgrade") == 0 then
         vim.notify(
             "Oopsie!\n\nmissing pyupgrade, you can install it by running:\n\n\tpipx install pyupgrade",
             vim.log.levels.WARN
@@ -72,6 +76,7 @@ vim.api.nvim_create_user_command("PyUpgrade", function(opts)
         target_ver = raw_ver:gsub('"', "")
     else
         vim.notify("Expected at most a single param: PYTHON_VER, got: " .. vim.inspect(opts.fargs))
+        return
     end
 
     if not validate_python_version(target_ver) then
@@ -80,9 +85,9 @@ vim.api.nvim_create_user_command("PyUpgrade", function(opts)
     end
 
     local version_opt = format_version_option(target_ver)
-    local result = os.execute("pyupgrade " .. version_opt .. " " .. vim.api.nvim_buf_get_name(0) .. " 2>&1 /dev/null")
+    local changed = not proc.ok({ "pyupgrade", version_opt, vim.api.nvim_buf_get_name(0) })
 
-    if type(result) == "number" and result ~= 0 then
+    if changed then
         vim.notify("Upgraded python, reloading.", vim.log.levels.INFO)
         vim.cmd("checktime")
     else
@@ -94,4 +99,56 @@ vim.api.nvim_create_user_command("DeleteComments", function()
     vim.cmd("%s/" .. vim.fn.substitute(vim.o.commentstring, "%s", ".*$", "g") .. "//")
 end, {
     desc = "Delete comments in the current buffer",
+})
+
+-- Replaces gitignore.nvim: fetch templates straight from gitignore.io.
+local GITIGNORE_API = "https://www.toptal.com/developers/gitignore/api/"
+
+--- @type string[]?
+local gitignore_templates
+
+--- @return string[]
+local function fetch_gitignore_templates()
+    if gitignore_templates then
+        return gitignore_templates
+    end
+
+    local ok, list = proc.ok({ "curl", "-sfL", GITIGNORE_API .. "list" })
+
+    if not ok then
+        vim.notify("Failed to fetch gitignore.io template list.", vim.log.levels.ERROR)
+        return {}
+    end
+
+    gitignore_templates = vim.split(list:gsub("%s+", ","), ",", { trimempty = true })
+    return gitignore_templates
+end
+
+vim.api.nvim_create_user_command("Gitignore", function(opts)
+    if #opts.fargs == 0 then
+        vim.notify("Usage: :Gitignore <template>... (tab-completes)", vim.log.levels.WARN)
+        return
+    end
+
+    local names = table.concat(opts.fargs, ",")
+    local ok, body = proc.ok({ "curl", "-sfL", GITIGNORE_API .. names })
+
+    if not ok then
+        vim.notify("Failed to fetch .gitignore for: " .. names, vim.log.levels.ERROR)
+        return
+    end
+
+    local path = (vim.fs.root(0, ".git") or assert(vim.uv.cwd())) .. "/.gitignore"
+
+    vim.fn.writefile(vim.split(body, "\n"), path)
+    vim.notify("Wrote " .. path .. " (" .. names .. ")")
+    vim.cmd.edit(path)
+end, {
+    nargs = "*",
+    desc = "Generate a .gitignore from gitignore.io templates",
+    complete = function(arg_lead)
+        return vim.tbl_filter(function(name)
+            return vim.startswith(name, arg_lead)
+        end, fetch_gitignore_templates())
+    end,
 })

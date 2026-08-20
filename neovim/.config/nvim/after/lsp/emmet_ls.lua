@@ -1,0 +1,21 @@
+return {
+    filetypes = {
+        "astro",
+        "css",
+        "eruby",
+        "html",
+        "htmldjango",
+        "j2",
+        "javascript",
+        "javascriptreact",
+        "jinja",
+        "jinja.html",
+        "less",
+        "pug",
+        "sass",
+        "scss",
+        "svelte",
+        "typescriptreact",
+        "vue",
+    },
+}

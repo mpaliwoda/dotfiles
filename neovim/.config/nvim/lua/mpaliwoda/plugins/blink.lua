@@ -4,9 +4,7 @@ return {
     dependencies = {
         { "saghen/blink.compat", version = "2.*", lazy = true, opts = {} },
         { "hrsh7th/cmp-emoji", lazy = true },
-        { "dcampos/cmp-emmet-vim", lazy = true },
         { "rafamadriz/friendly-snippets", lazy = true },
-        { "luckasRanarison/tailwind-tools.nvim", lazy = true },
     },
     event = "InsertEnter",
 
@@ -29,7 +27,6 @@ return {
             },
 
             menu = {
-                border = "rounded",
                 draw = {
                     components = {
                         kind_icon = {
@@ -65,9 +62,6 @@ return {
 
             documentation = {
                 auto_show = true,
-                window = {
-                    border = "rounded",
-                },
             },
 
             accept = {
@@ -79,9 +73,6 @@ return {
 
         signature = {
             enabled = true,
-            window = {
-                border = "rounded",
-            },
         },
 
         snippets = {
@@ -89,7 +80,8 @@ return {
         },
 
         sources = {
-            default = { "lsp", "snippets", "emmet", "path", "emoji", "buffer" },
+            -- emmet is provided by the `emmet_ls` language server, not a cmp source
+            default = { "lsp", "snippets", "path", "emoji", "buffer" },
 
             providers = {
                 lsp = {
@@ -122,11 +114,6 @@ return {
                     module = "blink.compat.source",
                     min_keyword_length = 2,
                     score_offset = -2,
-                },
-                emmet = {
-                    name = "emmet_vim",
-                    module = "blink.compat.source",
-                    score_offset = 1,
                 },
             },
         },
