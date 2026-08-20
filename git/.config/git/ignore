@@ -10,3 +10,31 @@ package-lock.json
 
 **/.env
 **/*cache*/
+
+**/.claude/settings.local.json
+
+# VM / disk images
+_lima/
+*.qcow2
+*.vmdk
+*.vdi
+*.vhd
+*.vhdx
+*.iso
+*.dmg
+
+# Build artifacts
+dist/
+build/
+target/
+out/
+*.o
+*.a
+*.so
+*.dylib
+*.class
+*.jar
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/

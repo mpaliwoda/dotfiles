@@ -37,30 +37,7 @@ if [[ "$IS_WORK_MACHINE" == "true" ]]; then
     # Additional PATH entries for work
     path=($HOME/.rd/bin $path)
 
-    # Git: Create config.local to include work config and merged ignores
-    mkdir -p ~/.config/git
-    cat > ~/.config/git/config.local << 'EOF'
-[include]
-    path = config.work
-[core]
-    excludesFile = ~/.config/git/ignore.merged
-EOF
-
-    # Git: Merge ignore files
-    if [[ -f ~/.config/git/ignore && -f ~/.config/git/ignore.work ]]; then
-        cat ~/.config/git/ignore ~/.config/git/ignore.work > ~/.config/git/ignore.merged
-    fi
-
-    # Mise: Symlink work config to conf.d
-    mkdir -p ~/.config/mise/conf.d
-    if [[ -f ~/.config/mise/config.work.toml ]]; then
-        ln -sf ~/.config/mise/config.work.toml ~/.config/mise/conf.d/work.toml
-    fi
-else
-    # Personal machine: ensure work configs are not active
-    rm -f ~/.config/git/config.local 2>/dev/null
-    rm -f ~/.config/git/ignore.merged 2>/dev/null
-    rm -f ~/.config/mise/conf.d/work.toml 2>/dev/null
+    export MISE_ENV=work
 fi
 
 # Browser or sumtin
