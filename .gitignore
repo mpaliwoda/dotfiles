@@ -2,7 +2,8 @@
 
 !git/**
 !git/.*
-!kitty/**
+!aerospace/**
+!borders/**
 !yabai/**
 !skhd/**
 !python/**
@@ -23,4 +24,20 @@ zsh/**/.zsh_sessions
 # Machine-specific generated files (not stowed, created at runtime)
 git/.config/git/config.local
 git/.config/git/ignore.merged
-mise/.config/mise/conf.d/
+
+# tpm is a submodule; the rest are installed by tpm at runtime
+tmux/.config/tmux/plugins/*
+!tmux/.config/tmux/plugins/tpm
+tmux/.config/tmux/resurrect/
+
+# Colima/Lima VM runtime state, not config
+colima/.config/colima/_lima/
+colima/.config/colima/_store/
+colima/.config/colima/default/
+colima/.config/colima/ssh_config
+
+# The negations above outrank the global ignore; re-ignore these.
+**/.claude/settings.local.json
+**/*.qcow2
+**/*.iso
+**/*.dmg
