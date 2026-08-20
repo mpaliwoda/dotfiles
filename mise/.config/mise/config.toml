@@ -32,6 +32,8 @@ xh = "latest"
 "cargo:diskonaut" = "latest"
 "npm:mcp-hub" = "latest"
 "cargo:just" = "latest"
+# Not via Mason: mise sets GOBIN, which breaks Mason's `go install`.
+"go:golang.org/x/tools/gopls" = "latest"
 
 [settings]
 env_file = ".env"
