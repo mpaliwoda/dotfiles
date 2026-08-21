@@ -3,9 +3,21 @@
 return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
+    dependencies = { "mfussenegger/nvim-dap" },
     config = function()
         local jdtls = require("jdtls")
-        local mason = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+        local packages = vim.fn.stdpath("data") .. "/mason/packages"
+        local mason = packages .. "/jdtls"
+
+        -- jdtls itself is the debug adapter; these bundles register the
+        -- `vscode.java.startDebugSession` command it dispatches to.
+        local bundles = vim.fn.glob(
+            packages .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+            true,
+            true
+        )
+
+        vim.list_extend(bundles, vim.fn.glob(packages .. "/java-test/extension/server/*.jar", true, true))
 
         local root_markers =
             { "settings.gradle", "settings.gradle.kts", "pom.xml", "build.gradle", "build.gradle.kts", ".git", "mvnw", "gradlew" }
@@ -29,7 +41,7 @@ return {
                 root_dir = root,
                 capabilities = require("blink.cmp").get_lsp_capabilities(),
                 init_options = {
-                    bundles = {},
+                    bundles = bundles,
                 },
                 settings = {
                     java = {
@@ -74,6 +86,12 @@ return {
                     local opts = { buffer = bufnr, remap = false }
 
                     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
+                    jdtls.setup_dap({ hotcodereplace = "auto", config_overrides = {} })
+                    require("jdtls.dap").setup_dap_main_class_configs()
+
+                    vim.keymap.set("n", "<leader>jtc", jdtls.test_class, vim.tbl_extend("force", opts, { desc = "Debug test class" }))
+                    vim.keymap.set("n", "<leader>jtm", jdtls.test_nearest_method, vim.tbl_extend("force", opts, { desc = "Debug nearest test method" }))
 
                     vim.keymap.set("n", "<leader>joi", jdtls.organize_imports, vim.tbl_extend("force", opts, { desc = "Organize imports" }))
                     vim.keymap.set("n", "<leader>jev", jdtls.extract_variable, vim.tbl_extend("force", opts, { desc = "Extract variable" }))
