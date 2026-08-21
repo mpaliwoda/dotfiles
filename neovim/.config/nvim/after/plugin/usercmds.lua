@@ -22,8 +22,9 @@ vim.api.nvim_create_user_command("UpdatePlugins", function(_)
     end
 
     vim.notify("Found changes to the lockfile, committing.")
-    dotfiles_repo_git("add", lockfile)
-    dotfiles_repo_git("commit", "--quiet", "-m", "auto(nvim): update plugins 😭")
+    -- --only, or this sweeps up anything else already staged. That is how a
+    -- batch of mise and zsh edits once shipped inside a plugin bump.
+    dotfiles_repo_git("commit", "--only", "--quiet", lockfile, "-m", "auto(nvim): update plugins 😭")
     dotfiles_repo_git("push", "--quiet")
 end, { desc = "Update plugins and commit lockfile to repo" })
 
