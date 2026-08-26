@@ -38,4 +38,4 @@ unixorn/fzf-zsh-plugin path:bin kind:path
 Aloxaf/fzf-tab kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
 zsh-users/zsh-autosuggestions kind:defer
-zsh-users/zsh-history-substring-search kind:defer
+# history-substring-search dropped: atuin owns <C-r> and up-arrow now.

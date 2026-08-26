@@ -14,12 +14,6 @@ export PAGER="bat"
 
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 
-export HISTCONTROL=ignoreboth
-export HISTSIZE=10000
-export HISTFILESIZE=10000
-export HISTFILE="${ZDOTDIR}/.zhistory"
-
-
 # Ensure path arrays do not contain duplicates.
 typeset -gU path fpath
 

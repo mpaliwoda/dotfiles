@@ -2,6 +2,7 @@
 "gem:neovim" = "latest"
 "npm:neovim" = "latest"
 "pipx:mypy" = "latest"
+atuin = "latest"
 bat = "latest"
 colima = "latest"
 docker-compose = "latest"

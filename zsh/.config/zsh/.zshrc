@@ -4,6 +4,20 @@
 # Zsh options.
 setopt extended_glob
 
+# History. atuin owns search; the plain zsh file is the write-through, and what
+# `atuin import zsh` reads on a new machine.
+# This has to be .zshrc, not .zprofile: macOS /etc/zshrc runs in between and
+# pins SAVEHIST=1000, which is what was silently truncating history all along.
+export HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
+export HISTSIZE=100000
+export SAVEHIST=100000
+
+setopt append_history extended_history inc_append_history
+setopt hist_ignore_dups hist_ignore_space hist_reduce_blanks hist_verify
+# Lock with fcntl instead of the default .LOCK symlink, which a crashed shell
+# leaves behind dangling and every later shell then waits on.
+setopt hist_fcntl_lock
+
 # First: mise owns starship, zoxide et al, needed by everything below.
 eval "$(mise activate zsh)"
 
