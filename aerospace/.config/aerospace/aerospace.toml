@@ -84,6 +84,12 @@ gaps.outer.right =      8
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
 
+    # Swallow macOS "Hide application". A hidden window is invisible to tiling,
+    # so it just reads as "my window vanished".
+    # See: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+    cmd-h = []
+    cmd-alt-h = []
+
     # All possible keys:
     # - Letters.        a, b, c, ..., z
     # - Numbers.        0, 1, 2, ..., 9
