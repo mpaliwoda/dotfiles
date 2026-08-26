@@ -18,6 +18,7 @@ neovim/**/undodir
 zsh/**/.antidote
 zsh/**/.zhistory
 zsh/**/.zsh_history
+zsh/**/.zsh_history.LOCK
 zsh/**/.zsh_plugins.zsh
 zsh/**/.zsh_sessions
 
