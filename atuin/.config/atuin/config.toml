@@ -1,4 +1,4 @@
-# atuin config — https://docs.atuin.sh/configuration/config/
+# atuin config: https://docs.atuin.sh/configuration/config/
 # Local-only: no account, no server, nothing leaves the machine.
 # To enable sync later: `atuin register` / `atuin login`, then set auto_sync.
 
