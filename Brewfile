@@ -33,8 +33,6 @@ cask 'discord' if OS.mac?
 cask 'font-mononoki-nerd-font' if OS.mac?
 cask 'ghostty' if OS.mac?
 cask 'protonvpn' if OS.mac?
-cask 'qbittorrent' if OS.mac?
-cask 'raycast' if OS.mac?
 cask 'sf-symbols' if OS.mac?
 cask 'slack' if OS.mac?
 cask 'spotify' if OS.mac?
