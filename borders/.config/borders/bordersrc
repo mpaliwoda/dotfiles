@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# JankyBorders config — https://github.com/FelixKratz/JankyBorders
+# JankyBorders config: https://github.com/FelixKratz/JankyBorders
 # Colors are 0xAARRGGBB.
 
 options=(

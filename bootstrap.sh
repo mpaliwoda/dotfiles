@@ -4,12 +4,106 @@ set -euo pipefail
 REPO_URL="${DOTFILES_REPO:-https://github.com/mpaliwoda/dotfiles.git}"
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
 
+# Remembers the answer to "is this a work machine?" so later runs and every
+# shell (see zsh/.zshenv) agree without having to guess from the hostname.
+MACHINE_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles/machine"
+MACHINE_KIND=""
+
 # Top-level dirs that are not stow packages.
 NOT_STOWED=(macos)
 
 info() { printf '\033[1;34m[INFO]\033[0m %s\n' "$1"; }
 success() { printf '\033[1;32m[OK]\033[0m %s\n' "$1"; }
 warn() { printf '\033[1;33m[WARN]\033[0m %s\n' "$1" >&2; }
+
+usage() {
+  cat <<EOF
+Usage: bootstrap.sh [--work | --personal]
+
+  --work       set this machine up with the work git/mise/shell config
+  --personal   set this machine up without the work config
+  -h, --help   show this help
+
+With neither flag the script asks, defaulting to the previous answer.
+DOTFILES_MACHINE=work|personal in the environment does the same as the flags.
+EOF
+}
+
+parse_args() {
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --work) MACHINE_KIND=work ;;
+      --personal) MACHINE_KIND=personal ;;
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      *)
+        warn "Unknown argument: $1"
+        usage >&2
+        exit 1
+        ;;
+    esac
+    shift
+  done
+}
+
+saved_machine_kind() {
+  local saved=""
+  [[ -r "$MACHINE_FILE" ]] || return 1
+  read -r saved <"$MACHINE_FILE" || true
+  case "$saved" in
+    work | personal) printf '%s' "$saved" ;;
+    *) return 1 ;;
+  esac
+}
+
+# Hostnames get reused, machines get reimaged and a wrong guess quietly leaks
+# work config into a personal checkout, so ask instead of sniffing.
+resolve_machine_kind() {
+  local saved default hint answer
+  saved="$(saved_machine_kind || true)"
+
+  if [[ -z "$MACHINE_KIND" && -n "${DOTFILES_MACHINE:-}" ]]; then
+    case "$DOTFILES_MACHINE" in
+      work | personal) MACHINE_KIND="$DOTFILES_MACHINE" ;;
+      *) warn "Ignoring invalid DOTFILES_MACHINE=$DOTFILES_MACHINE" ;;
+    esac
+  fi
+
+  if [[ -n "$MACHINE_KIND" ]]; then
+    info "Configuring as a $MACHINE_KIND machine"
+    return
+  fi
+
+  default="${saved:-personal}"
+  if [[ "$default" == work ]]; then hint="[Y/n]"; else hint="[y/N]"; fi
+
+  # Curl-piped runs have the script on stdin, so read the answer off the tty.
+  # /dev/tty exists even with no controlling terminal, hence the open test.
+  if ! : 2>/dev/null <>/dev/tty; then
+    MACHINE_KIND="$default"
+    warn "No terminal to ask on, assuming a $MACHINE_KIND machine (use --work or --personal)"
+    return
+  fi
+
+  while true; do
+    printf '\033[1;34m[INFO]\033[0m Is this a work machine? %s ' "$hint" >/dev/tty
+    read -r answer </dev/tty || answer=""
+    [[ -n "$answer" ]] || answer="${default:0:1}"
+    case "$answer" in
+      [Yy] | [Yy][Ee][Ss] | [Ww] | work)
+        MACHINE_KIND=work
+        return
+        ;;
+      [Nn] | [Nn][Oo] | [Pp] | personal)
+        MACHINE_KIND=personal
+        return
+        ;;
+      *) warn "Answer y or n" ;;
+    esac
+  done
+}
 
 # Piped from curl there is no script on disk, so clone and re-exec from there.
 locate_repo() {
@@ -134,14 +228,12 @@ seed_secrets() {
 }
 
 # git honours exactly one core.excludesFile, hence the concatenated ignore.
-# Hostnames match zsh/.zshenv. Must run after stow_dotfiles.
+# The recorded answer is what zsh/.zshenv reads. Must run after stow_dotfiles.
 configure_machine() {
-  local is_work=false
-  case "$(hostname -s)" in
-    m-a) is_work=true ;;
-  esac
+  mkdir -p "$(dirname "$MACHINE_FILE")"
+  printf '%s\n' "$MACHINE_KIND" >"$MACHINE_FILE"
 
-  if [[ "$is_work" != true ]]; then
+  if [[ "$MACHINE_KIND" != work ]]; then
     info "Personal machine, deactivating work config"
     rm -f "$HOME/.config/git/config.local" "$HOME/.config/git/ignore.merged"
     return
@@ -170,7 +262,7 @@ apply_macos_defaults() {
 }
 
 # macOS apps keep settings in ~/Library/Preferences, which cfprefsd caches and
-# rewrites — symlinking those is unreliable, so import a snapshot instead.
+# rewrites, so symlinking those is unreliable; import a snapshot instead.
 # Refresh with: defaults export com.vorssaint.utils "macos/Vorssaint Settings.plist"
 import_app_settings() {
   [[ "$(uname)" == "Darwin" ]] || return 0
@@ -204,8 +296,10 @@ start_services() {
 }
 
 main() {
+  parse_args "$@"
   locate_repo "$@"
   info "Bootstrapping dotfiles from $DOTFILES_DIR"
+  resolve_machine_kind
   install_brew
   install_bundle
   sync_submodules

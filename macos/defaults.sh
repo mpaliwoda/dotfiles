@@ -11,7 +11,7 @@ info() { printf '\033[1;34m[INFO]\033[0m %s\n' "$1"; }
 # means displays get their own Spaces. With it on (spans-displays = true), a
 # native-fullscreen window blacks out every other monitor, which kills the
 # AeroSpace workspace on the second display whenever a video goes fullscreen.
-# Read at login only — takes effect after a log out/in.
+# Read at login only, so it takes effect after a log out/in.
 info "Enabling separate Spaces per display..."
 defaults write com.apple.spaces spans-displays -bool false
 

@@ -19,7 +19,23 @@ Already have the repo checked out? Just run it in place:
 ./bootstrap.sh
 ```
 
-The script is idempotent — re-run it any time to pick up new packages.
+The script is idempotent, so re-run it any time to pick up new packages.
+
+## Work machines
+
+The bootstrap asks whether it is running on a work machine, which decides
+whether the work git config, the work mise tools and the work `PATH` entries
+get activated. Answer it up front instead:
+
+```sh
+./bootstrap.sh --work
+./bootstrap.sh --personal
+```
+
+`DOTFILES_MACHINE=work|personal` works the same way, which is handy when the
+script is piped from curl with no terminal to ask on. The answer is stored in
+`~/.config/dotfiles/machine`, is reused as the default on the next run, and is
+what `.zshenv` reads to set `IS_WORK_MACHINE`.
 
 ## Layout
 
