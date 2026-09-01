@@ -4,8 +4,6 @@ set -euo pipefail
 REPO_URL="${DOTFILES_REPO:-https://github.com/mpaliwoda/dotfiles.git}"
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
 
-# Remembers the answer to "is this a work machine?" so later runs and every
-# shell (see zsh/.zshenv) agree without having to guess from the hostname.
 MACHINE_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles/machine"
 MACHINE_KIND=""
 
@@ -58,8 +56,6 @@ saved_machine_kind() {
   esac
 }
 
-# Hostnames get reused, machines get reimaged and a wrong guess quietly leaks
-# work config into a personal checkout, so ask instead of sniffing.
 resolve_machine_kind() {
   local saved default hint answer
   saved="$(saved_machine_kind || true)"
@@ -79,8 +75,6 @@ resolve_machine_kind() {
   default="${saved:-personal}"
   if [[ "$default" == work ]]; then hint="[Y/n]"; else hint="[y/N]"; fi
 
-  # Curl-piped runs have the script on stdin, so read the answer off the tty.
-  # /dev/tty exists even with no controlling terminal, hence the open test.
   if ! : 2>/dev/null <>/dev/tty; then
     MACHINE_KIND="$default"
     warn "No terminal to ask on, assuming a $MACHINE_KIND machine (use --work or --personal)"
@@ -228,7 +222,7 @@ seed_secrets() {
 }
 
 # git honours exactly one core.excludesFile, hence the concatenated ignore.
-# The recorded answer is what zsh/.zshenv reads. Must run after stow_dotfiles.
+# Must run after stow_dotfiles.
 configure_machine() {
   mkdir -p "$(dirname "$MACHINE_FILE")"
   printf '%s\n' "$MACHINE_KIND" >"$MACHINE_FILE"

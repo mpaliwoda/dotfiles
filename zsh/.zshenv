@@ -8,8 +8,6 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
 export ENVIRONMENT=development
 
-# Machine profile, chosen when bootstrap.sh runs (--work / --personal) and
-# recorded there. Re-run bootstrap.sh to change it.
 export IS_WORK_MACHINE=false
 if [[ -r "$XDG_CONFIG_HOME/dotfiles/machine" ]] &&
    [[ "$(<"$XDG_CONFIG_HOME/dotfiles/machine")" == work ]]; then
