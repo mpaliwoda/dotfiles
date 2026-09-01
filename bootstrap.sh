@@ -149,13 +149,17 @@ sync_submodules() {
 # stow refuses to overwrite a real file with a symlink, and a fresh macOS
 # install ships a few (~/.zprofile and friends).
 backup_conflicts() {
-  local package="$1" target="$2" stamp
+  local package="$1" target="$2" stamp repo
   stamp="$(date +%Y%m%d-%H%M%S)"
+  repo="$(cd "$DOTFILES_DIR" && pwd -P)"
 
   while IFS= read -r -d '' file; do
     local rel="${file#"$DOTFILES_DIR/$package/"}"
     local dest="$target/$rel"
     [[ -e "$dest" && ! -L "$dest" ]] || continue
+    local resolved
+    resolved="$(cd "$(dirname "$dest")" && pwd -P)/$(basename "$dest")"
+    [[ "$resolved" != "$repo/"* ]] || continue
     warn "Backing up existing $dest -> $dest.bak-$stamp"
     mv "$dest" "$dest.bak-$stamp"
   done < <(package_files "$package")
@@ -201,8 +205,11 @@ stow_dotfiles() {
 install_tools() {
   info "Installing mise-managed tools (this takes a while)..."
   mise trust "$DOTFILES_DIR/mise/.config/mise/config.toml"
-  mise install
-  success "Tools installed"
+  if mise install; then
+    success "Tools installed"
+  else
+    warn "Some mise tools failed to install, continuing. Retry with: mise install"
+  fi
 }
 
 install_tmux_plugins() {
