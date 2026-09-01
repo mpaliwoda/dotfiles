@@ -159,6 +159,16 @@ EOF
   success "Work git config generated"
 }
 
+apply_macos_defaults() {
+  [[ "$(uname)" == "Darwin" ]] || return 0
+
+  local script="$DOTFILES_DIR/macos/defaults.sh"
+  [[ -f "$script" ]] || return 0
+
+  bash "$script"
+  success "macOS defaults applied"
+}
+
 # macOS apps keep settings in ~/Library/Preferences, which cfprefsd caches and
 # rewrites — symlinking those is unreliable, so import a snapshot instead.
 # Refresh with: defaults export com.vorssaint.utils "macos/Vorssaint Settings.plist"
@@ -204,6 +214,7 @@ main() {
   configure_machine
   install_tools
   install_tmux_plugins
+  apply_macos_defaults
   import_app_settings
   start_services
   success "Bootstrap complete! Restart your shell."
