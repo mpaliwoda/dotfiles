@@ -1,0 +1,7 @@
+# Remote dev machine tools, loaded via MISE_ENV=remote. There is no brew on
+# those boxes, so the tools the Brewfile provides elsewhere come from here.
+# Everything is a prebuilt binary; nothing needs a system package to build.
+
+[tools]
+delta = "latest"
+neovim = "latest"

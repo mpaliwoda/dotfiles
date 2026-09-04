@@ -1,40 +1,29 @@
+# Tools every machine gets. MISE_ENV (set in zsh/.zprofile from the answers
+# bootstrap.sh stored) layers the rest on top:
+#   desktop -> config.desktop.toml   containers, extra languages, cargo tools
+#   remote  -> config.remote.toml    what brew provides on a desktop
+#   work    -> config.work.toml      work-only tools
+# Per-project tool versions still come from each project's own mise config.
+
 [tools]
-"gem:neovim" = "latest"
 "npm:neovim" = "latest"
 "pipx:mypy" = "latest"
 atuin = "latest"
 bat = "latest"
-colima = "latest"
-docker-compose = "latest"
 fd = "latest"
 fzf = "latest"
 gh = "latest"
-go = "latest"
-hyperfine = "latest"
-lazydocker = "latest"
+jq = "latest"
 lsd = "latest"
 node = { version = "latest", postinstall = "corepack enable" }
 python = "3.14"
 ripgrep = "latest"
-ruby = "latest"
 ruff = "latest"
-rust = "latest"
 starship = "latest"
 uv = "latest"
+xh = "latest"
 yazi = "latest"
 zoxide = "latest"
-java = "latest"
-sqlite = "latest"
-jq = "latest"
-rust-analyzer = "latest"
-xh = "latest"
-"cargo:fselect" = "latest"
-"cargo:mprocs" = "latest"
-"cargo:diskonaut" = "latest"
-"npm:mcp-hub" = "latest"
-"cargo:just" = "latest"
-# Not via Mason: mise sets GOBIN, which breaks Mason's `go install`.
-"go:golang.org/x/tools/gopls" = "latest"
 
 [settings]
 env_file = ".env"

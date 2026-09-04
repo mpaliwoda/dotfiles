@@ -50,8 +50,10 @@ fi
 eval "$(zoxide init zsh --cmd j)"
 source "$HOME/.secrets"
 
-# The -t check keeps tmux out of `zsh -c`, editor and tool shells.
-if [[ -o interactive ]] && [[ -t 0 && -t 1 ]] &&
+# The -t check keeps tmux out of `zsh -c`, editor and tool shells. Remote
+# boxes stay out entirely, even if the distro happens to ship tmux.
+if [[ "$IS_REMOTE_MACHINE" != "true" ]] &&
+   [[ -o interactive ]] && [[ -t 0 && -t 1 ]] &&
    [[ -z "$TMUX" ]] && command -v tmux >/dev/null 2>&1; then
   if tmux list-sessions >/dev/null 2>&1; then
     tmux attach || tmux new

@@ -30,9 +30,19 @@ path=(
 if [[ "$IS_WORK_MACHINE" == "true" ]]; then
     # Additional PATH entries for work
     path=($HOME/.rd/bin $path)
-
-    export MISE_ENV=work
 fi
+
+# Which mise config layers to load on top of config.toml; see the comment
+# there. bootstrap.sh computes the same list when it runs `mise install`.
+mise_envs=()
+if [[ "$IS_REMOTE_MACHINE" == "true" ]]; then
+    mise_envs+=(remote)
+else
+    mise_envs+=(desktop)
+fi
+[[ "$IS_WORK_MACHINE" == "true" ]] && mise_envs+=(work)
+export MISE_ENV=${(j:,:)mise_envs}
+unset mise_envs
 
 # Browser or sumtin
 if [[ "$OSTYPE" == darwin* ]]; then

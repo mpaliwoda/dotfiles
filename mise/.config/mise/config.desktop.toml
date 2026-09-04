@@ -1,0 +1,23 @@
+# Desktop-only tools, loaded via MISE_ENV=desktop on any machine that is not a
+# remote dev box: containers, the heavier language toolchains and the cargo
+# builds that need rust.
+
+[tools]
+"gem:neovim" = "latest"
+colima = "latest"
+docker-compose = "latest"
+go = "latest"
+hyperfine = "latest"
+java = "latest"
+lazydocker = "latest"
+ruby = "latest"
+rust = "latest"
+rust-analyzer = "latest"
+sqlite = "latest"
+"cargo:fselect" = "latest"
+"cargo:mprocs" = "latest"
+"cargo:diskonaut" = "latest"
+"npm:mcp-hub" = "latest"
+"cargo:just" = "latest"
+# Not via Mason: mise sets GOBIN, which breaks Mason's `go install`.
+"go:golang.org/x/tools/gopls" = "latest"
